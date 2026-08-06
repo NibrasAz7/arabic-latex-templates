@@ -1,0 +1,165 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Technical Report Template — Nibras Center
+%  Compile with:
+%    xelatex main.tex
+%    xelatex main.tex
+% ============================================================
+%  Features:
+%    - A4, 11pt, article class
+%    - Title block with report number
+%    - Executive summary, TOC, numbered sections
+%    - Manual thebibliography (no BibTeX)
+%    - Fancy headers with report title
+%    - 1.5 line spacing
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Core packages ----
+\usepackage{url,amsmath}
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage[titles]{tocloft}
+\usepackage{etoolbox}
+\usepackage[labelsep=period]{caption}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+\let\arabicfonttt\ttfamily
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Arabic caption names ----
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+  \renewcommand{\refname}{المراجع}%
+}
+
+% ---- Spacing ----
+\setstretch{1.5}
+\setlength{\parindent}{.5in}
+\setcounter{secnumdepth}{5}
+
+% ---- Section formatting (right-aligned) ----
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\filright\thesection}{1ex}{\filright}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\filright\thesubsection}{1ex}{\filright}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}{\filright\thesubsubsection}{1ex}{\filright}
+
+% ---- Report metadata ----
+\newcommand{\reporttitle}{عنوان التقرير الفني}
+\newcommand{\reportnumber}{رقم التقرير: 001/2026}
+
+% ---- Fancy headers ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\reporttitle}
+\fancyhead[L]{\small\reportnumber}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---- Hyperref (load last) ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+
+\begin{document}
+
+% ---- Title block ----
+\begin{center}
+    {\LARGE\textbf{\reporttitle}}\\[1cm]
+    {\large إعداد: اسم المنظمة}\\[0.5cm]
+    {\large \today}\\[0.5cm]
+    {\large \reportnumber}
+\end{center}
+
+\vspace{1cm}
+
+% ---- Executive summary ----
+\section*{الملخص التنفيذي}
+\addcontentsline{toc}{section}{الملخص التنفيذي}
+
+% TODO: اكتب الملخص التنفيذي هنا. يلخص الغرض والنتائج والتوصيات الرئيسية.
+
+% ---- Table of contents ----
+\tableofcontents
+\newpage
+
+% ---- Numbered sections ----
+
+\section{المقدمة}
+
+% TODO: اكتب مقدمة التقرير هنا. وضّح الخلفية والأهداف والنطاق.
+
+\section{الخلفية}
+
+% TODO: اكتب خلفية الموضوع هنا.
+
+\section{المنهجية}
+
+% TODO: اكتب منهجية العمل هنا.
+
+% ---- Example table (commented out) ----
+% \begin{table}[H]
+% \centering
+% \caption{عنوان الجدول}
+% \begin{tabular}{|l|l|l|}
+% \hline
+% العمود 1 & العمود 2 & العمود 3 \\ \hline
+% بيانات & بيانات & بيانات \\ \hline
+% \end{tabular}
+% \end{table}
+
+\section{النتائج}
+
+% TODO: اكتب النتائج هنا.
+
+% ---- Example figure (commented out) ----
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{figure.png}
+% \caption{عنوان الشكل}
+% \end{figure}
+
+\section{المناقشة}
+
+% TODO: اكتب مناقشة النتائج هنا.
+
+\section{الاستنتاجات}
+
+% TODO: اكتب الاستنتاجات هنا.
+
+\section{التوصيات}
+
+% TODO: اكتب التوصيات هنا.
+
+% ---- References (manual thebibliography) ----
+\begin{thebibliography}{99}
+
+\bibitem{ref1}
+اسم المؤلف. \textit{عنوان المرجع}. اسم الناشر، المدينة، 2024.
+
+\bibitem{ref2}
+اسم المؤلف. ``عنوان المقال.'' \textit{اسم المجلة}، المجلد 1، 2024، ص. 1--10.
+
+\end{thebibliography}
+
+\end{document}

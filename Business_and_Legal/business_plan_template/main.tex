@@ -1,0 +1,324 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Business Plan Template — Nibras Center
+%  خطة العمل للشركة الناشئة
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={خطة العمل},pdfauthor={الشركة}}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape خطة العمل}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.4}
+
+\begin{document}
+
+% ============================================================
+% TITLE PAGE
+% ============================================================
+\thispagestyle{empty}
+\begin{center}
+\vspace*{3cm}
+{\Huge\bfseries خطة عمل}\\[1em]
+{\LARGE اسم الشركة}\\[2em]
+{\Large شعار أو وصف مختصر}\\[3em]
+
+\begin{tabular}{rl}
+\textbf{المؤسسون:} & --- \\
+\textbf{التاريخ:} & \today \\
+\textbf{الإصدار:} & 1.0 \\
+\textbf{السرية:} & خاص وسري \\
+\end{tabular}
+\end{center}
+
+\newpage
+
+% ============================================================
+% 1. EXECUTIVE SUMMARY
+% ============================================================
+\section{الملخص التنفيذي}
+\label{sec:summary}
+
+% TODO: اكتب ملخصاً تنفيذياً (صفحة واحدة).
+هذا نص تجريبي للملخص التنفيذي. يقدم نظرة عامة على الشركة والمنتج والسوق والفرصة والفريق والاحتياجات المالية.
+
+\section{وصف الشركة}
+\label{sec:company}
+
+\subsection{النظرة العامة}
+% TODO: صف الشركة.
+\subsection{المهمة والرؤية}
+\begin{itemize}
+    \item \textbf{المهمة:} ---
+    \item \textbf{الرؤية:} ---
+\end{itemize}
+
+\subsection{القيم الأساسية}
+\begin{enumerate}
+    \item ---
+    \item ---
+    \item ---
+\end{enumerate}
+
+% ============================================================
+% 2. PROBLEM & SOLUTION
+% ============================================================
+\section{المشكلة والحل}
+\label{sec:problem}
+
+\subsection{المشكلة}
+% TODO: صف المشكلة التي تحلها الشركة.
+
+\subsection{الحل}
+% TODO: صف المنتج أو الخدمة.
+
+\subsection{الميزة التنافسية}
+\begin{itemize}
+    \item ---
+    \item ---
+\end{itemize}
+
+% ============================================================
+% 3. MARKET ANALYSIS
+% ============================================================
+\section{تحليل السوق}
+\label{sec:market}
+
+\subsection{حجم السوق}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{السوق} & \textbf{الحجم (\LR{USD})} & \textbf{معدل النمو} \\
+\hline
+السوق الكلي (\LR{TAM}) & --- & ---\% \\
+السوق المتاح (\LR{SAM}) & --- & ---\% \\
+السوق المستهدف (\LR{SOM}) & --- & ---\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{العملاء المستهدفون}
+% TODO: صف شريحة العملاء المستهدفة.
+
+\subsection{المنافسون}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{L{3cm} X X X}
+\toprule
+\textbf{المنافس} & \textbf{نقاط القوة} & \textbf{نقاط الضعف} & \textbf{الاختلاف عنّا} \\
+\midrule
+--- & --- & --- & --- \\
+--- & --- & --- & --- \\
+--- & --- & --- & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 4. BUSINESS MODEL
+% ============================================================
+\section{نموذج العمل}
+\label{sec:model}
+
+\subsection{مصادر الإيراد}
+\begin{enumerate}
+    \item \textbf{المصدر 1:} --- (نسبة الإيراد: ---\%)
+    \item \textbf{المصدر 2:} --- (نسبة الإيراد: ---\%)
+\end{enumerate}
+
+\subsection{التسعير}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{الباقة} & \textbf{السعر شهرياً} & \textbf{الميزات} \\
+\hline
+مجاني & 0 & --- \\
+احترافي & --- \LR{USD} & --- \\
+مؤسسات & --- \LR{USD} & --- \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{التكاليف}
+\begin{itemize}
+    \item \textbf{تكاليف ثابتة:} ---
+    \item \textbf{تكاليف متغيرة:} ---
+    \item \textbf{تكلفة اكتساب العميل (\LR{CAC}):} ---
+    \item \textbf{القيمة الدائمة للعميل (\LR{LTV}):} ---
+    \item \textbf{نسبة \LR{LTV/CAC:} ---}
+\end{itemize}
+
+% ============================================================
+% 5. GO-TO-MARKET
+% ============================================================
+\section{استراتيجية الوصول إلى السوق}
+\label{sec:gtm}
+
+\subsection{قنوات التسويق}
+\begin{enumerate}
+    \item \textbf{التسويق الرقمي:} ---
+    \item \textbf{التسويق بالمحتوى:} ---
+    \item \textbf{شراكات:} ---
+    \item \textbf{مبيعات مباشرة:} ---
+\end{enumerate}
+
+\subsection{خطة الإطلاق}
+\begin{itemize}
+    \item \textbf{المرحلة 1 (شهر 1--3):} ---
+    \item \textbf{المرحلة 2 (شهر 4--6):} ---
+    \item \textbf{المرحلة 3 (شهر 7--12):} ---
+\end{itemize}
+
+% ============================================================
+% 6. TEAM
+% ============================================================
+\section{الفريق}
+\label{sec:team}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{4cm} L{4cm} X}
+\toprule
+\textbf{الاسم} & \textbf{المنصب} & \textbf{الخبرة} \\
+\midrule
+--- & \LR{CEO} & --- \\
+--- & \LR{CTO} & --- \\
+--- & \LR{CFO} & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 7. FINANCIAL PROJECTIONS
+% ============================================================
+\section{التوقعات المالية}
+\label{sec:financials}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{4cm} C{2cm} C{2cm} C{2cm} C{2cm} C{2cm}}
+\toprule
+\textbf{البند} & \textbf{سنة 1} & \textbf{سنة 2} & \textbf{سنة 3} & \textbf{سنة 4} & \textbf{سنة 5} \\
+\midrule
+الإيرادات & 0 & 0 & 0 & 0 & 0 \\
+تكلفة المبيعات & 0 & 0 & 0 & 0 & 0 \\
+إجمالي الربح & 0 & 0 & 0 & 0 & 0 \\
+المصاريف التشغيلية & 0 & 0 & 0 & 0 & 0 \\
+صافي الربح & 0 & 0 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 8. FUNDING
+% ============================================================
+\section{الاحتياجات التمويلية}
+\label{sec:funding}
+
+\begin{itemize}
+    \item \textbf{المبلغ المطلوب:} --- \LR{USD}
+    \item \textbf{الجولة:} \LR{Seed / Series A}
+    \item \textbf{التقييم قبل الاستثمار:} --- \LR{USD}
+    \item \textbf{الأسهم المعروضة:} ---\%
+\end{itemize}
+
+\subsection{استخدام الأموال}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{البند} & \textbf{النسبة} \\
+\hline
+تطوير المنتج & 40\% \\
+التسويق والمبيعات & 30\% \\
+العمليات & 15\% \\
+توظيف & 10\% \\
+احتياطي & 5\% \\
+\hline
+\end{tabular}
+\end{table}
+
+% ============================================================
+% 9. MILESTONES
+% ============================================================
+\section{المعالم الرئيسية}
+\label{sec:milestones}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{C{1cm} L{6cm} C{3cm} X}
+\toprule
+\textbf{رقم} & \textbf{المعلم} & \textbf{التاريخ} & \textbf{معيار النجاح} \\
+\midrule
+1 & إطلاق النسخة التجريبية & --- & --- مستخدم \\
+2 & الإطلاق الرسمي & --- & --- مستخدم \\
+3 & الوصول إلى التعادل & --- & --- \LR{USD} إيراد \\
+4 & جولة تمويل \LR{A} & --- & --- \LR{USD} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 10. RISKS
+% ============================================================
+\section{المخاطر}
+\label{sec:risks}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{C{1cm} L{4cm} X}
+\toprule
+\textbf{رقم} & \textbf{المخاطرة} & \textbf{خطة المعالجة} \\
+\midrule
+1 & --- & --- \\
+2 & --- & --- \\
+3 & --- & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

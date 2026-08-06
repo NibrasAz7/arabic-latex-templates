@@ -1,0 +1,206 @@
+% !TEX program = xelatex
+% ============================================================
+%  فصل كتاب — Book Chapter Template
+%  نموذج فصل كتاب علمي بأسلوب article مع تنسيق الفصل ورأس "Chapter X"
+%  Compile with:
+%    xelatex main.tex
+%    bibtex main
+%    xelatex main.tex
+%    xelatex main.tex
+% ============================================================
+%  Features:
+%    - Article class styled as a book chapter
+%    - Chapter title, author, abstract
+%    - Sections, figures/tables placeholders
+%    - BibTeX bibliography (apalike style)
+%    - Header "Chapter X" via fancyhdr
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+
+% ---- Core packages ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+% ---- RTL / Arabic language support (load before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+\newfontfamily\arabicfontsf{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={فصل كتاب},
+  pdfauthor={اسم المؤلف}
+}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+  \renewcommand{\refname}{المراجع}%
+  \renewcommand{\abstractname}{الملخص}%
+}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+\titlespacing*{\subsection}{0pt}{1.0ex plus 0.3ex}{0.7ex plus 0.2ex}
+
+% ---- Chapter number (manual, for header) ----
+% TODO: حدد رقم الفصل هنا.
+\newcommand{\chapternumber}{1}
+\newcommand{\chaptertitle}{عنوان الفصل (Chapter Title)}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+% TODO: يظهر "الفصل X" في رأس كل صفحة.
+\fancyhead[R]{\small\itshape الفصل \chapternumber\ --- \chaptertitle}
+\fancyhead[L]{\small اسم المؤلف}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---- List spacing ----
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+% ---- Table column types ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---- Line spacing ----
+\setstretch{1.4}
+
+\begin{document}
+
+% ============================================================
+% CHAPTER HEADER
+% ============================================================
+\thispagestyle{fancy}
+
+\begin{center}
+{\Large\bfseries الفصل \chapternumber}\\[0.8em]
+{\LARGE\bfseries \chaptertitle}\\[1em]
+% TODO: اكتب اسم مؤلف الفصل وانتماءه هنا.
+{\large اسم المؤلف}\\[0.3em]
+{\small القسم، الجامعة}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\noindent\textbf{الملخص (Abstract):}
+% TODO: اكتب ملخص الفصل هنا.
+
+\vspace{0.5em}
+\noindent\textbf{الكلمات المفتاحية (Keywords):} كلمة مفتاحية 1، كلمة مفتاحية 2، كلمة مفتاحية 3.
+\end{minipage}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% BODY
+% ============================================================
+
+\section{المقدمة (Introduction)}
+\label{sec:intro}
+
+% TODO: اكتب مقدمة الفصل هنا. استخدم \cite{bibkey} للإشارة إلى المراجع.
+هذا نص تجريبي للمقدمة. يقدم سياق الفصل ضمن الكتاب ويحدد محاوره الرئيسية \cite{example_book}.
+
+\section{الإطار النظري (Theoretical Framework)}
+\label{sec:theory}
+
+% TODO: اكتب الإطار النظري هنا.
+\subsection{المفهوم الأول}
+% TODO: اكتب المحتوى.
+
+\subsection{المفهوم الثاني}
+% TODO: اكتب المحتوى.
+
+\section{المنهجية (Methodology)}
+\label{sec:method}
+
+% TODO: اكتب منهجية الفصل هنا.
+
+\section{النتائج والتحليل (Results and Analysis)}
+\label{sec:results}
+
+% TODO: اكتب النتائج والتحليل هنا.
+
+% ---- Figure placeholder ----
+\begin{figure}[H]
+\centering
+% TODO: استبدل بملف الشكل الفعلي.
+\fbox{\parbox[c][3.5cm][c]{0.7\textwidth}{\centering مكان الشكل (Figure placeholder)}}
+\caption{عنوان الشكل (Figure caption)}
+\end{figure}
+
+% ---- Table placeholder ----
+\begin{table}[H]
+\centering
+\caption{عنوان الجدول (Table caption)}
+\begin{tabularx}{\textwidth}{L{4cm} X C{3cm}}
+\toprule
+\textbf{البند} & \textbf{الوصف} & \textbf{القيمة} \\
+\midrule
+% TODO: املأ بيانات الجدول.
+البند الأول & وصف البند & \LR{100} \\
+البند الثاني & وصف البند & \LR{200} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{المناقشة (Discussion)}
+\label{sec:discussion}
+
+% TODO: اكتب مناقشة النتائج هنا.
+
+\section{الاستنتاجات (Conclusions)}
+\label{sec:conclusion}
+
+% TODO: اكتب استنتاجات الفصل هنا.
+
+% ============================================================
+% BIBLIOGRAPHY
+% ============================================================
+% Add your .bib file as bibliography.bib in the project folder.
+% Run: xelatex -> bibtex -> xelatex -> xelatex
+\bibliography{bibliography}
+\bibliographystyle{apalike}
+
+\end{document}

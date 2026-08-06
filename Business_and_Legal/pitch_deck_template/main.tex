@@ -1,0 +1,268 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Pitch Deck Template — Nibras Center
+%  العرض التقديمي للمستثمرين
+%  Compile with: xelatex main.tex (twice)
+%  Uses article class with slide-like pages (16:9 landscape)
+% ============================================================
+
+\documentclass[11pt,a4paper,landscape]{article}
+
+\usepackage[a4paper,landscape,margin=1.5cm,top=1.5cm,bottom=1.5cm,headheight=10pt]{geometry}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={Pitch Deck},pdfauthor={الشركة}}
+
+\pagestyle{empty}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{primaryColor}{HTML}{1A3C6B}
+\definecolor{accentColor}{HTML}{D4A017}
+\definecolor{lightBg}{HTML}{F0F4F8}
+
+% Slide command: \slide{title}{content}
+\newcommand{\slide}[2]{%
+  \begin{center}
+  \begin{minipage}[t][0.85\textheight][t]{\textwidth}
+  \colorbox{primaryColor}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\color{white}\Large\bfseries\strut\ #1}}
+  \vspace{0.8em}
+
+  #2
+  \end{minipage}
+  \end{center}
+  \newpage
+}
+
+\setstretch{1.3}
+
+\begin{document}
+
+% ============================================================
+% SLIDE 1: TITLE
+% ============================================================
+\slide{اسم الشركة}{%
+\vspace{2cm}
+\begin{center}
+{\Huge\bfseries\color{primaryColor} اسم الشركة}\\[1em]
+{\Large شعار أو وصف مختصر}\\[3em]
+{\large المؤسسون: ---}\\[0.5em]
+{\large \today}
+\end{center}
+}
+
+% ============================================================
+% SLIDE 2: PROBLEM
+% ============================================================
+\slide{المشكلة}{%
+\vspace{1cm}
+\begin{itemize}
+    \item \textbf{المشكلة 1:} وصف المشكلة الأولى وحجمها.
+    \item \textbf{المشكلة 2:} وصف المشكلة الثانية وحجمها.
+    \item \textbf{المشكلة 3:} وصف المشكلة الثالثة وحجمها.
+\end{itemize}
+\vspace{1cm}
+\begin{center}
+\textit{«اقتباس من عميل يصف المشكلة»}
+\end{center}
+}
+
+% ============================================================
+% SLIDE 3: SOLUTION
+% ============================================================
+\slide{الحل}{%
+\vspace{1cm}
+\textbf{منتجنا:} وصف مختصر للمنتج وكيف يحل المشكلة.
+\vspace{1em}
+\begin{itemize}
+    \item \textbf{الميزة 1:} ---
+    \item \textbf{الميزة 2:} ---
+    \item \textbf{الميزة 3:} ---
+\end{itemize}
+}
+
+% ============================================================
+% SLIDE 4: MARKET
+% ============================================================
+\slide{حجم السوق}{%
+\vspace{1cm}
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{السوق} & \textbf{الحجم} & \textbf{النمو} \\
+\hline
+\rowcolor{lightBg}
+السوق الكلي (\LR{TAM}) & \LR{\$10B} & 15\% \\
+السوق المتاح (\LR{SAM}) & \LR{\$2B} & 20\% \\
+\rowcolor{lightBg}
+السوق المستهدف (\LR{SOM}) & \LR{\$200M} & 25\% \\
+\hline
+\end{tabular}
+\end{center}
+\vspace{1em}
+\textbf{لماذا الآن؟} وصف العوامل التي تجعل التوقيت مناسباً.
+}
+
+% ============================================================
+% SLIDE 5: PRODUCT
+% ============================================================
+\slide{المنتج}{%
+\vspace{0.5cm}
+% TODO: أضف لقطة شاشة أو مخطط للمنتج.
+\begin{center}
+\fbox{\parbox[c][5cm][c]{0.8\textwidth}{\centering\Large مكان لقطة الشاشة / العرض التوضيحي}}
+\end{center}
+\vspace{0.5em}
+\textbf{المرحلة الحالية:} \LR{Beta / Launched / etc.}
+}
+
+% ============================================================
+% SLIDE 6: BUSINESS MODEL
+% ============================================================
+\slide{نموذج العمل}{%
+\vspace{1cm}
+\textbf{كيف نكسب المال:}
+\begin{itemize}
+    \item اشتراكات شهرية/سنوية
+    \item عمولات على المعاملات
+    \item خدمات إضافية
+\end{itemize}
+\vspace{1em}
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{المؤشر} & \textbf{القيمة} \\
+\hline
+\LR{CAC} & \LR{\$50} \\
+\LR{LTV} & \LR{\$1,200} \\
+\LR{LTV/CAC} & 24x \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+% ============================================================
+% SLIDE 7: TRACTION
+% ============================================================
+\slide{الإنجازات (\LR{Traction})}{%
+\vspace{1cm}
+\begin{itemize}
+    \item \textbf{المستخدمون:} --- مستخدم نشط شهرياً
+    \item \textbf{الإيراد الشهري (\LR{MRR}):} \LR{\$---}
+    \item \textbf{النمو الشهري:} ---\%
+    \item \textbf{العملاء الرئيسيون:} ---، ---، ---
+    \item \textbf{الشراكات:} ---، ---
+\end{itemize}
+}
+
+% ============================================================
+% SLIDE 8: COMPETITION
+% ============================================================
+\slide{المنافسة}{%
+\vspace{1cm}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+& \textbf{الشركة} & \textbf{المنافس 1} & \textbf{المنافس 2} & \textbf{نحن} \\
+\hline
+الميزة 1 & \checkmark & \checkmark & --- & \checkmark \\
+الميزة 2 & --- & \checkmark & \checkmark & \checkmark \\
+الميزة 3 & --- & --- & --- & \checkmark \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+% ============================================================
+% SLIDE 9: TEAM
+% ============================================================
+\slide{الفريق}{%
+\vspace{1cm}
+\begin{center}
+\begin{tabularx}{\textwidth}{L{4cm} L{3cm} X}
+\toprule
+\textbf{الاسم} & \textbf{المنصب} & \textbf{الخبرة} \\
+\midrule
+--- & \LR{CEO} & --- \\
+--- & \LR{CTO} & --- \\
+--- & \LR{CFO} & --- \\
+\bottomrule
+\end{tabularx}
+\end{center}
+}
+
+% ============================================================
+% SLIDE 10: FINANCIALS
+% ============================================================
+\slide{التوقعات المالية}{%
+\vspace{1cm}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{السنة} & \textbf{الإيراد} & \textbf{المصاريف} & \textbf{صافي} \\
+\hline
+سنة 1 & \LR{\$75K} & \LR{\$255K} & \LR{-\$180K} \\
+سنة 2 & \LR{\$265K} & \LR{\$480K} & \LR{-\$215K} \\
+سنة 3 & \LR{\$730K} & \LR{\$790K} & \LR{-\$60K} \\
+سنة 4 & \LR{\$1.75M} & \LR{\$1.18M} & \LR{\$570K} \\
+سنة 5 & \LR{\$3.43M} & \LR{\$1.76M} & \LR{\$1.67M} \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+% ============================================================
+% SLIDE 11: THE ASK
+% ============================================================
+\slide{الطلب (\LR{The Ask})}{%
+\vspace{1cm}
+\begin{center}
+{\Large\bfseries نطلب: \LR{\$---} مقابل ---\% من الشركة}\\[2em]
+\end{center}
+\textbf{استخدام الأموال:}
+\begin{itemize}
+    \item 40\% تطوير المنتج
+    \item 30\% التسويق والمبيعات
+    \item 15\% العمليات
+    \item 10\% توظيف
+    \item 5\% احتياطي
+\end{itemize}
+}
+
+% ============================================================
+% SLIDE 12: CLOSING
+% ============================================================
+\slide{شكراً لكم}{%
+\vspace{3cm}
+\begin{center}
+{\Huge\bfseries\color{primaryColor} شكراً لكم}\\[2em]
+{\Large اسم الشركة}\\[1em]
+{\large \LR{email@example.com}}\\[0.5em]
+{\large \LR{www.company.com}}
+\end{center}
+}
+
+\end{document}

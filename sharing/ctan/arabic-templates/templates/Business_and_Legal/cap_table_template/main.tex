@@ -1,0 +1,197 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Capitalization Table (Cap Table) Template — Nibras Center
+%  جدول رأس المال
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper,landscape]{article}
+
+\usepackage[a4paper,landscape,margin=1.5cm,top=2cm,bottom=2cm,headheight=12pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={جدول رأس المال},pdfauthor={الشركة}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape جدول رأس المال (Cap Table)}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\definecolor{founderColor}{HTML}{1A3C6B}
+\definecolor{investorColor}{HTML}{2E6DA4}
+\definecolor{optionColor}{HTML}{D4A017}
+\definecolor{headerColor}{HTML}{1A3C6B}
+
+\setstretch{1.3}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries جدول رأس المال (\LR{Cap Table})}\\[0.3em]
+{\large اسم الشركة — \today}\\[1em]
+\end{center}
+
+% ============================================================
+% 1. PRE-MONEY CAP TABLE
+% ============================================================
+\section{توزيع الملكية قبل الاستثمار (\LR{Pre-Money})}
+\label{sec:premoney}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{C{1cm} L{5cm} C{2.5cm} C{2.5cm} C{2.5cm} C{2.5cm} C{2.5cm}}
+\toprule
+\textbf{رقم} & \textbf{المالك} & \textbf{النوع} & \textbf{عدد الأسهم} & \textbf{النسبة \%} & \textbf{السعر/سهم} & \textbf{القيمة (\LR{USD})} \\
+\midrule
+\rowcolor{founderColor!10}
+1 & المؤسس 1 & مؤسس & 4,000,000 & 40.0\% & 0.01 & 40,000 \\
+\rowcolor{founderColor!10}
+2 & المؤسس 2 & مؤسس & 3,000,000 & 30.0\% & 0.01 & 30,000 \\
+\rowcolor{founderColor!10}
+3 & المؤسس 3 & مؤسس & 2,000,000 & 20.0\% & 0.01 & 20,000 \\
+\rowcolor{optionColor!10}
+4 & خطة خيارات الموظفين & \LR{Option Pool} & 1,000,000 & 10.0\% & --- & --- \\
+\midrule
+& \textbf{المجموع} & & \textbf{10,000,000} & \textbf{100\%} & & \textbf{90,000} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 2. POST-MONEY CAP TABLE
+% ============================================================
+\section{توزيع الملكية بعد الاستثمار (\LR{Post-Money})}
+\label{sec:postmoney}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{C{1cm} L{5cm} C{2.5cm} C{2.5cm} C{2.5cm} C{2.5cm} C{2.5cm}}
+\toprule
+\textbf{رقم} & \textbf{المالك} & \textbf{النوع} & \textbf{عدد الأسهم} & \textbf{النسبة \%} & \textbf{السعر/سهم} & \textbf{القيمة (\LR{USD})} \\
+\midrule
+\rowcolor{founderColor!10}
+1 & المؤسس 1 & مؤسس & 4,000,000 & 32.0\% & 0.01 & --- \\
+\rowcolor{founderColor!10}
+2 & المؤسس 2 & مؤسس & 3,000,000 & 24.0\% & 0.01 & --- \\
+\rowcolor{founderColor!10}
+3 & المؤسس 3 & مؤسس & 2,000,000 & 16.0\% & 0.01 & --- \\
+\rowcolor{optionColor!10}
+4 & خطة خيارات الموظفين & \LR{Option Pool} & 1,250,000 & 10.0\% & --- & --- \\
+\rowcolor{investorColor!10}
+5 & المستثمر الأول (\LR{Seed}) & مستثمر & 1,250,000 & 10.0\% & 1.00 & 1,250,000 \\
+\rowcolor{investorColor!10}
+6 & المستثمر الثاني (\LR{Angel}) & مستثمر & 1,000,000 & 8.0\% & 1.00 & 1,000,000 \\
+\midrule
+& \textbf{المجموع} & & \textbf{12,500,000} & \textbf{100\%} & & \textbf{---} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 3. FUNDING ROUNDS SUMMARY
+% ============================================================
+\section{ملخص جولات التمويل}
+\label{sec:rounds}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{3cm} C{3cm} C{3cm} C{3cm} C{3cm} X}
+\toprule
+\textbf{الجولة} & \textbf{التاريخ} & \textbf{المبلغ (\LR{USD})} & \textbf{التقييم قبل} & \textbf{التقييم بعد} & \textbf{المستثمرون} \\
+\midrule
+\LR{Pre-Seed} & --- & 100,000 & 1M & 1.1M & المؤسسون \\
+\LR{Seed} & --- & 2,250,000 & 10M & 12.25M & \LR{VC Fund A} \\
+\LR{Series A} & --- & 10,000,000 & 40M & 50M & \LR{VC Fund B} \\
+\LR{Series B} & --- & 25,000,000 & 150M & 175M & \LR{VC Fund C} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 4. DILUTION ANALYSIS
+% ============================================================
+\section{تحليل التخفيف (\LR{Dilution Analysis})}
+\label{sec:dilution}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{4cm} C{2.5cm} C{2.5cm} C{2.5cm} C{2.5cm} C{2.5cm}}
+\toprule
+\textbf{المالك} & \textbf{تأسيس} & \textbf{بعد \LR{Seed}} & \textbf{بعد \LR{A}} & \textbf{بعد \LR{B}} & \textbf{تخفيف كلي} \\
+\midrule
+المؤسس 1 & 40.0\% & 32.0\% & 25.6\% & 20.5\% & -19.5\% \\
+المؤسس 2 & 30.0\% & 24.0\% & 19.2\% & 15.4\% & -14.6\% \\
+المؤسس 3 & 20.0\% & 16.0\% & 12.8\% & 10.2\% & -9.8\% \\
+خيارات الموظفين & 10.0\% & 10.0\% & 10.0\% & 10.0\% & 0.0\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 5. OPTION POOL
+% ============================================================
+\section{تفاصيل خطة خيارات الأسهم}
+\label{sec:options}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{C{1cm} L{4cm} C{2.5cm} C{2.5cm} C{2.5cm} X}
+\toprule
+\textbf{رقم} & \textbf{الموظف} & \textbf{المنصب} & \textbf{عدد الخيارات} & \textbf{النسبة \%} & \textbf{تاريخ الاستحقاق} \\
+\midrule
+1 & --- & \LR{CTO} & 200,000 & 2.0\% & 4 سنوات \\
+2 & --- & \LR{VP Sales} & 100,000 & 1.0\% & 4 سنوات \\
+3 & --- & \LR{Lead Eng.} & 50,000 & 0.5\% & 4 سنوات \\
+\midrule
+& \textbf{المخصّص} & & \textbf{350,000} & \textbf{3.5\%} & \\
+& \textbf{المتبقي} & & \textbf{900,000} & \textbf{6.5\%} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% NOTES
+% ============================================================
+\section*{ملاحظات}
+\begin{itemize}
+    \item جميع الأسهم خاضعة لجدول استحقاق (\LR{vesting}) مدته 4 سنوات مع جرف (\LR{cliff}) سنة واحدة، ما لم يُذكر خلاف ذلك.
+    \item الأسهم المؤسسة لها حقوق تصويت كاملة.
+    \item أسهم المستثمرين مُفضّلة (\LR{preferred shares}) مع حقوق حماية إضافية.
+    \item خيارات الموظفين غير قابلة للتحويل حتى الاستحقاق.
+    \item التخفيف محسوب بافتراض عدم إصدار أسهم جديدة إضافية.
+\end{itemize}
+
+\end{document}

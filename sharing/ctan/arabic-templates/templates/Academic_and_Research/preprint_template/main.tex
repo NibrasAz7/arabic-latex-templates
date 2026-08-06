@@ -1,0 +1,187 @@
+% !TEX program = xelatex
+% ============================================================
+%  مطبعة تمهيدية — Preprint Template
+%  نموذج مطبعة تمهيدية (Preprint) بعمود واحد مع معرفات ORCID وقائمة مراجع
+%  Compile with:
+%    xelatex main.tex
+%    bibtex main
+%    xelatex main.tex
+%    xelatex main.tex
+% ============================================================
+%  Features:
+%    - Single-column article, large title
+%    - Author ORCID placeholders
+%    - Abstract, sections, figures placeholder
+%    - BibTeX bibliography (apalike style)
+%    - Footer "Preprint — not peer reviewed"
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+
+% ---- Core packages ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+% ---- RTL / Arabic language support (load before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+\newfontfamily\arabicfontsf{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={مطبعة تمهيدية},
+  pdfauthor={اسم المؤلف}
+}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+  \renewcommand{\refname}{المراجع}%
+  \renewcommand{\abstractname}{الملخص}%
+}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+\titlespacing*{\subsection}{0pt}{1.0ex plus 0.3ex}{0.7ex plus 0.2ex}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape مطبعة تمهيدية (Preprint)}
+\fancyhead[L]{\small اسم المؤلف et al.}
+% TODO: تظهر هذه العبارة في تذييل كل صفحة للإشارة إلى أن المطبعة لم تُراجع.
+\fancyfoot[L]{\footnotesize\itshape مطبعة تمهيدية --- لم تُراجع من قِبل النظراء (Preprint --- not peer reviewed)}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---- List spacing ----
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+% ---- Table column types ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---- Line spacing ----
+\setstretch{1.4}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\thispagestyle{fancy}
+
+\begin{center}
+{\LARGE\bfseries عنوان المطبعة التمهيدية (Preprint Title)}\\[1.2em]
+% TODO: اكتب أسماء المؤلفين ومعرفات ORCID هنا.
+{\large
+اسم المؤلف الأول\textsuperscript{1}\,\textsuperscript{\dag}،
+اسم المؤلف الثاني\textsuperscript{2}
+}\\[0.6em]
+{\small
+\textsuperscript{1} القسم، الجامعة الأولى، المدينة، الدولة\\
+\textsuperscript{2} القسم، الجامعة الثانية، المدينة، الدولة
+}\\[0.6em]
+% TODO: استبدل بمعرفات ORCID الفعلية للمؤلفين.
+{\footnotesize
+\textsuperscript{\dag} المؤلف المراسل --- \LR{ORCID: 0000-0000-0000-0000}\\
+\LR{ORCID: 0000-0000-0000-0000}
+}
+\end{center}
+
+\vspace{0.5em}
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\noindent\textbf{الملخص (Abstract):}
+% TODO: اكتب ملخص المطبعة التمهيدية هنا.
+
+\vspace{0.5em}
+\noindent\textbf{الكلمات المفتاحية (Keywords):} كلمة مفتاحية 1، كلمة مفتاحية 2، كلمة مفتاحية 3.
+\end{minipage}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% BODY
+% ============================================================
+
+\section{المقدمة (Introduction)}
+\label{sec:intro}
+
+% TODO: اكتب المقدمة هنا. استخدم \cite{bibkey} للإشارة إلى المراجع.
+هذا نص تجريبي للمقدمة. يصف السياق العام للدراسة وأهميتها \cite{example_article}.
+
+\section{المنهجية (Methods)}
+\label{sec:methods}
+
+% TODO: اكتب المنهجية هنا.
+
+\section{النتائج (Results)}
+\label{sec:results}
+
+% TODO: اكتب النتائج هنا.
+
+% ---- Figure placeholder ----
+\begin{figure}[H]
+\centering
+% TODO: استبدل بملف الشكل الفعلي.
+\fbox{\parbox[c][4cm][c]{0.7\textwidth}{\centering مكان الشكل (Figure placeholder)\\[0.5em]\small ضع ملف الشكل هنا}}
+\caption{عنوان الشكل (Figure caption)}
+\end{figure}
+
+\section{المناقشة (Discussion)}
+\label{sec:discussion}
+
+% TODO: اكتب المناقشة هنا.
+
+\section{الاستنتاجات (Conclusions)}
+\label{sec:conclusion}
+
+% TODO: اكتب الاستنتاجات هنا.
+
+% ============================================================
+% BIBLIOGRAPHY
+% ============================================================
+% Add your .bib file as bibliography.bib in the project folder.
+% Run: xelatex -> bibtex -> xelatex -> xelatex
+\bibliography{bibliography}
+\bibliographystyle{apalike}
+
+\end{document}

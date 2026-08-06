@@ -1,0 +1,274 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Project Charter Template — Nibras Center
+%  مشروع بحثي: ميثاق المشروع
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={ميثاق المشروع البحثي},pdfauthor={الباحث الرئيسي}}
+
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape ميثاق المشروع}
+\fancyhead[L]{\small اسم المشروع}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{headerColor}{HTML}{1A3C6B}
+\definecolor{lightRow}{HTML}{F0F4F8}
+
+\setstretch{1.4}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries ميثاق المشروع البحثي}\\[0.5em]
+{\Large عنوان المشروع البحثي}\\[1em]
+\end{center}
+
+% ---- Project info table ----
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{4cm} X L{4cm} X}
+\toprule
+\textbf{اسم المشروع:} & \multicolumn{3}{l}{---} \\
+\textbf{رقم المشروع:} & --- & \textbf{تاريخ الإصدار:} & --- \\
+\textbf{الباحث الرئيسي:} & --- & \textbf{الجهة الممولة:} & --- \\
+\textbf{الجامعة:} & --- & \textbf{القسم:} & --- \\
+\textbf{تاريخ البدء:} & --- & \textbf{تاريخ الانتهاء:} & --- \\
+\textbf{الميزانية:} & --- & \textbf{المدة:} & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+% ============================================================
+% 1. PROJECT OVERVIEW
+% ============================================================
+\section{نظرة عامة على المشروع}
+\label{sec:overview}
+
+% TODO: اكتب نظرة عامة مختصرة على المشروع (فقرة واحدة).
+هذا نص تجريبي للنظرة العامة. يقدم وصفاً مختصراً للمشروع البحثي وأهميته.
+
+% ============================================================
+% 2. OBJECTIVES
+% ============================================================
+\section{أهداف المشروع}
+\label{sec:objectives}
+
+% TODO: اكتب أهداف المشروع.
+\begin{enumerate}
+    \item الهدف الأول: وصف الهدف.
+    \item الهدف الثاني: وصف الهدف.
+    \item الهدف الثالث: وصف الهدف.
+\end{enumerate}
+
+% ============================================================
+% 3. SCOPE
+% ============================================================
+\section{نطاق المشروع}
+\label{sec:scope}
+
+\subsection{المشمولات}
+% TODO: اذكر ما يشمله المشروع.
+\begin{itemize}
+    \item البند الأول المشمول في المشروع.
+    \item البند الثاني المشمول في المشروع.
+\end{itemize}
+
+\subsection{غير المشمولات}
+% TODO: اذكر ما لا يشمله المشروع.
+\begin{itemize}
+    \item البند الأول غير المشمول.
+    \item البند الثاني غير المشمول.
+\end{itemize}
+
+% ============================================================
+% 4. STAKEHOLDERS
+% ============================================================
+\section{أصحاب المصلحة}
+\label{sec:stakeholders}
+
+\begin{table}[H]
+\centering
+\caption{أصحاب المصلحة الرئيسيون}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{L{4cm} L{4cm} X}
+\toprule
+\textbf{الاسم} & \textbf{الدور} & \textbf{المسؤوليات} \\
+\midrule
+--- & الباحث الرئيسي & الإشراف العام وإدارة المشروع \\
+--- & باحث مشارك & تنفيذ التجارب وتحليل البيانات \\
+--- & الجهة الممولة & تمويل المشروع ومتابعة التقدم \\
+--- & المستفيدون & الاستفادة من نتائج المشروع \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 5. DELIVERABLES
+% ============================================================
+\section{المخرجات الرئيسية}
+\label{sec:deliverables}
+
+\begin{table}[H]
+\centering
+\caption{المخرجات الرئيسية للمشروع}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{C{1cm} L{5cm} L{3cm} X}
+\toprule
+\textbf{رقم} & \textbf{المخرج} & \textbf{تاريخ التسليم} & \textbf{معايير القبول} \\
+\midrule
+1 & تقرير المراجعة والأدبيات & --- & مراجعة شاملة ومحكمة \\
+2 & تصميم التجربة & --- & موافقة اللجنة العلمية \\
+3 & جمع البيانات & --- & اكتمال البيانات لجميع العينات \\
+4 & التحليل والنتائج & --- & دقة إحصائية مقبولة \\
+5 & الورقة البحثية & --- & قبولها للنشر في مجلة محكمة \\
+6 & التقرير النهائي & --- & موافقة الجهة الممولة \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 6. MILESTONES
+% ============================================================
+\section{المعالم الرئيسية (Milestones)}
+\label{sec:milestones}
+
+\begin{table}[H]
+\centering
+\caption{المعالم الرئيسية للمشروع}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{C{1cm} L{6cm} L{4cm} X}
+\toprule
+\textbf{رقم} & \textbf{المعلم} & \textbf{التاريخ المتوقع} & \textbf{الحالة} \\
+\midrule
+M1 & انتهاء المراجعة والأدبيات & --- & لم يبدأ \\
+M2 & انتهاء تصميم التجربة & --- & لم يبدأ \\
+M3 & انتهاء جمع البيانات & --- & لم يبدأ \\
+M4 & انتهاء التحليل & --- & لم يبدأ \\
+M5 & تسليم الورقة البحثية & --- & لم يبدأ \\
+M6 & التقرير النهائي وإغلاق المشروع & --- & لم يبدأ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 7. BUDGET SUMMARY
+% ============================================================
+\section{ملخص الميزانية}
+\label{sec:budget}
+
+\begin{table}[H]
+\centering
+\caption{ملخص الميزانية}
+\begin{tabular}{|l|r|}
+\hline
+\textbf{البند} & \textbf{المبلغ (\LR{USD})} \\
+\hline
+الرواتب والأجور & 0 \\
+المعدات & 0 \\
+المواد الاستهلاكية & 0 \\
+السفر والمؤتمرات & 0 \\
+النشر & 0 \\
+احتياطي طوارئ (10\%) & 0 \\
+\hline
+\textbf{المجموع} & \textbf{0} \\
+\hline
+\end{tabular}
+\end{table}
+
+% ============================================================
+% 8. RISKS SUMMARY
+% ============================================================
+\section{ملخص المخاطر الرئيسية}
+\label{sec:risks}
+
+\begin{table}[H]
+\centering
+\caption{أبرز المخاطر}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{C{1cm} L{4cm} C{2cm} C{2cm} X}
+\toprule
+\textbf{رقم} & \textbf{المخاطرة} & \textbf{الاحتمال} & \textbf{التأثير} & \textbf{استراتيجية المعالجة} \\
+\midrule
+1 & تأخر في جمع البيانات & متوسط & عالٍ & خطة بديلة للمصادر \\
+2 & فشل الأجهزة & منخفض & عالٍ & صيانة دورية وقطع غيار \\
+3 & رفض الورقة للنشر & متوسط & متوسط & مراجعة قبل التقديم \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 9. APPROVALS
+% ============================================================
+\section{الموافقات والاعتمادات}
+\label{sec:approvals}
+
+\vspace{2em}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{L{4cm} L{5cm} X}
+\toprule
+\textbf{الدور} & \textbf{الاسم} & \textbf{التوقيع والتاريخ} \\
+\midrule
+الباحث الرئيسي & --- & \rule{6cm}{0.4pt} \\
+مدير المشروع & --- & \rule{6cm}{0.4pt} \\
+ممثل الجهة الممولة & --- & \rule{6cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

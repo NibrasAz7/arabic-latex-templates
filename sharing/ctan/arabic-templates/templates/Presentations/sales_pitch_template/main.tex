@@ -1,0 +1,208 @@
+% !TEX program = xelatex
+% ============================================================
+%  عرض تقديمي تجاري — Sales Pitch Template
+%  قالب عرض تقديمي لعرض منتج/خدمة على المستثمرين أو العملاء
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - 16:9 widescreen, clean default beamer theme with accent color
+%    - Arabic RTL via polyglossia + Amiri font
+%    - Problem, solution, demo, market, business model, traction,
+%      competition, team, ask, contact slides
+%    - Market and competition tables with placeholder numbers
+%    - English terms wrapped with \textEN{...}
+% ============================================================
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+% ---- Arabic / RTL language support ----
+\usepackage{polyglossia}
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Fonts (beamer uses sans by default, so set sans to Amiri too) ----
+\usepackage[no-math]{fontspec}
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\setsansfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\arabicfontsf[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\let\textEN\textenglish
+
+% ---- Core packages ----
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% ---- Theme & appearance ----
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=10mm, text margin right=10mm}
+
+% ---- Accent color ----
+\definecolor{accent}{HTML}{B71C1C}
+\setbeamercolor{frametitle}{fg=accent}
+\setbeamercolor{title}{fg=accent}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamercolor{structure}{fg=accent}
+\setbeamertemplate{frametitle}[default][center]
+
+% ---- Metadata ----
+% TODO: استبدل باسم الشركة ومقدم العرض الفعلي
+\title{اسم الشركة أو المنتج}
+\subtitle{شعار مختصر يصف القيمة}
+\author{اسم المقدّم}
+\institute{الشركة}
+\date{شهر سنة}
+
+\begin{document}
+
+% ============================================================
+% TITLE SLIDE
+% ============================================================
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+% ============================================================
+% THE PROBLEM
+% ============================================================
+\begin{frame}{المشكلة}
+% TODO: صف المشكلة التي يحلها المنتج
+\begin{itemize}
+  \item المشكلة التي يواجهها العملاء المستهدفون.
+  \item حجم المعاناة وتكلفتها \textEN{(cost of the problem)}.
+  \item لماذا لم تُحل المشكلة بشكل كافٍ حتى الآن.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% THE SOLUTION
+% ============================================================
+\begin{frame}{الحل}
+% TODO: قدّم الحل بإيجاز
+\begin{itemize}
+  \item وصف مختصر للمنتج/الخدمة.
+  \item القيمة الأساسية للعميل \textEN{(value proposition)}.
+  \item ما الذي يجعل الحل مميزاً.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% PRODUCT DEMO
+% ============================================================
+\begin{frame}{عرض المنتج}
+% TODO: اذكر الميزات الرئيسية
+\begin{itemize}
+  \item الميزة الأولى وفائدتها للعميل.
+  \item الميزة الثانية \textEN{(feature)}.
+  \item الميزة الثالثة مع لقطة شاشة إن وجدت.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% MARKET OPPORTUNITY
+% ============================================================
+\begin{frame}{فرصة السوق}
+% TODO: استبدل الأرقام بالقيم الفعلية
+\begin{table}[h]
+\centering
+\begin{tabularx}{0.85\textwidth}{lX}
+\toprule
+المؤشر & القيمة \\
+\midrule
+السوق الكلي \textEN{(TAM)} & 5 مليار دولار \\
+السوق المتاح \textEN{(SAM)} & 1.2 مليار دولار \\
+السوق المستهدف \textEN{(SOM)} & 150 مليون دولار \\
+معدل النمو السنوي & 12\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{frame}
+
+% ============================================================
+% BUSINESS MODEL
+% ============================================================
+\begin{frame}{نموذج العمل}
+% TODO: وضّح كيف تتحقق الإيرادات
+\begin{itemize}
+  \item مصادر الإيراد الرئيسية \textEN{(revenue streams)}.
+  \item نموذج التسعير.
+  \item قنوات البيع والتوزيع.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% TRACTION / METRICS
+% ============================================================
+\begin{frame}{الإنجازات والمؤشرات}
+% TODO: اذكر الأرقام الفعلية
+\begin{itemize}
+  \item عدد العملاء الحاليين.
+  \item الإيراد الشهري المتكرر \textEN{(MRR)}.
+  \item معدل النمو شهرياً.
+  \item شراكات أو عقود موقعة.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% COMPETITION
+% ============================================================
+\begin{frame}{المنافسة}
+% TODO: عدّل الجدول حسب المنافسين الفعليين
+\begin{table}[h]
+\centering
+\begin{tabularx}{0.9\textwidth}{lccc}
+\toprule
+المعيار & منافس أ & منافس ب & نحن \\
+\midrule
+السعر & مرتفع & متوسط & منخفض \\
+سهولة الاستخدام & متوسطة & منخفضة & عالية \\
+التغطية & محدودة & واسعة & واسعة \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{frame}
+
+% ============================================================
+% TEAM
+% ============================================================
+\begin{frame}{الفريق}
+% TODO: أضف أسماء ومسؤوليات الفريق الفعلية
+\begin{itemize}
+  \item اسم المؤسس — المنصب والخلفية.
+  \item اسم العضو الثاني — المنصب والخبرة.
+  \item اسم العضو الثالث \textEN{(role)}.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% THE ASK
+% ============================================================
+\begin{frame}{الطلب}
+% TODO: حدد المبلغ والخطوات التالية
+\begin{itemize}
+  \item المبلغ المطلوب من الاستثمار.
+  \item استخدامات التمويل \textEN{(use of funds)}.
+  \item الخطوات والمعالم القادمة خلال 12 شهراً.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% CONTACT
+% ============================================================
+\begin{frame}[plain]
+\begin{center}
+\vspace{1.2cm}
+{\Huge\bfseries\color{accent} شكراً لكم}\\[1cm]
+{\Large تواصلوا معنا}\\[0.8cm]
+{\large اسم المقدّم}\\
+{\normalsize البريد: \textEN{contact@company.com}}\\
+{\normalsize الموقع: \textEN{www.company.com}}
+\end{center}
+\end{frame}
+
+\end{document}

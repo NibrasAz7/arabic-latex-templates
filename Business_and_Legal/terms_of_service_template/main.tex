@@ -1,0 +1,228 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Terms of Service & Privacy Policy Template — Nibras Center
+%  شروط الخدمة وسياسة الخصوصية
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={شروط الخدمة وسياسة الخصوصية},pdfauthor={الشركة}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape شروط الخدمة وسياسة الخصوصية}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\setstretch{1.4}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries شروط الخدمة وسياسة الخصوصية}\\[0.5em]
+{\large (\LR{Terms of Service \& Privacy Policy})}\\[1em]
+{\normalsize اسم الخدمة: \rule{6cm}{0.4pt}}\\[0.3em]
+{\normalsize تاريخ آخر تحديث: \rule{4cm}{0.4pt}}
+\end{center}
+
+\vspace{1.5em}
+
+% ============================================================
+% PART 1: TERMS OF SERVICE
+% ============================================================
+\part*{القسم الأول: شروط الخدمة}
+
+\section{قبول الشروط}
+\label{sec:acceptance}
+باستخدامك لخدمات \rule{6cm}{0.4pt} («الخدمة»)، فإنك توافق على الالتزام بشروط الخدمة هذه. إذا كنت لا توافق على أي بند من هذه الشروط، يرجى عدم استخدام الخدمة.
+
+\section{تعريفات}
+\label{sec:definitions}
+\begin{itemize}
+    \item \textbf{«الشركة»:} \rule{6cm}{0.4pt}، المالكة والمشغّلة للخدمة.
+    \item \textbf{«المستخدم»:} أي شخص يستخدم الخدمة.
+    \item \textbf{«المحتوى»:} جميع البيانات والمعلومات والنصوص والصور التي يُنشئها المستخدم.
+    \item \textbf{«الخدمة»:} المنصة الرقمية المتاحة على \rule{4cm}{0.4pt}.
+\end{itemize}
+
+\section{التسجيل والحساب}
+\label{sec:registration}
+\begin{enumerate}
+    \item يجب أن يكون عمر المستخدم \textbf{18 سنة} على الأقل.
+    \item يلتزم المستخدم بتقديم معلومات صحيحة وكاملة عند التسجيل.
+    \item المسؤول عن الحفاظ على سرية كلمة المرور.
+    \item المسؤول عن جميع الأنشطة التي تتم عبر حسابه.
+    \item يجوز للشركة تعليق أو إنهاء الحساب في حالة انتهاك الشروط.
+\end{enumerate}
+
+\section{استخدام الخدمة}
+\label{sec:use}
+\subsection{الاستخدامات المسموحة}
+يحق للمستخدم استخدام الخدمة لأغراض قانونية ومشروعة فقط.
+
+\subsection{الاستخدامات المحظورة}
+يحظر على المستخدم:
+\begin{enumerate}
+    \item استخدام الخدمة لأغراض غير قانونية.
+    \item نشر محتوى مسيء أو عنيف أو تمييزي.
+    \item انتهاك حقوق الملكية الفكرية للآخرين.
+    \item نشر بريد مزعج أو إعلانات غير مرخصة.
+    \item محاولة اختراق أو تعطيل الخدمة.
+    \item استخدام أدوات آلية (\LR{Bots}) دون إذن.
+    \item انتحال شخصية الآخرين.
+\end{enumerate}
+
+\section{المحتوى}
+\label{sec:content}
+\begin{enumerate}
+    \item \textbf{ملكية المحتوى:} يبقى المحتوى الذي يُنشئه المستخدم ملكاً له.
+    \item \textbf{الترخيص:} يمنح المستخدم الشركة ترخيصاً غير حصري لاستخدام المحتوى لأغراض تشغيل الخدمة.
+    \item \textbf{المسؤولية:} يتحمل المستخدم المسؤولية الكاملة عن محتواه.
+    \item \textbf{الإزالة:} يجوز للشركة إزالة أي محتوى ينتهك الشروط.
+\end{enumerate}
+
+\section{الرسوم والمدفوعات}
+\label{sec:fees}
+\begin{enumerate}
+    \item بعض الخدمات قد تكون مدفوعة، كما هو موضح في صفحة التسعير.
+    \item تُدفع الرسوم مقدماً عبر وسائل الدفع المتاحة.
+    \item لا تُسترد الرسوم إلا في الحالات المنصوص عليها في سياسة الاسترداد.
+    \item يجوز للشركة تعديل الرسوم بإشعار مسبق لا يقل عن \rule{2cm}{0.4pt} يوماً.
+\end{enumerate}
+
+\section{الحدّ من المسؤولية}
+\label{sec:liability}
+\begin{enumerate}
+    \item تُقدَّم الخدمة «كما هي» دون أي ضمان.
+    \item لا تتحمل الشركة مسؤولية أي أضرار مباشرة أو غير مباشرة ناتجة عن استخدام الخدمة.
+    \item لا تتحمل الشركة مسؤولية انقطاع الخدمة أو فقدان البيانات.
+    \item الحد الأقصى لمسؤولية الشركة لا يتجاوز الرسوم المدفوعة في الـ12 شهراً السابقة.
+\end{enumerate}
+
+\section{إنهاء الحساب}
+\label{sec:termination}
+\begin{enumerate}
+    \item يجوز للمستخدم إلغاء حسابه في أي وقت.
+    \item يجوز للشركة إنهاء الحساب في حالة انتهاك الشروط.
+    \item عند الإنهاء، تُحذف جميع بيانات المستخدم وفقاً لسياسة الخصوصية.
+\end{enumerate}
+
+\section{تعديل الشروط}
+\label{sec:amendments}
+يجوز للشركة تعديل هذه الشروط في أي وقت، وتُعتبر التعديلات سارية فور نشرها على الخدمة. استمرار استخدام الخدمة يُعتبر قبولاً للتعديلات.
+
+% ============================================================
+% PART 2: PRIVACY POLICY
+% ============================================================
+\newpage
+\part*{القسم الثاني: سياسة الخصوصية}
+
+\section{جمع البيانات}
+\label{sec:data_collection}
+نقوم بجمع الأنواع التالية من البيانات:
+\begin{enumerate}
+    \item \textbf{بيانات الحساب:} الاسم، البريد الإلكتروني، كلمة المرور.
+    \item \textbf{بيانات الملف الشخصي:} الصورة، الموقع، المعلومات الشخصية.
+    \item \textbf{بيانات الاستخدام:} عنوان \LR{IP}، نوع المتصفح، الصفحات المُزارَة.
+    \item \textbf{بيانات الجهاز:} نوع الجهاز، نظام التشغيل، الموقع الجغرافي التقريبي.
+    \item \textbf{ملفات الارتباط (\LR{Cookies}):} لتحسين تجربة الاستخدام.
+\end{enumerate}
+
+\section{استخدام البيانات}
+\label{sec:data_use}
+نستخدم البيانات لأغراض:
+\begin{enumerate}
+    \item توفير الخدمة وتشغيلها.
+    \item تحسين الخدمة وتطويرها.
+    \item التواصل مع المستخدمين.
+    \item الالتزام بالالتزامات القانونية.
+    \item منع الاحتيال والاستخدام غير المصرّح به.
+\end{enumerate}
+
+\section{مشاركة البيانات}
+\label{sec:data_sharing}
+\begin{enumerate}
+    \item \textbf{مع مقدمي الخدمات:} نشارك البيانات مع مقدمي خدمات خارجيين يساعدوننا في تشغيل الخدمة (مثل استضافة السحابة، معالجة المدفوعات).
+    \item \textbf{لأسباب قانونية:} قد نشارك البيانات عند الطلب القانوني أو القضائي.
+    \item \textbf{في حالة الاندماج أو الاستحواذ:} قد تنتقل البيانات إلى الكيان الجديد.
+    \item \textbf{لا نبيع بيانات المستخدمين} لأطراف ثالثة لأغراض تسويقية.
+\end{enumerate}
+
+\section{حقوق المستخدم}
+\label{sec:user_rights}
+يحق للمستخدم:
+\begin{enumerate}
+    \item \textbf{الوصول:} طلب نسخة من بياناته الشخصية.
+    \item \textbf{التصحيح:} تصحيح أي بيانات غير صحيحة.
+    \item \textbf{الحذف:} طلب حذف حسابه وبياناته.
+    \item \textbf{تصدير البيانات:} الحصول على بياناته بصيغة قابلة للقراءة.
+    \item \textbf{الاعتراض:} الاعتراض على معالجة بياناته لأغراض التسويق.
+    \item \textbf{سحب الموافقة:} سحب الموافقة على معالجة البيانات في أي وقت.
+\end{enumerate}
+
+\section{حماية البيانات}
+\label{sec:data_security}
+\begin{enumerate}
+    \item نستخدم إجراءات أمنية مناسبة لحماية البيانات (التشفير، جدران الحماية).
+    \item نُقيّد الوصول للبيانات للموظفين المصرّح لهم فقط.
+    \item نُجري مراجعات أمنية دورية.
+    \item في حالة حدوث خرق للبيانات، نُبلّغ المستخدمين والجهات المختصة خلال \rule{2cm}{0.4pt} ساعة.
+\end{enumerate}
+
+\section{الاحتفاظ بالبيانات}
+\label{sec:data_retention}
+\begin{enumerate}
+    \item نحتفظ بالبيانات طالما كان الحساب نشطاً.
+    \item بعد إلغاء الحساب، نحتفظ ببعض البيانات لمدة \rule{2cm}{0.4pt} يوماً لأغراض قانونية.
+    \item تُحذف البيانات نهائياً بعد انتهاء فترة الاحتفاظ.
+\end{enumerate}
+
+\section{ملفات الارتباط (\LR{Cookies})}
+\label{sec:cookies}
+\begin{enumerate}
+    \item نستخدم ملفات الارتباط لتحسين تجربة الاستخدام وتحليل الأداء.
+    \item يمكن للمستخدم تعطيل ملفات الارتباط من إعدادات المتصفح.
+    \item تعطيل ملفات الارتباط قد يؤثر على بعض وظائف الخدمة.
+\end{enumerate}
+
+\section{خصوصية الأطفال}
+\label{sec:children}
+لا تُوجَّه الخدمة للأطفال دون سن \textbf{13 سنة}، ولا نقوم بجمع بياناتهم عن قصد. إذا اكتشفنا أننا جمعنا بيانات طفل دون علم، نحذفها فوراً.
+
+\section{التواصل}
+\label{sec:contact}
+لأي استفسار بشأن الخصوصية، يرجى التواصل:
+\begin{itemize}
+    \item البريد: \LR{privacy@company.com}
+    \item العنوان: \rule{8cm}{0.4pt}
+\end{itemize}
+
+\end{document}

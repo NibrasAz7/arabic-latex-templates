@@ -1,0 +1,200 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Non-Disclosure Agreement (NDA) Template — Nibras Center
+%  اتفاقية عدم الإفصاح
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={اتفاقية عدم الإفصاح},pdfauthor={الشركة}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape اتفاقية عدم الإفصاح (NDA)}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.5}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries اتفاقية عدم الإفصاح وحماية المعلومات}\\[0.5em]
+{\large (\LR{Non-Disclosure Agreement — NDA})}\\[1em]
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% PARTIES
+% ============================================================
+\noindent\textbf{الأطراف:}
+
+\noindent وقّع الطرفان أدناه على هذه الاتفاقية:
+
+\begin{enumerate}
+    \item \textbf{الطرف الأول (المُفصِح):} \rule{8cm}{0.4pt}، الشركة المسجّلة في \rule{4cm}{0.4pt}، رقم السجل التجاري: \rule{4cm}{0.4pt}، ويمثلها في التوقيع \rule{6cm}{0.4pt}.
+
+    \item \textbf{الطرف الثاني (المُستلِم):} \rule{8cm}{0.4pt}، رقم الهوية/الجواز: \rule{4cm}{0.4pt}، العنوان: \rule{6cm}{0.4pt}.
+\end{enumerate}
+
+\vspace{1em}
+
+% ============================================================
+% 1. PURPOSE
+% ============================================================
+\section{الغرض من الاتفاقية}
+\label{sec:purpose}
+يملك الطرف الأول معلومات سرية تتعلق بأعماله ومنتجاته وتقنياته. يرغب الطرفان في تبادل معلومات لأغراض \rule{8cm}{0.4pt} (المشروع/التعاون)، ويلتزم الطرف الثاني بالحفاظ على سرية هذه المعلومات وفقاً لشروط هذه الاتفاقية.
+
+% ============================================================
+% 2. DEFINITION
+% ============================================================
+\section{تعريف المعلومات السرية}
+\label{sec:definition}
+تشمل «المعلومات السرية» جميع المعلومات التي يُفصح عنها الطرف الأول للطرف الثاني، سواء كانت مكتوبة أو شفهية أو إلكترونية، وتشمل على سبيل المثال لا الحصر:
+\begin{enumerate}
+    \item الخطط التجارية واستراتيجيات العمل.
+    \item الأسرار التجارية والمعرفة الفنية (\LR{Know-how}).
+    \item الكود المصدري والتصاميم التقنية.
+    \item قوائم العملاء والموردين.
+    \item البيانات المالية والتوقعات.
+    \item الملكية الفكرية وبراءات الاختراع.
+    \item أي معلومات أخرى يُعلم الطرف الأول الطرف الثاني بأنها سرية.
+\end{enumerate}
+
+% ============================================================
+% 3. OBLIGATIONS
+% ============================================================
+\section{التزامات الطرف المستلم}
+\label{sec:obligations}
+يلتزم الطرف الثاني بما يلي:
+\begin{enumerate}
+    \item \textbf{السرية:} الحفاظ على سرية المعلومات وعدم إفشائها لأي طرف ثالث.
+    \item \textbf{الاستخدام المحدود:} استخدام المعلومات لأغراض الغرض المذكور في البند 1 فقط.
+    \item \textbf{الحماية:} اتخاذ نفس درجة الحماية التي يتخذها لحماية معلوماته السرية الخاصة (ولكن لا تقل عن درجة معقولة).
+    \item \textbf{الوصول المحدود:} عدم السماح بالوصول للمعلومات إلا للأشخاص الذين يحتاجونها لأغراض الغرض المذكور، والذين وقّعوا اتفاقيات سرية مماثلة.
+    \item \textbf{عدم النسخ:} عدم نسخ أو توثيق المعلومات إلا بقدر الضرورة.
+\end{enumerate}
+
+% ============================================================
+% 4. EXCLUSIONS
+% ============================================================
+\section{الاستثناءات}
+\label{sec:exclusions}
+لا تشمل هذه الاتفاقية المعلومات التي:
+\begin{enumerate}
+    \item كانت معروفة للطرف الثاني قبل تاريخ الإفصاح.
+    \item أصبحت عامة دون إخلال من الطرف الثاني.
+    \item حصل عليها الطرف الثاني بشكل مشروع من طرف ثالث دون التزام بالسرية.
+    \item طوّرها الطرف الثاني بشكل مستقل دون استخدام المعلومات السرية.
+    \item طُلبت للإفصاح بموجب أمر قضائي أو حكم قانوني، بشرط إشعار الطرف الأول مسبقاً.
+\end{enumerate}
+
+% ============================================================
+% 5. DURATION
+% ============================================================
+\section{مدة السرية}
+\label{sec:duration}
+\begin{enumerate}
+    \item \textbf{مدة الاتفاقية:} تبدأ من تاريخ التوقيع وتستمر لمدة \rule{2cm}{0.4pt} سنوات.
+    \item \textbf{مدة الالتزام بالسرية:} يستمر الالتزام بالسرية لمدة \rule{2cm}{0.4pt} سنوات بعد انتهاء الاتفاقية.
+    \item \textbf{الأسرار التجارية:} تبقى الأسرار التجارية سرية إلى الأبد ما لم تصبح عامة.
+\end{enumerate}
+
+% ============================================================
+% 6. RETURN
+% ============================================================
+\section{إرجاع أو إتلاف المعلومات}
+\label{sec:return}
+عند انتهاء الغرض من الاتفاقية أو عند طلب الطرف الأول، يلتزم الطرف الثاني بـ:
+\begin{enumerate}
+    \item إرجاع جميع الوثائق والمواد التي تحتوي على معلومات سرية.
+    \item أو إتلافها بشكل آمن وتقديم شهادة مكتوبة بالإتلاف.
+    \item عدم الاحتفاظ بأي نسخ أو نُسخ إلكترونية.
+\end{enumerate}
+
+% ============================================================
+% 7. OWNERSHIP
+% ============================================================
+\section{ملكية المعلومات}
+\label{sec:ownership}
+\begin{enumerate}
+    \item تبقى جميع المعلومات السرية ملكاً حصرياً للطرف الأول.
+    \item لا تمنح هذه الاتفاقية الطرف الثاني أي حق أو ترخيص في المعلومات.
+    \item لا تُعتبر هذه الاتفاقية تنازلاً عن أي حق من حقوق الملكية الفكرية.
+\end{enumerate}
+
+% ============================================================
+% 8. REMEDIES
+% ============================================================
+\section{العقوبات والتعويض}
+\label{sec:remedies}
+\begin{enumerate}
+    \item يقرّ الطرف الثاني أن الإخلال بالسرية قد يسبب أضراراً غير قابلة للتعويض المالي.
+    \item يحق للطرف الأول الحصول على أحكام قضائية عاجلة (\LR{Injunction}) لمنع الإخلال.
+    \item يحق للطرف الأول المطالبة بالتعويض عن جميع الأضرار الناتجة عن الإخلال.
+\end{enumerate}
+
+% ============================================================
+% 9. GOVERNING LAW
+% ============================================================
+\section{القانون الحاكم وحل النزاعات}
+\label{sec:law}
+\begin{enumerate}
+    \item تُفسَّر هذه الاتفاقية وفقاً لقوانين \rule{6cm}{0.4pt}.
+    \item تُحلّ النزاعات عن طريق التحكيم في \rule{4cm}{0.4pt}.
+\end{enumerate}
+
+% ============================================================
+% SIGNATURES
+% ============================================================
+\vspace{2em}
+\section*{التوقيعات}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\textwidth}{L{6cm} X X}
+\toprule
+& \textbf{الطرف الأول} & \textbf{الطرف الثاني} \\
+\midrule
+\textbf{الاسم} & --- & --- \\
+\textbf{الصفة} & --- & --- \\
+\textbf{التوقيع} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\textbf{التاريخ} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

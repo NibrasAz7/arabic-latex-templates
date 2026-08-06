@@ -1,0 +1,238 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Lab Report Template — Nibras Center
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+%  Features:
+%    - A4, 11pt, article class
+%    - Title block: experiment name, course, date, instructor
+%    - Sections: objective, theory, equipment, procedure,
+%      results, analysis, conclusion
+%    - Data tables and figures
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+
+% ---- Core packages (order matters for bidi) ----
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{siunitx}
+
+% ---- RTL / Arabic language support ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={تقرير مختبر},
+  pdfauthor={اسم الطالب}
+}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+  \renewcommand{\refname}{المراجع}%
+}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+\titlespacing*{\subsection}{0pt}{1.0ex plus 0.3ex}{0.7ex plus 0.2ex}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape تقرير مختبر: عنوان التجربة}
+\fancyhead[L]{\small اسم الطالب}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---- List spacing ----
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+% ---- Table column types ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---- Line spacing ----
+\setstretch{1.5}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries تقرير تجربة مختبرية}\\[1em]
+{\Large عنوان التجربة}\\[1.5em]
+
+\begin{tabular}{rl}
+\textbf{اسم الطالب:} & --- \\
+\textbf{الرقم الجامعي:} & --- \\
+\textbf{المقرر:} & --- \\
+\textbf{اسم المدرّس:} & --- \\
+\textbf{تاريخ التجربة:} & --- \\
+\textbf{تاريخ التسليم:} & --- \\
+\end{tabular}
+\end{center}
+
+\vspace{1.5em}
+
+% ============================================================
+% 1. OBJECTIVE
+% ============================================================
+\section{الهدف من التجربة}
+\label{sec:objective}
+
+% TODO: اكتب هدف التجربة هنا في 2-3 جمل.
+هذا نص تجريبي لهدف التجربة. يصف الهدف الرئيسي من إجراء التجربة والمهارات المستهدفة.
+
+% ============================================================
+% 2. THEORY
+% ============================================================
+\section{الأساس النظري}
+\label{sec:theory}
+
+% TODO: اكتب الأساس النظري للتجربة هنا.
+% اذكر المعادلات الأساسية مع أرقامها.
+هذا نص تجريبي للأساس النظري. يشرح المبادئ العلمية التي تقوم عليها التجربة.
+
+\begin{equation}
+\label{eq:main}
+F = m \cdot a
+\end{equation}
+حيث $F$ القوة بوحدة \LR{Newton}، $m$ الكتلة بوحدة \LR{kg}، $a$ التسارع بوحدة \LR{m/s$^2$}.
+
+% ============================================================
+% 3. EQUIPMENT
+% ============================================================
+\section{الأدوات والمعدات}
+\label{sec:equipment}
+
+% TODO: اذكر الأدوات والمعدات المستخدمة.
+\begin{itemize}
+    \item جهاز قياس
+    \item أسلاك توصيل
+    \item مصدر طاقة
+    \item أدوات قياس أخرى
+\end{itemize}
+
+% ============================================================
+% 4. PROCEDURE
+% ============================================================
+\section{خطوات العمل}
+\label{sec:procedure}
+
+% TODO: اكتب خطوات العمل بالترتيب.
+\begin{enumerate}
+    \item الخطوة الأولى: وصف ما تم عمله.
+    \item الخطوة الثانية: وصف ما تم عمله.
+    \item الخطوة الثالثة: وصف ما تم عمله.
+    \item الخطوة الرابعة: وصف ما تم عمله.
+\end{enumerate}
+
+% ============================================================
+% 5. RESULTS
+% ============================================================
+\section{النتائج}
+\label{sec:results}
+
+% TODO: اعرض النتائج في جداول وأشكال.
+
+\begin{table}[H]
+\centering
+\caption{بيانات القياس}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{القراءة} & \textbf{القيمة 1} & \textbf{القيمة 2} & \textbf{المتوسط} \\
+\hline
+1 & 10.0 & 10.2 & 10.1 \\
+2 & 20.0 & 19.8 & 19.9 \\
+3 & 30.0 & 30.1 & 30.05 \\
+4 & 40.0 & 39.9 & 39.95 \\
+5 & 50.0 & 50.2 & 50.1 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---- Example figure ----
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.7\textwidth]{plot.png}
+% \caption{منحنى العلاقة بين المتغيرين}
+% \label{fig:plot}
+% \end{figure}
+
+% ============================================================
+% 6. ANALYSIS
+% ============================================================
+\section{التحليل والمناقشة}
+\label{sec:analysis}
+
+% TODO: حلل النتائج وقارنها بالقيم النظرية.
+هذا نص تجريبي للتحليل. يحلل النتائج التجريبية ويقارنها بالقيم النظرية المتوقعة.
+
+\subsection{حساب نسبة الخطأ}
+% TODO: احسب نسبة الخطأ بين القيم التجريبية والنظرية.
+نسبة الخطأ المحسوبة: \LR{2.5\%}.
+
+\subsection{مصادر الخطأ}
+% TODO: اذكر مصادر الخطأ المحتملة.
+\begin{itemize}
+    \item خطأ في قراءة الأجهزة.
+    \item خطأ في ضبط الصفر.
+    \item تأثير العوامل البيئية.
+\end{itemize}
+
+% ============================================================
+% 7. CONCLUSION
+% ============================================================
+\section{الاستنتاج}
+\label{sec:conclusion}
+
+% TODO: اكتب الاستنتاج النهائي.
+هذا نص تجريبي للاستنتاج. يلخص النتائج الرئيسية ويؤكد ما إذا كانت الأهداف قد تحققت.
+
+% ============================================================
+% REFERENCES (optional)
+% ============================================================
+\section*{المراجع}
+\addcontentsline{toc}{section}{المراجع}
+
+\begin{thebibliography}{9}
+\bibitem{ref1} Author, A. (2024). \emph{Title}. Journal, 1(1), 1--10.
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,188 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Conference Paper Template (Short Paper) — Nibras Center
+%  Compile with:
+%    xelatex main.tex
+%    bibtex main
+%    xelatex main.tex
+%    xelatex main.tex
+% ============================================================
+%  Features:
+%    - A4, 10pt, article class, twocolumn
+%    - Compact title block spanning both columns
+%    - Abstract + keywords
+%    - Sections: intro, related work, method, results, conclusion
+%    - BibTeX bibliography
+%    - Target: 2 pages
+% ============================================================
+
+\documentclass[10pt,a4paper,twocolumn]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=1.8cm,top=2cm,bottom=2cm,columnsep=0.7cm,headheight=12pt]{geometry}
+
+% ---- Core packages (order matters for bidi) ----
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+% ---- RTL / Arabic language support ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.92]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.88]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={ورقة مؤتمر},
+  pdfauthor={اسم المؤلف}
+}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+  \renewcommand{\refname}{المراجع}%
+}
+
+% ---- Section formatting (very compact for 2-page paper) ----
+\titleformat{\section}{\normalsize\bfseries}{\thesection}{0.4em}{}
+\titleformat{\subsection}{\small\bfseries}{\thesubsection}{0.3em}{}
+\titlespacing*{\section}{0pt}{0.6ex plus 0.2ex}{0.4ex plus 0.1ex}
+\titlespacing*{\subsection}{0pt}{0.4ex plus 0.1ex}{0.3ex}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape عنوان مختصر}
+\fancyhead[L]{\small المؤتمر الوطني ---}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---- List spacing (very compact) ----
+\setlist[itemize]{topsep=0.1em, itemsep=0.05em, parsep=0pt, leftmargin=1.2em}
+\setlist[enumerate]{topsep=0.1em, itemsep=0.05em, parsep=0pt, leftmargin=1.2em}
+
+% ---- Table column types ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---- Line spacing (compact) ----
+\setstretch{1.15}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK (spans both columns)
+% ============================================================
+\twocolumn[
+  \vspace*{0.5em}
+  \begin{center}
+  {\Large\bfseries عنوان ورقة المؤتمر}\par
+  \vspace{0.5em}
+  {\small د. اسم المؤلف$^{1}$ \quad د. اسم المؤلف الثاني$^{2}$}\par
+  \vspace{0.2em}
+  {\footnotesize $^{1}$القسم، الجامعة الأولى \quad $^{2}$القسم، الجامعة الثانية}\par
+  \vspace{0.2em}
+  {\footnotesize \texttt{email@example.com}}
+  \end{center}
+  \vspace{0.3em}
+  \begin{center}
+  \begin{minipage}{0.92\textwidth}
+  \small
+  \noindent\textbf{الملخص:}
+  % TODO: اكتب ملخص الورقة هنا (100-200 كلمة للورقة القصيرة).
+  هذا نص تجريبي للملخص. يصف المشكلة والمنهجية والنتائج الرئيسية لورقة المؤتمر القصيرة.
+
+  \vspace{0.2em}
+  \noindent\textbf{الكلمات المفتاحية:} كلمة 1، كلمة 2، كلمة 3، كلمة 4.
+  \end{minipage}
+  \end{center}
+  \vspace{1em}
+]
+
+% ============================================================
+% BODY
+% ============================================================
+
+\section{المقدمة}
+\label{sec:intro}
+
+% TODO: اكتب مقدمة موجزة (نصف عمود).
+هذا نص تجريبي للمقدمة. يقدم المشكلة البحثية وأهميتها بشكل مختصر.
+
+\section{الأعمال ذات الصلة}
+\label{sec:related}
+
+% TODO: اكتب مراجعة موجزة للأدبيات.
+هذا نص تجريبي للأعمال ذات الصلة. يستعرض أبرز الأبحاث السابقة.
+
+\section{المنهجية}
+\label{sec:method}
+
+% TODO: اكتب المنهجية بشكل مختصر.
+هذا نص تجريبي للمنهجية. يصف خطوات البحث بشكل موجز.
+
+\begin{figure}[H]
+\centering
+% \includegraphics[width=\columnwidth]{diagram.png}
+\fbox{\parbox[c][3cm][c]{0.9\columnwidth}{\centering مكان الشكل}}
+\caption{مخطط المنهجية}
+\label{fig:method}
+\end{figure}
+
+\section{النتائج}
+\label{sec:results}
+
+% TODO: اكتب النتائج بشكل مختصر.
+هذا نص تجريبي للنتائج. يعرض أبرز النتائج التجريبية.
+
+\begin{table}[H]
+\centering
+\small
+\caption{النتائج التجريبية}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{الطريقة} & \textbf{الدقة} & \textbf{الزمن} \\
+\hline
+\LR{SVM} & 85.3\% & 12ms \\
+\LR{CNN} & 92.1\% & 45ms \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{الاستنتاج}
+\label{sec:conclusion}
+
+% TODO: اكتب الاستنتاج بشكل مختصر.
+هذا نص تجريبي للاستنتاج. يلخص المساهمة الرئيسية ويقترح أعمالاً مستقبلية.
+
+% ============================================================
+% BIBLIOGRAPHY
+% ============================================================
+\bibliography{bibliography}
+\bibliographystyle{apalike}
+
+\end{document}

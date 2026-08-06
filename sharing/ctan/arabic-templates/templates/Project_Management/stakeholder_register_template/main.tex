@@ -1,0 +1,160 @@
+% !TEX program = xelatex
+% ============================================================
+%  سجل أصحاب المصلحة — Stakeholder Register Template
+%  نموذج لتسجيل أصحاب المصلحة في المشروع وتحليل مصالحهم وتأثيرهم
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Stakeholder table: Name | Role | Organization | Interest |
+%      Influence (High/Med/Low) | Engagement strategy | Contact
+%    - 7 sample rows
+%    - Influence-interest summary section
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape سجل أصحاب المصلحة}
+\fancyhead[L]{\small اسم المشروع}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.3}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries سجل أصحاب المصلحة}\\[0.3em]
+{\large Stakeholder Register}\\[1em]
+\end{center}
+
+% ============================================================
+% PROJECT INFO
+% ============================================================
+% TODO: املأ بيانات المشروع.
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{3.5cm} X L{3.5cm} X}
+\toprule
+\textbf{اسم المشروع:} & --- & \textbf{مدير المشروع:} & --- \\
+\textbf{اسم الشركة:} & --- & \textbf{تاريخ التحديث:} & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+% ============================================================
+% 1. STAKEHOLDER REGISTER TABLE
+% ============================================================
+\section{سجل أصحاب المصلحة}
+\label{sec:register}
+
+% TODO: عدّل صفوف أصحاب المصلحة حسب مشروعك.
+\begin{table}[H]
+\centering
+\caption{سجل أصحاب المصلحة في المشروع}
+\renewcommand{\arraystretch}{1.4}
+\small
+\begin{tabularx}{\textwidth}{L{2.5cm} L{2.5cm} L{2.5cm} L{3cm} C{1.3cm} L{3cm} L{2.5cm}}
+\toprule
+\textbf{الاسم} & \textbf{الدور} & \textbf{الجهة} & \textbf{المصلحة} & \textbf{التأثير} & \textbf{استراتيجية الإشراك} & \textbf{التواصل} \\
+\midrule
+--- & الراعي الرئيسي & الإدارة العليا & تمويل المشروع ونجاحه & عالي & تقارير شهرية واجتماعات ربع سنوية & بريد إلكتروني \\
+--- & مدير المشروع & إدارة المشاريع & تنفيذ المشروع وتسليمه & عالي & اجتماعات أسبوعية وتقارير يومية & بريد / هاتف \\
+--- & قائد الفريق التقني & الفريق التقني & الجدوى التقنية والتنفيذ & متوسط & اجتماعات أسبوعية ومراجعات فنية & بريد إلكتروني \\
+--- & المسؤول المالي & الإدارة المالية & الالتزام بالميزانية & متوسط & تقارير شهرية ومراجعة المصروفات & بريد إلكتروني \\
+--- & ممثل المستخدمين & المستفيدون النهائيون & سهولة الاستخدام والوظائف & منخفض & استبيانات واجتماعات دورية & بريد / اجتماعات \\
+--- & مدير الجودة & إدارة الجودة & جودة المخرجات & متوسط & مراجعات قبل التسليم وتدقيق دوري & بريد إلكتروني \\
+--- & المورد الخارجي & شركة المورد & الالتزامات التعاقدية & منخفض & اجتماعات شهرية وتقارير تسليم & بريد / هاتف \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 2. INFLUENCE-INTEREST SUMMARY
+% ============================================================
+\section{تصنيف التأثير والمصلحة}
+\label{sec:classification}
+
+% TODO: حدّث تصنيف أصحاب المصلحة حسب التحليل الفعلي.
+\begin{table}[H]
+\centering
+\caption{تصنيف أصحاب المصلحة حسب التأثير والمصلحة}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{4cm} C{3cm} C{3cm} X}
+\toprule
+\textbf{الفئة} & \textbf{التأثير} & \textbf{المصلحة} & \textbf{استراتيجية الإدارة} \\
+\midrule
+الراعي الرئيسي & عالي & عالي & إدارة عن قرب --- إبقائه راضياً ومشتركاً \\
+مدير المشروع & عالي & عالي & إدارة عن قرب --- شريك رئيسي في التنفيذ \\
+قائد الفريق التقني & متوسط & عالي & إبقائه مطّلعاً --- استشار في القرارات التقنية \\
+المسؤول المالي & متوسط & متوسط & إبقائه راضياً --- تقارير دورية عن الميزانية \\
+ممثل المستخدمين & منخفض & عالي & إبقيه مطّلعاً --- استشر في المتطلبات \\
+مدير الجودة & متوسط & متوسط & إبقيه راضياً --- شاركه في مراجعات الجودة \\
+المورد الخارجي & منخفض & منخفض & جهد معتدل --- رصد الأداء التعاقدي \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 3. ENGAGEMENT NOTES
+% ============================================================
+\section{ملاحظات الإشراك}
+\label{sec:notes}
+
+% TODO: أضف ملاحظات حول استراتيجية إشراك أصحاب المصلحة.
+\begin{itemize}
+    \item الراعي الرئيسي ومدير المشروع هما أصحاب التأثير والمصلحة الأعلى --- يتطلبان إشراكاً مستمراً.
+    \item ممثل المستخدمين ذو تأثير منخفض لكن مصلحة عالية --- يجب إبقاؤه مطّلعاً لضمان قبول المنتج.
+    \item المورد الخارجي يتطلب رصداً منتظماً لضمان الالتزام بمواعيد التسليم.
+\end{itemize}
+
+\end{document}

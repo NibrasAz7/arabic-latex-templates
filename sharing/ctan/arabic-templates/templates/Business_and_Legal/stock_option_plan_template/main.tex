@@ -1,0 +1,243 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Stock Option Plan Template — Nibras Center
+%  خطة خيارات الأسهم للموظفين
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={خطة خيارات الأسهم},pdfauthor={الشركة}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape خطة خيارات الأسهم}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{headerColor}{HTML}{1A3C6B}
+
+\setstretch{1.4}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries خطة خيارات الأسهم للموظفين}\\[0.5em]
+{\large (\LR{Employee Stock Option Plan — ESOP})}\\[1em]
+{\normalsize اسم الشركة: \rule{6cm}{0.4pt}}\\[0.3em]
+{\normalsize تاريخ الاعتماد: \rule{4cm}{0.4pt}}
+\end{center}
+
+\vspace{1.5em}
+
+% ============================================================
+% 1. PURPOSE
+% ============================================================
+\section{الغرض من الخطة}
+\label{sec:purpose}
+تهدف هذه الخطة إلى جذب الاحتفاظ بالكفاءات وتحفيز الموظفين على المساهمة في نمو الشركة من خلال منحهم خيارات شراء أسهم في الشركة.
+
+% ============================================================
+% 2. DEFINITIONS
+% ============================================================
+\section{التعريفات}
+\label{sec:definitions}
+\begin{itemize}
+    \item \textbf{«الخطة»:} خطة خيارات الأسهم هذه.
+    \item \textbf{«الشركة»:} \rule{6cm}{0.4pt}.
+    \item \textbf{«الموظف»:} أي شخص يعمل لدى الشركة بدوام كامل.
+    \item \textbf{«الخيار»:} حق شراء سهم واحد بسعر محدد.
+    \item \textbf{«سعر التنفيذ»:} السعر المحدد لشراء السهم.
+    \item \textbf{«الاستحقاق»:} اكتساب الحق في تنفيذ الخيار.
+    \item \textbf{«التنفيذ»:} شراء الأسهم بسعر التنفيذ.
+\end{itemize}
+
+% ============================================================
+% 3. POOL SIZE
+% ============================================================
+\section{حجم المجمع}
+\label{sec:pool}
+\begin{enumerate}
+    \item يُخصّص مجمع خيارات إجمالي قدره \rule{3cm}{0.4pt} سهم، يمثل \rule{2cm}{0.4pt}\% من إجمالي أسهم الشركة.
+    \item يجوز للجمعية العامة زيادة حجم المجمع بقرار مكتوب.
+    \item تُدار الخطة من قبل مجلس الإدارة.
+\end{enumerate}
+
+% ============================================================
+% 4. ELIGIBILITY
+% ============================================================
+\section{الأهلية}
+\label{sec:eligibility}
+\begin{enumerate}
+    \item يحق للموظفين بدوام كامل الحصول على خيارات.
+    \item لا يشمل ذلك الموظفين بدوام جزئي أو المقاولين المستقلين (إلا بقرار خاص).
+    \item يُحدد مجلس الإدارة من يحصل على خيارات وكميتها.
+\end{enumerate}
+
+% ============================================================
+% 5. GRANT
+% ============================================================
+\section{منح الخيارات}
+\label{sec:grant}
+\begin{enumerate}
+    \item يُمنح الخيار بموجب «اتفاقية منح خيارات» (\LR{Grant Agreement}) يوقّعها الموظف والشركة.
+    \item تحدد الاتفاقية: عدد الخيارات، سعر التنفيذ، تاريخ المنح، جدول الاستحقاق.
+    \item يُحدد سعر التنفيذ بالقيمة العادلة للسهم في تاريخ المنح، كما يقدّره مجلس الإدارة.
+\end{enumerate}
+
+% ============================================================
+% 6. VESTING
+% ============================================================
+\section{جدول الاستحقاق}
+\label{sec:vesting}
+
+\subsection{الجدول القياسي}
+\begin{enumerate}
+    \item \textbf{مدة الاستحقاق:} 4 سنوات من تاريخ المنح.
+    \item \textbf{فترة الجرف (\LR{Cliff}):} سنة واحدة. لا تُستحق أي خيارات خلال السنة الأولى.
+    \item \textbf{عند إكمال السنة الأولى:} تُستحق 25\% من الخيارات دفعة واحدة.
+    \item \textbf{بعد الجرف:} تُستحق الخيارات المتبقية شهرياً (1/36 من الإجمالي كل شهر) على مدى 36 شهراً.
+\end{enumerate}
+
+\subsection{الاستحقاق المُسرّع}
+\begin{enumerate}
+    \item \textbf{استحواذ (\LR{Single-trigger}):} عند الاستحواذ على الشركة، تُستحق 50\% من الخيارات غير المستحقة فوراً.
+    \item \textbf{استحواذ + إنهاء (\LR{Double-trigger}):} عند الاستحواذ وإنهاء الموظف خلال 12 شهراً، تُستحق جميع الخيارات فوراً.
+\end{enumerate}
+
+% ============================================================
+% 7. EXERCISE
+% ============================================================
+\section{تنفيذ الخيارات}
+\label{sec:exercise}
+\begin{enumerate}
+    \item يجوز للموظف تنفيذ الخيارات المستحقة في أي وقت.
+    \item يُرسل إشعار تنفيذ مكتوب + دفع سعر التنفيذ.
+    \item تُصدر الشركة الأسهم للموظف خلال \rule{2cm}{0.4pt} يوماً.
+    \item \textbf{فترة التنفيذ بعد انتهاء العمل:}
+    \begin{itemize}
+        \item \textbf{استقالة طوعية:} \rule{2cm}{0.4pt} يوماً لتنفيذ الخيارات المستحقة.
+        \item \textbf{إنهاء لسبب:} تُلغى جميع الخيارات (المستحقة وغير المستحقة).
+        \item \textbf{وفاة أو عجز:} \rule{2cm}{0.4pt} شهراً للورثة لتنفيذ الخيارات المستحقة.
+    \end{itemize}
+\end{enumerate}
+
+% ============================================================
+% 8. TRANSFER RESTRICTIONS
+% ============================================================
+\section{قيود النقل}
+\label{sec:transfer}
+\begin{enumerate}
+    \item لا يجوز نقل الخيارات أو الأسهم الناتجة عنها إلا بموافقة مجلس الإدارة.
+    \item \textbf{حق الأولوية بالشراء (\LR{Right of First Refusal}):} للشركة الحق في شراء الأسهم قبل أي بيع لطرف ثالث.
+    \item \textbf{قيد الاكتتاب العام (\LR{Lock-up}):} لا يجوز بيع الأسهم خلال \rule{2cm}{0.4pt} يوماً بعد الاكتتاب العام.
+\end{enumerate}
+
+% ============================================================
+% 9. TAX
+% ============================================================
+\section{الأحكام الضريبية}
+\label{sec:tax}
+\begin{enumerate}
+    \item يتحمل الموظف المسؤولية عن الضرائب الناتجة عن منح وتنفيذ الخيارات.
+    \item قد تخضع الخيارات لمعاملة ضريبية خاصة وفقاً لقوانين \rule{4cm}{0.4pt}.
+    \item يجوز للشركة حجز جزء من الأسومات لتغطية الضرائب.
+\end{enumerate}
+
+% ============================================================
+% 10. AMENDMENT
+% ============================================================
+\section{تعديل الخطة}
+\label{sec:amendment}
+\begin{enumerate}
+    \item يجوز لمجلس الإدارة تعديل الخطة، شريطة موافقة الجمعية العامة على التعديلات الجوهرية.
+    \item لا يجوز تعديل شروط الخيارات الممنوحة بالفعل دون موافقة الموظف.
+\end{enumerate}
+
+% ============================================================
+% 11. TERMINATION
+% ============================================================
+\section{إنهاء الخطة}
+\label{sec:termination}
+\begin{enumerate}
+    \item يجوز لمجلس الإدارة إنهاء الخطة في أي وقت.
+    \item لا يؤثر الإنهاء على الخيارات الممنوحة بالفعل.
+    \item تُستحق جميع الخيارات عند الاكتتاب العام أو الاستحواذ.
+\end{enumerate}
+
+% ============================================================
+% 12. SAMPLE GRANT
+% ============================================================
+\section{نموذج لاتفاقية منح خيارات}
+\label{sec:sample}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{6cm} X}
+\toprule
+\textbf{البند} & \textbf{القيمة} \\
+\midrule
+اسم الموظف & --- \\
+المنصب & --- \\
+تاريخ المنح & --- \\
+عدد الخيارات الممنوحة & --- \\
+سعر التنفيذ للسهم & --- \LR{USD} \\
+القيمة العادلة للسهم & --- \LR{USD} \\
+جدول الاستحقاق & 4 سنوات، جرف سنة واحدة \\
+فترة التنفيذ بعد الاستقالة & 90 يوماً \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% SIGNATURES
+% ============================================================
+\vspace{2em}
+\section*{الاعتماد}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\textwidth}{L{5cm} X X}
+\toprule
+& \textbf{مجلس الإدارة} & \textbf{الجمعية العامة} \\
+\midrule
+\textbf{التاريخ} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\textbf{التوقيع} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

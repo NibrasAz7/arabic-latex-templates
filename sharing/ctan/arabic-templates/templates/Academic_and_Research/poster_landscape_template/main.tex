@@ -1,0 +1,181 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Scientific Poster Template (Landscape) — Nibras Center
+%  Compile with: xelatex main.tex
+%  Uses article class + tikz for a single-page A0 landscape poster.
+% ============================================================
+%  To change poster size, modify the geometry package:
+%    A0 landscape: a0paper,landscape  (1189x841mm)
+%    A1 landscape: a1paper,landscape  (841x594mm)
+% ============================================================
+
+\documentclass[11pt]{article}
+
+% ---- Poster geometry (A0 landscape) ----
+\usepackage[a0paper,landscape,margin=2cm,top=2cm,bottom=2cm]{geometry}
+
+% ---- Core packages ----
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+
+% ---- RTL / Arabic support ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts (explicit sizes via \fontsize, no global Scale) ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=1]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load last) ----
+\usepackage[hidelinks]{hyperref}
+
+% ---- Colors (customize to your institution) ----
+\definecolor{primaryColor}{HTML}{1A3C6B}
+\definecolor{secondaryColor}{HTML}{2E6DA4}
+\definecolor{lightBg}{HTML}{F0F4F8}
+\definecolor{accentColor}{HTML}{D4A017}
+
+% ---- Custom block command (colored box for poster sections) ----
+\newcommand{\posterblock}[2]{%
+  \begin{tikzpicture}
+    \node[fill=lightBg, draw=primaryColor, line width=2pt, rounded corners=5pt,
+          inner sep=1cm, text width=\dimexpr\linewidth-2.5cm\relax,
+          align=right] {%
+      \begin{minipage}{\dimexpr\linewidth-2.5cm\relax}
+        {\fontsize{20}{24}\selectfont\bfseries\color{primaryColor} #1}\\[0.25cm]
+        {\fontsize{13}{16}\selectfont #2}
+      \end{minipage}
+    };
+  \end{tikzpicture}
+  \vspace{0.6cm}
+}
+
+% ---- List spacing for poster ----
+\setlist[itemize]{topsep=0.4em, itemsep=0.2em, parsep=0pt, leftmargin=1.5cm}
+\setlist[enumerate]{topsep=0.4em, itemsep=0.2em, parsep=0pt, leftmargin=1.5cm}
+
+\begin{document}
+\pagestyle{empty}
+
+% ============================================================
+% TITLE BANNER (full width, landscape)
+% ============================================================
+\begin{tikzpicture}
+  \fill[primaryColor] (0,0) rectangle (\textwidth, -5cm);
+  % Title — centered, white, large
+  \node[white, align=center, text width=0.85\textwidth] at (\textwidth/2, -1.7cm) {
+    {\fontsize{42}{52}\selectfont\bfseries عنوان البحث العلمي}
+  };
+  % Authors / affiliation — centered, white, medium
+  \node[white, align=center, text width=0.85\textwidth] at (\textwidth/2, -3.6cm) {
+    {\fontsize{22}{28}\selectfont د. اسم الباحث \quad|\quad القسم، الجامعة}
+  };
+  % Uncomment to add logo (top-right corner):
+  % \node at (\textwidth-3cm, -2.5cm) {\includegraphics[width=4cm]{logo.png}};
+\end{tikzpicture}
+
+\vspace{0.8cm}
+
+% ============================================================
+% POSTER BODY: three columns using minipage (landscape)
+% ============================================================
+
+\noindent
+\begin{minipage}[t]{0.31\textwidth}
+
+\posterblock{المقدمة}{%
+% TODO: اكتب مقدمة البحث هنا.
+هذا نص تجريبي للمقدمة. يصف المشكلة البحثية وأهميتها في مجال التقنية العصبية ورابط الدماغ والحاسوب.
+}
+
+\posterblock{الأهداف}{%
+% TODO: اكتب أهداف البحث هنا.
+\begin{enumerate}
+    \item الهدف الأول من البحث
+    \item الهدف الثاني من البحث
+    \item الهدف الثالث من البحث
+\end{enumerate}
+}
+
+\posterblock{المنهجية}{%
+% TODO: اكتب المنهجية هنا.
+\begin{itemize}
+    \item الخطوة الأولى: \LR{Data Acquisition}
+    \item الخطوة الثانية: المعالجة المسبقة
+    \item الخطوة الثالثة: استخراج الميزات
+    \item الخطوة الرابعة: التصنيف باستخدام \LR{Machine Learning}
+\end{itemize}
+}
+
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.31\textwidth}
+
+\posterblock{النتائج}{%
+% TODO: اكتب النتائج هنا.
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{الطريقة} & \textbf{الدقة} & \textbf{الزمن} \\
+\hline
+\LR{SVM} & 85.3\% & 12ms \\
+\LR{CNN} & 92.1\% & 45ms \\
+\LR{LSTM} & 89.7\% & 38ms \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\posterblock{المناقشة}{%
+% TODO: اكتب مناقشة النتائج هنا.
+هذا نص تجريبي للمناقشة. يحلل النتائج ويقارنها بالأدبيات السابقة ويذكر أبرز النقاط.
+}
+
+\posterblock{الاستنتاجات}{%
+% TODO: اكتب الاستنتاجات هنا.
+هذا نص تجريبي للاستنتاجات. يلخص النتائج الرئيسية ويقترح أعمالاً مستقبلية.
+}
+
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.31\textwidth}
+
+\posterblock{الشكل التوضيحي}{%
+% TODO: أضف شكل توضيحي هنا.
+\begin{center}
+% \includegraphics[width=\linewidth]{diagram.png}
+\fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering مكان الشكل}}
+\end{center}
+}
+
+\posterblock{المعادلات الرئيسية}{%
+% TODO: أضف المعادلات هنا.
+\begin{equation*}
+y = f\left(\sum_{i=1}^{n} w_i x_i + b\right)
+\end{equation*}
+حيث $x_i$ المدخلات، $w_i$ الأوزان، $b$ الانحياز.
+}
+
+\posterblock{المراجع}{%
+% TODO: اكتب المراجع هنا.
+\begin{enumerate}
+    \item Author, A. (2024). \emph{Title}. Journal, 1(1), 1--10.
+    \item Author, B. (2023). \emph{Title}. Conference, pp. 1--5.
+    \item Author, C. (2022). \emph{Title}. Book.
+\end{enumerate}
+}
+
+\end{minipage}
+
+\end{document}

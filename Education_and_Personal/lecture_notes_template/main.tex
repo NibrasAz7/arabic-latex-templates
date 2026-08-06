@@ -1,0 +1,258 @@
+% !TEX program = xelatex
+% ============================================================
+%  ملاحظات المحاضرة — Lecture Notes Template
+%  قالب ملاحظات محاضرة مع ترويسة (المقرر، رقم المحاضرة، التاريخ، المعلم)
+%  ومخطط مواضيع، مفاهيم رئيسية في صناديق ملوّنة، تعريفات ونظريات،
+%  أمثلة، خلاصة، ومراجع.
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - A4, 11pt, article class
+%    - Header block: course, lecture #, date, instructor
+%    - Topics outline, key concepts (tcolorbox callouts)
+%    - Definitions / Theorems (amsthm-style custom environments)
+%    - Examples, Summary, References
+%    - Section dividers, fancyhdr header/footer
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+
+% ---- Core packages ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+
+% ---- RTL / Arabic language support (order matters) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load last, after polyglossia/bidi) ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+
+% ---- Colors ----
+\definecolor{accent}{HTML}{1F3A5F}
+\definecolor{conceptbg}{HTML}{EAF1F8}
+\definecolor{conceptframe}{HTML}{1F3A5F}
+\definecolor{defbg}{HTML}{F0F7EE}
+\definecolor{defframe}{HTML}{2E7D32}
+\definecolor{thmbg}{HTML}{FBF3E4}
+\definecolor{thmframe}{HTML}{B26A00}
+\definecolor{exbg}{HTML}{F4F0FA}
+\definecolor{exframe}{HTML}{6A1B9A}
+
+% ---- Line spacing ----
+\setstretch{1.4}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+  \renewcommand{\refname}{المراجع}%
+}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+% ---- Section divider rule ----
+\newcommand{\sectiondivider}{%
+  \par\noindent{\color{accent}\rule{\linewidth}{0.8pt}}\par\vspace{0.4em}%
+}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+% TODO: عدّل اسم المقرر ورقم المحاضرة في الترويسة.
+\fancyhead[R]{\small ملاحظات المحاضرة (Lecture Notes)}
+\fancyhead[L]{\small اسم المؤسسة (Institution Name)}
+\fancyfoot[C]{\small \thepage}
+
+% ============================================================
+% tcolorbox-based callout environments
+% ============================================================
+
+% Key concept box
+\newtcolorbox{conceptbox}[1]{%
+  colback=conceptbg, colframe=conceptframe,
+  boxrule=0.6pt, arc=2pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  title={#1}, fonttitle=\bfseries\color{white},
+  colbacktitle=conceptframe
+}
+
+% Definition box
+\newtcolorbox{definitionbox}[1]{%
+  colback=defbg, colframe=defframe,
+  boxrule=0.6pt, arc=2pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  title={تعريف: #1}, fonttitle=\bfseries\color{white},
+  colbacktitle=defframe
+}
+
+% Theorem box
+\newtcolorbox{theoremtbox}[1]{%
+  colback=thmbg, colframe=thmframe,
+  boxrule=0.6pt, arc=2pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  title={نظرية: #1}, fonttitle=\bfseries\color{white},
+  colbacktitle=thmframe
+}
+
+% Example box
+\newtcolorbox{examplebox}[1]{%
+  colback=exbg, colframe=exframe,
+  boxrule=0.6pt, arc=2pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  title={مثال: #1}, fonttitle=\bfseries\color{white},
+  colbacktitle=exframe
+}
+
+\begin{document}
+
+% ============================================================
+% TITLE / HEADER BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries ملاحظات المحاضرة (Lecture Notes)}\\[0.4em]
+{\large\bfseries اسم المؤسسة (Institution Name)}
+\end{center}
+
+\vspace{0.3em}
+{\color{accent}\rule{\linewidth}{1.2pt}}
+\vspace{0.5em}
+
+% ---- Info table ----
+\noindent
+\begin{tabularx}{\linewidth}{@{}p{0.28\linewidth}X@{}}
+\textbf{المقرر (Course):} & % TODO: ضع اسم المقرر هنا
+اسم المقرر (Course Name) \\
+\textbf{رقم المحاضرة (Lecture \#):} & % TODO: ضع رقم المحاضرة هنا
+\hrulefill \\
+\textbf{التاريخ (Date):} & % TODO: ضع التاريخ هنا
+\hrulefill \\
+\textbf{اسم المعلم (Instructor):} & % TODO: ضع اسم المعلم هنا
+\hrulefill \\
+\end{tabularx}
+
+\vspace{0.4em}
+{\color{accent}\rule{\linewidth}{0.8pt}}
+\vspace{0.6em}
+
+% ============================================================
+% TOPICS OUTLINE
+% ============================================================
+\section{مخطط المواضيع (Topics Outline)}
+\sectiondivider
+% TODO: عدّل قائمة المواضيع حسب محتوى المحاضرة.
+\begin{itemize}[leftmargin=2em, itemsep=0.2em]
+  \item الموضوع الأول (Topic One)
+  \item الموضوع الثاني (Topic Two)
+  \item الموضوع الثالث (Topic Three)
+  \item الموضوع الرابع (Topic Four)
+\end{itemize}
+
+% ============================================================
+% KEY CONCEPTS
+% ============================================================
+\section{المفاهيم الرئيسية (Key Concepts)}
+\sectiondivider
+% TODO: استبدل المفاهيم أدناه بمفاهيم المحاضرة الفعلية.
+
+\begin{conceptbox}{المفهوم الأول (Concept One)}
+وصف موجز للمفهوم الأول وأهميته في سياق المحاضرة. اكتب هنا النقاط الأساسية
+التي يجب على الطالب تذكّرها.
+\end{conceptbox}
+
+\vspace{0.5em}
+
+\begin{conceptbox}{المفهوم الثاني (Concept Two)}
+وصف موجز للمفهوم الثاني مع توضيح العلاقة بينه وبين المفاهيم الأخرى.
+\end{conceptbox}
+
+% ============================================================
+% DEFINITIONS AND THEOREMS
+% ============================================================
+\section{التعريفات والنظريات (Definitions \& Theorems)}
+\sectiondivider
+% TODO: أضف التعريفات والنظريات الخاصة بالمحاضرة.
+
+\begin{definitionbox}{التعريف الأول (Definition One)}
+% TODO: ضع نص التعريف هنا.
+نص التعريف الأول يُكتب هنا بشكل دقيق ومختصر.
+\end{definitionbox}
+
+\vspace{0.5em}
+
+\begin{theoremtbox}{النظرية الأولى (Theorem One)}
+% TODO: ضع نص النظرية هنا.
+نص النظرية الأولى مع شروطها ونتيجتها الرئيسية.
+\end{theoremtbox}
+
+% ============================================================
+% EXAMPLES
+% ============================================================
+\section{أمثلة (Examples)}
+\sectiondivider
+% TODO: استبدل الأمثلة أدناه بأمثلة المحاضرة الفعلية.
+
+\begin{examplebox}{مثال 1 (Example 1)}
+% TODO: ضع نص المثال والحل هنا.
+نص المثال: احسب مشتقة الدالة $f(x) = x^{2} + 3x - 5$.
+
+\textbf{الحل:}
+\[
+f'(x) = 2x + 3
+\]
+\end{examplebox}
+
+\vspace{0.5em}
+
+\begin{examplebox}{مثال 2 (Example 2)}
+% TODO: ضع نص المثال والحل هنا.
+نص المثال الثاني يُكتب هنا مع خطوات الحل بالتفصيل.
+\end{examplebox}
+
+% ============================================================
+% SUMMARY
+% ============================================================
+\section{الخلاصة (Summary)}
+\sectiondivider
+% TODO: اكتب خلاصة المحاضرة هنا.
+تلخّص هذه المحاضرة المفاهيم الأساسية المتعلّقة بالموضوع، وتطرّقت إلى
+عدد من التعريفات والنظريات مع أمثلة تطبيقية. يجب على الطالب مراجعة
+النقاط الرئيسية وحل التمارين المرفقة.
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\section{المراجع (References)}
+\sectiondivider
+% TODO: أضف المراجع الفعلية هنا.
+\begin{itemize}[leftmargin=2em, itemsep=0.2em]
+  \item المرجع الأول (Reference One) — اسم المؤلف، \emph{عنوان الكتاب}، دار النشر، السنة.
+  \item المرجع الثاني (Reference Two) — اسم المؤلف، \emph{عنوان الكتاب}، دار النشر، السنة.
+\end{itemize}
+
+\end{document}

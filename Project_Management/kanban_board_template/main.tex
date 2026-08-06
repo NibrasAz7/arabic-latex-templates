@@ -1,0 +1,140 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Kanban Board Template — Nibras Center
+%  مشروع بحثي: لوحة كانبان
+%  Columns: To Do | In Progress | Review | Done
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper,landscape]{article}
+
+\usepackage[a4paper,landscape,margin=1.5cm,top=2cm,bottom=2cm,headheight=12pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,shapes.geometric}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={لوحة كانبان},pdfauthor={الباحث الرئيسي}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape لوحة كانبان}
+\fancyhead[L]{\small اسم المشروع}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\definecolor{todoColor}{HTML}{E8E8E8}
+\definecolor{progressColor}{HTML}{D4A017}
+\definecolor{reviewColor}{HTML}{2E6DA4}
+\definecolor{doneColor}{HTML}{27AE60}
+\definecolor{headerColor}{HTML}{1A3C6B}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% Kanban card command
+\newcommand{\kcard}[3]{%
+  \par\noindent
+  \colorbox{#1!15}{%
+    \begin{minipage}[t]{0.95\linewidth}
+      \vspace{0.3em}
+      \small\textbf{\color{#1}#2}\\[0.2em]
+      \footnotesize #3
+      \vspace{0.3em}
+    \end{minipage}%
+  }\par\vspace{0.4em}
+}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+{\LARGE\bfseries لوحة كانبان للمشروع البحثي}\\[0.3em]
+{\large عنوان المشروع — \today}\\[1em]
+\end{center}
+
+% ============================================================
+% KANBAN BOARD (4 columns)
+% ============================================================
+\noindent
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\rowcolor{headerColor}
+\textcolor{white}{\textbf{\large للمستقبل (\LR{To Do})}} &
+\textcolor{white}{\textbf{\large قيد التنفيذ (\LR{In Progress})}} &
+\textcolor{white}{\textbf{\large قيد المراجعة (\LR{Review})}} &
+\textcolor{white}{\textbf{\large مكتمل (\LR{Done})}} \\
+\hline
+\end{tabularx}
+
+\vspace{0.5em}
+
+\noindent
+\begin{tabularx}{\textwidth}{X X X X}
+% ---- Column 1: To Do ----
+\cellcolor{todoColor}
+\kcard{todoColor}{T1: مراجعة الأدبيات}{المسؤول: Co1 \\ الأولوية: عالية}
+\kcard{todoColor}{T2: تحديد الفجوات}{المسؤول: PI \\ الأولوية: عالية}
+\kcard{todoColor}{T3: تصميم المنهجية}{المسؤول: PI \\ الأولوية: متوسطة}
+\kcard{todoColor}{T4: تجهيز المعدات}{المسؤول: Tech \\ الأولوية: منخفضة}
+&
+% ---- Column 2: In Progress ----
+\cellcolor{progressColor!10}
+\kcard{progressColor}{P1: جمع البيانات}{المسؤول: Co1, Co2 \\ التقدم: 60\%}
+\kcard{progressColor}{P2: معالجة البيانات}{المسؤول: Co2 \\ التقدم: 30\%}
+&
+% ---- Column 3: Review ----
+\cellcolor{reviewColor!10}
+\kcard{reviewColor}{R1: تقرير الأدبيات}{المراجع: PI \\ بانتظار المراجعة}
+\kcard{reviewColor}{R2: تصميم التجربة}{المراجع: PI \\ بانتظار المراجعة}
+&
+% ---- Column 4: Done ----
+\cellcolor{doneColor!10}
+\kcard{doneColor}{D1: ميثاق المشروع}{أُنجز في: ---}
+\kcard{doneColor}{D2: الموافقة على التمويل}{أُنجز في: ---}
+\end{tabularx}
+
+\vspace{1.5em}
+
+% ============================================================
+% WIP LIMITS & RULES
+% ============================================================
+\section*{حدود العمل الجاري (WIP Limits) والقواعد}
+
+\begin{tabularx}{\textwidth}{L{4cm} X}
+\toprule
+\textbf{قيد التنفيذ} & حد أقصى: \textbf{3 مهام} في آن واحد \\
+\textbf{قيد المراجعة} & حد أقصى: \textbf{2 مهمة} في آن واحد \\
+\bottomrule
+\end{tabularx}
+
+\vspace{1em}
+
+\textbf{قواعد لوحة كانبان:}
+\begin{itemize}
+    \item تُسحب البطاقة من اليمين إلى اليسار عند اكتمالها.
+    \item لا يمكن تجاوز حدود العمل الجاري (\LR{WIP Limits}).
+    \item تُحدّث حالة البطاقة يومياً.
+    \item تُذكر العقبات في قسم القضايا (\LR{Issue Log}).
+    \item تُرتّب البطاقات حسب الأولوية داخل كل عمود.
+\end{itemize}
+
+\end{document}

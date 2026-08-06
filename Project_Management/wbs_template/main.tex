@@ -1,0 +1,203 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Work Breakdown Structure (WBS) Template — Nibras Center
+%  مشروع بحثي: هيكل تقسيم العمل
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,shapes.geometric,arrows.meta}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={هيكل تقسيم العمل},pdfauthor={الباحث الرئيسي}}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape هيكل تقسيم العمل (WBS)}
+\fancyhead[L]{\small اسم المشروع}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{wbsLevel1}{HTML}{1A3C6B}
+\definecolor{wbsLevel2}{HTML}{2E6DA4}
+\definecolor{wbsLevel3}{HTML}{D4A017}
+\definecolor{wbsBox}{HTML}{F0F4F8}
+
+\setstretch{1.3}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries هيكل تقسيم العمل (WBS)}\\[0.5em]
+{\Large عنوان المشروع البحثي}\\[1em]
+\end{center}
+
+% ============================================================
+% 1. WBS TABLE
+% ============================================================
+\section{جدول هيكل تقسيم العمل}
+\label{sec:wbs_table}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{C{1.5cm} L{5cm} L{3cm} C{2cm} X}
+\toprule
+\textbf{الرمز} & \textbf{اسم الحزمة/المهمة} & \textbf{المسؤول} & \textbf{المدة} & \textbf{المخرجات} \\
+\midrule
+\rowcolor{wbsBox}
+\textbf{1.0} & \textbf{المرحلة الأولى: المراجعة والتخطيط} & الباحث الرئيسي & 3 أشهر & تقرير الأدبيات \\
+1.1 & مراجعة الأدبيات السابقة & باحث مشارك & 6 أسابيع & فصل الأدبيات \\
+1.2 & تحديد الفجوات البحثية & الباحث الرئيسي & 2 أسبوع & وثيقة الفجوات \\
+1.3 & تصميم المنهجية & الباحث الرئيسي & 4 أسابيع & وثيقة المنهجية \\
+\midrule
+\rowcolor{wbsBox}
+\textbf{2.0} & \textbf{المرحلة الثانية: الإعداد والتجربة} & باحث مشارك & 4 أشهر & البيانات الخام \\
+2.1 & تجهيز المعدات والأدوات & فني المختبر & 3 أسابيع & قائمة التجهيز \\
+2.2 & جمع البيانات & باحث مشارك & 10 أسابيع & قاعدة البيانات \\
+2.3 & معالجة البيانات & باحث مشارك & 3 أسابيع & بيانات منظفة \\
+\midrule
+\rowcolor{wbsBox}
+\textbf{3.0} & \textbf{المرحلة الثالثة: التحليل والنمذجة} & الباحث الرئيسي & 4 أشهر & نتائج التحليل \\
+3.1 & التحليل الإحصائي & الباحث الرئيسي & 6 أسابيع & جداول النتائج \\
+3.2 & النمذجة والمحاكاة & باحث مشارك & 6 أسابيع & نماذج \\
+3.3 & التحقق من النتائج & الباحث الرئيسي & 4 أسابيع & تقرير التحقق \\
+\midrule
+\rowcolor{wbsBox}
+\textbf{4.0} & \textbf{المرحلة الرابعة: النشر والتوثيق} & الباحث الرئيسي & 5 أشهر & الورقة والتقرير \\
+4.1 & كتابة الورقة البحثية & الباحث الرئيسي & 8 أسابيع & مسودة الورقة \\
+4.2 & تقديم الورقة للنشر & الباحث الرئيسي & 4 أسابيع & تأكيد النشر \\
+4.3 & كتابة التقرير النهائي & الباحث الرئيسي & 6 أسابيع & التقرير النهائي \\
+4.4 & عرض النتائج & الفريق كله & 2 أسبوع & عرض تقديمي \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 2. WBS DIAGRAM (Tree)
+% ============================================================
+\section{المخطط الشجري لهيكل تقسيم العمل}
+\label{sec:wbs_diagram}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  level1/.style={fill=wbsLevel1,text=white,rounded corners=3pt,inner sep=6pt,minimum width=3.5cm,align=center},
+  level2/.style={fill=wbsLevel2,text=white,rounded corners=3pt,inner sep=5pt,minimum width=2.8cm,align=center},
+  level3/.style={fill=wbsBox,draw=wbsLevel2,thick,rounded corners=3pt,inner sep=4pt,minimum width=2.2cm,align=center},
+  line/.style={draw=wbsLevel2,thick},
+]
+
+% Root
+\node[level1] (root) at (0,0) {المشروع البحثي};
+
+% Level 1 — 4 phases
+\node[level2] (p1) at (-7.5,-2.5) {1. المراجعة والتخطيط};
+\node[level2] (p2) at (-2.5,-2.5) {2. الإعداد والتجربة};
+\node[level2] (p3) at (2.5,-2.5) {3. التحليل والنمذجة};
+\node[level2] (p4) at (7.5,-2.5) {4. النشر والتوثيق};
+
+% Lines from root to phases
+\draw[line] (root) -- (p1);
+\draw[line] (root) -- (p2);
+\draw[line] (root) -- (p3);
+\draw[line] (root) -- (p4);
+
+% Level 2 — sub-tasks
+\node[level3] (p11) at (-9.5,-5) {1.1 مراجعة الأدبيات};
+\node[level3] (p12) at (-6.5,-5) {1.2 الفجوات البحثية};
+\node[level3] (p13) at (-3.5,-5) {1.3 تصميم المنهجية};
+
+\node[level3] (p21) at (-5.5,-6.5) {2.1 التجهيز};
+\node[level3] (p22) at (-2.5,-6.5) {2.2 جمع البيانات};
+\node[level3] (p23) at (0.5,-6.5) {2.3 المعالجة};
+
+\node[level3] (p31) at (0.5,-5) {3.1 التحليل الإحصائي};
+\node[level3] (p32) at (3.5,-5) {3.2 النمذجة};
+\node[level3] (p33) at (6.5,-5) {3.3 التحقق};
+
+\node[level3] (p41) at (5.5,-6.5) {4.1 كتابة الورقة};
+\node[level3] (p42) at (8,-6.5) {4.2 التقديم للنشر};
+\node[level3] (p43) at (10.5,-6.5) {4.3 التقرير};
+
+\draw[line] (p1) -- (p11);
+\draw[line] (p1) -- (p12);
+\draw[line] (p1) -- (p13);
+
+\draw[line] (p2) -- (p21);
+\draw[line] (p2) -- (p22);
+\draw[line] (p2) -- (p23);
+
+\draw[line] (p3) -- (p31);
+\draw[line] (p3) -- (p32);
+\draw[line] (p3) -- (p33);
+
+\draw[line] (p4) -- (p41);
+\draw[line] (p4) -- (p42);
+\draw[line] (p4) -- (p43);
+
+\end{tikzpicture}
+\caption{المخطط الشجري لهيكل تقسيم العمل}
+\end{figure}
+
+% ============================================================
+% 3. WORK PACKAGES DETAIL
+% ============================================================
+\section{تفاصيل حزم العمل}
+\label{sec:work_packages}
+
+\subsection{حزمة العمل 1.0: المراجعة والتخطيط}
+\textbf{المسؤول:} الباحث الرئيسي \quad \textbf{المدة:} 3 أشهر\\
+\textbf{المخرجات:} تقرير الأدبيات، وثيقة الفجوات، وثيقة المنهجية\\
+\textbf{معايير القبول:} مراجعة محكمة من قبل المشرف
+
+\subsection{حزمة العمل 2.0: الإعداد والتجربة}
+\textbf{المسؤول:} باحث مشارك \quad \textbf{المدة:} 4 أشهر\\
+\textbf{المخرجات:} قاعدة بيانات منظفة\\
+\textbf{معايير القبول:} اكتمال جميع العينات وجودة البيانات
+
+\subsection{حزمة العمل 3.0: التحليل والنمذجة}
+\textbf{المسؤول:} الباحث الرئيسي \quad \textbf{المدة:} 4 أشهر\\
+\textbf{المخرجات:} جداول النتائج والنماذج\\
+\textbf{معايير القبول:} دقة إحصائية مقبولة وتحقق مستقل
+
+\subsection{حزمة العمل 4.0: النشر والتوثيق}
+\textbf{المسؤول:} الباحث الرئيسي \quad \textbf{المدة:} 5 أشهر\\
+\textbf{المخرجات:} ورقة منشورة وتقرير نهائي\\
+\textbf{معايير القبول:} قبول الورقة للنشر وموافقة الجهة الممولة
+
+\end{document}

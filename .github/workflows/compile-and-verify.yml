@@ -1,0 +1,103 @@
+name: Compile, Verify, and Release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  compile-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up TeX Live with XeLaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          latex_engine: xelatex
+          extra_system_packages: |
+            fonts-amiri
+            fonts-noto
+
+      - name: Verify Amiri font is available
+        run: fc-list | grep -i amiri || echo "Warning: Amiri font not found"
+
+      - name: Compile all templates
+        run: |
+          set -e
+          COMPILED=0
+          FAILED=0
+          FAILED_LIST=""
+          for cat_dir in */; do
+            [ -d "$cat_dir" ] || continue
+            [ "$(basename "$cat_dir")" = "sharing" ] && continue
+            for tpl_dir in "$cat_dir"*/; do
+              [ -d "$tpl_dir" ] || continue
+              main_tex="$tpl_dir/main.tex"
+              [ -f "$main_tex" ] || continue
+              echo "Compiling: $tpl_dir"
+              cd "$tpl_dir"
+              if xelatex -interaction=nonstopmode -halt-on-error main.tex > /dev/null 2>&1 && \
+                 xelatex -interaction=nonstopmode -halt-on-error main.tex > /dev/null 2>&1; then
+                COMPILED=$((COMPILED + 1))
+                echo "  OK"
+              else
+                FAILED=$((FAILED + 1))
+                FAILED_LIST="$FAILED_LIST $tpl_dir"
+                echo "  FAILED"
+              fi
+              cd - > /dev/null
+              # Clean build artifacts
+              rm -f "$tpl_dir"/*.aux "$tpl_dir"/*.log "$tpl_dir"/*.out "$tpl_dir"/*.toc
+            done
+          done
+          echo "Compiled: $COMPILED, Failed: $FAILED"
+          if [ "$FAILED" -gt 0 ]; then
+            echo "Failed templates:$FAILED_LIST"
+          fi
+
+      - name: Upload compiled PDFs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-pdfs
+          path: "**/main.pdf"
+          retention-days: 30
+
+  build-release-zips:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    needs: compile-and-verify
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build per-template ZIPs
+        run: |
+          mkdir -p release-zips
+          for cat_dir in */; do
+            [ -d "$cat_dir" ] || continue
+            [ "$(basename "$cat_dir")" = "sharing" ] && continue
+            for tpl_dir in "$cat_dir"*/; do
+              [ -d "$tpl_dir" ] || continue
+              tpl_name=$(basename "$tpl_dir")
+              (cd "$tpl_dir" && zip -r "$GITHUB_WORKSPACE/release-zips/$tpl_name.zip" . > /dev/null)
+            done
+          done
+          echo "Built $(ls release-zips/*.zip | wc -l) ZIPs"
+
+      - name: Build all-templates bundle ZIP
+        run: |
+          zip -r "$GITHUB_WORKSPACE/release-zips/arabic-latex-templates-all.zip" \
+            --exclude="sharing/*" \
+            --exclude="*/main.aux" --exclude="*/main.log" --exclude="*/main.out" \
+            . > /dev/null
+          echo "Built bundle ZIP"
+
+      - name: Upload ZIPs to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release-zips/*.zip

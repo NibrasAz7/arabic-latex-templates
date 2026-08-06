@@ -1,0 +1,133 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Academic Book Template — Nibras Center
+%  Compile with:
+%    xelatex main.tex
+%    bibtex main
+%    xelatex main.tex
+%    xelatex main.tex
+%  Based on the BCI_Academic_arabic_Book project setup.
+% ============================================================
+%  Features:
+%    - A4, 10pt, book class with frontmatter/mainmatter/appendix
+%    - Glossaries + acronyms (\gls{}, \acrfull{}, \acrshort{})
+%    - BibTeX bibliography (apalike style)
+%    - supertabular + longtable for large tables
+%    - \frontmatter / \mainmatter / \appendix structure
+% ============================================================
+
+\documentclass[10pt,oneside,a4paper]{book}
+
+% ---- Core packages ----
+\usepackage{url,amsmath}
+\usepackage[quiet,nolocalmarks]{polyglossia}
+\usepackage[linktocpage,breaklinks,linktoc=all,hidelinks]{hyperref}
+\usepackage[top=20mm,bottom=25mm,left=20mm,right=20mm,a4paper]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[doublespacing]{setspace}
+\usepackage{titling}
+\usepackage{ifthen}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage[titles]{tocloft}
+\usepackage{etoolbox}
+\usepackage[figure,table]{totalcount}
+\usepackage[nottoc]{tocbibind}
+\usepackage[within=chapter]{newfloat}
+\usepackage[labelsep=period]{caption}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{collcell}
+\usepackage{float}
+\usepackage{supertabular}
+\usepackage{longtable}
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+
+% ---- Fonts ----
+% Scale=1.2 for slightly larger Arabic text. Adjust as needed.
+\setmainfont[Scale=1.2]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.2]{Amiri-Regular.ttf}
+\setmonofont{Amiri-Regular.ttf}
+\let\arabicfonttt\ttfamily
+\newfontfamily\englishfont[Scale=1.2]{TeX Gyre Termes}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1,locale=algeria]{arabic}
+\setotherlanguage[variant=british]{english}
+\setotherlanguage{german}
+
+% ---- Spacing ----
+\setlength{\parindent}{.5in}
+\setcounter{secnumdepth}{5}
+\setlength{\intextsep}{\baselineskip}
+
+% ---- Chapter formatting (right-aligned, two-line) ----
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries}
+  {\filright\chaptertitlename~\thechapter}
+  {1ex}{\filright\LARGE}
+\titlespacing*{\chapter}{0pt}{-10pt}{20pt}
+
+% ---- Glossaries + Acronyms ----
+% Defines \gls{}, \acrfull{}, \acrshort{}, \acrlong{}.
+% Run `xelatex` then `makeglossaries main` then `xelatex` twice.
+% Or use the bibtex-style: the \makeglossaries command below handles it.
+\usepackage[acronym,toc]{glossaries}
+\makeglossaries
+\input{acronyms.tex}
+
+% ============================================================
+\begin{document}
+
+% ---- Title page ----
+\begin{titlepage}
+    \centering
+    {\Large\textbf{عنوان الكتاب الأكاديمي}}\\[2cm]
+    {\large تأليف: د. اسم المؤلف}\\[1cm]
+    {\large المؤسسة: اسم المؤسسة}\\[2cm]
+    \vfill
+    {\large \today}
+\end{titlepage}
+
+% ---- Front matter (roman page numbers) ----
+\frontmatter
+
+% Table of contents
+\tableofcontents
+
+% List of figures (uncomment if needed)
+% \listoffigures
+
+% List of tables (uncomment if needed)
+% \listoftables
+
+% ---- Main matter (arabic page numbers) ----
+\mainmatter
+
+% Introduction (unnumbered)
+\chapter*{المقدمة}
+\addcontentsline{toc}{chapter}{المقدمة}
+
+% TODO: اكتب نص المقدمة هنا. استخدم \gls{key} و \acrfull{key} للإشارة إلى المصطلحات والاختصارات المعرفة في acronyms.tex.
+
+% Chapters (numbered)
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+
+% ---- Appendices ----
+\appendix
+\input{chapters/appendixA}
+\input{chapters/appendixB}
+
+% ---- Glossary (printed at the end) ----
+\printglossaries
+
+% ---- Bibliography (BibTeX) ----
+% Add your .bib file as bibliography.bib in the project folder.
+% Run: xelatex → bibtex → xelatex → xelatex
+\bibliography{bibliography}
+\bibliographystyle{apalike}
+
+\end{document}

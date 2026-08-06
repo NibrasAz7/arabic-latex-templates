@@ -1,0 +1,275 @@
+% !TEX program = xelatex
+% ============================================================
+%  صفحة واحدة (One-Pager) Template
+%  قالب تسويقي مكثف في صفحة واحدة: مشكلة، حل، ميزات، إحصائيات
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Company/product header with tagline
+%    - Problem statement and solution panels (tcolorbox)
+%    - Key features (3-4 bullets with icon placeholders)
+%    - Metrics/stats row (3 big numbers)
+%    - Target market section
+%    - Contact/CTA footer panel
+%    - Visually dense but clean single-page layout
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=1.8cm,top=1.8cm,bottom=1.8cm,headheight=16pt]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% ---- Arabic/RTL packages (this order, before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={صفحة واحدة},pdfauthor={اسم الشركة}}
+
+% ============================================================
+% Accent color
+% ============================================================
+\definecolor{accent}{HTML}{6A1B9A}
+\definecolor{accentdark}{HTML}{4A148C}
+\definecolor{accentlight}{HTML}{F3E5F5}
+\definecolor{statbg}{HTML}{4A148C}
+\definecolor{panelbg}{HTML}{FAFAFA}
+\definecolor{ctabg}{HTML}{6A1B9A}
+
+% ============================================================
+% Section formatting
+% ============================================================
+\titleformat{\section}{\normalsize\bfseries\color{accentdark}}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{0.6ex plus 0.1ex}{0.4ex plus 0.1ex}
+
+% ============================================================
+% Header / footer
+% ============================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape صفحة واحدة (\LR{One-Pager})}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ============================================================
+% Custom tcolorbox environments
+% ============================================================
+% Problem panel
+\newtcolorbox{problembox}{
+  enhanced,
+  colback=accentlight,
+  colframe=accent,
+  boxrule=0.6pt,
+  arc=3pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt,
+  title={\bfseries المشكلة},
+  colbacktitle=accent,
+  coltitle=white,
+  fonttitle=\bfseries,
+}
+
+% Solution panel
+\newtcolorbox{solutionbox}{
+  enhanced,
+  colback=panelbg,
+  colframe=accentdark,
+  boxrule=0.6pt,
+  arc=3pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt,
+  title={\bfseries الحل},
+  colbacktitle=accentdark,
+  coltitle=white,
+  fonttitle=\bfseries,
+}
+
+% Feature box
+\newtcolorbox{featurebox}[1]{
+  enhanced,
+  colback=white,
+  colframe=accent,
+  boxrule=0.5pt,
+  arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  title={#1},
+  colbacktitle=accent,
+  coltitle=white,
+  fonttitle=\bfseries\small,
+  attach title to upper,
+  after title={\par\vspace{1pt}},
+}
+
+% Stat box for metrics row
+\newtcolorbox{statbox}{
+  enhanced,
+  colback=statbg,
+  colframe=statbg,
+  boxrule=0pt,
+  arc=4pt,
+  left=4pt,right=4pt,top=6pt,bottom=6pt,
+  coltext=white,
+  halign=center,
+}
+
+% CTA footer box
+\newtcolorbox{ctabox}{
+  enhanced,
+  colback=ctabg,
+  colframe=ctabg,
+  boxrule=0pt,
+  arc=4pt,
+  left=12pt,right=12pt,top=8pt,bottom=8pt,
+  coltext=white,
+}
+
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2em}
+
+\begin{document}
+\thispagestyle{fancy}
+
+% ============================================================
+% HEADER (company/product name + tagline)
+% ============================================================
+\noindent\colorbox{accentdark}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+\vspace{0.3em}
+\begin{center}
+{\color{white}\Huge\bfseries اسم المنتج}\\[0.1em]
+{\color{white}\large\itshape شعار أو وصف مختصر في جملة واحدة}
+\end{center}
+\vspace{0.2em}
+}}
+
+\vspace{0.5em}
+
+% ============================================================
+% PROBLEM & SOLUTION (side by side)
+% ============================================================
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+% TODO: صف المشكلة التي يحلها منتجك.
+\begin{problembox}
+وصف موجز للمشكلة التي يواجهها العملاء المستهدفون.%
+اكتب جملتين أو ثلاثاً توضحان حجم المشكلة وأثرها.
+\end{problembox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+% TODO: صف الحل الذي يقدمه منتجك.
+\begin{solutionbox}
+وصف موجز للحل الذي يقدمه اسم المنتج وكيف يعالج%
+المشكلة المذكورة. اكتب جملتين أو ثلاثاً.
+\end{solutionbox}
+\end{minipage}
+
+\vspace{0.4em}
+
+% ============================================================
+% KEY FEATURES
+% ============================================================
+\section{الميزات الرئيسية}
+
+% TODO: استبدل بميزات منتجك (3--4 ميزات).
+\noindent
+\begin{minipage}[t]{0.23\textwidth}
+\begin{featurebox}{\LR{[Icon]} الميزة 1}
+وصف مختصر للميزة الأولى وفائدتها.
+\end{featurebox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\textwidth}
+\begin{featurebox}{\LR{[Icon]} الميزة 2}
+وصف مختصر للميزة الثانية وفائدتها.
+\end{featurebox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\textwidth}
+\begin{featurebox}{\LR{[Icon]} الميزة 3}
+وصف مختصر للميزة الثالثة وفائدتها.
+\end{featurebox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\textwidth}
+\begin{featurebox}{\LR{[Icon]} الميزة 4}
+وصف مختصر للميزة الرابعة وفائدتها.
+\end{featurebox}
+\end{minipage}
+
+\vspace{0.5em}
+
+% ============================================================
+% METRICS / STATS ROW
+% ============================================================
+% TODO: استبدل الأرقام بمؤشراتك الفعلية.
+\noindent
+\begin{minipage}[t]{0.31\textwidth}
+\begin{statbox}
+\centering
+{\Huge\bfseries +10K}\\[0.1em]
+{\small مستخدم نشط}
+\end{statbox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.31\textwidth}
+\begin{statbox}
+\centering
+{\Huge\bfseries 99\%}\\[0.1em]
+{\small رضا العملاء}
+\end{statbox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.31\textwidth}
+\begin{statbox}
+\centering
+{\Huge\bfseries 24/7}\\[0.1em]
+{\small دعم فني}
+\end{statbox}
+\end{minipage}
+
+\vspace{0.5em}
+
+% ============================================================
+% TARGET MARKET
+% ============================================================
+\section{السوق المستهدف}
+% TODO: صف السوق المستهدف.
+اسم المنتج يستهدف ---وصف الشريحة المستهدفة--- في%
+---القطاع أو المنطقة---. يبلغ حجم السوق المستهدف%
+---رقم--- عميلاً محتملاً، مع معدل نمو سنوي يقدر بـ%
+---رقم---\%.
+
+\vspace{0.4em}
+
+% ============================================================
+% CONTACT / CTA FOOTER
+% ============================================================
+\begin{ctabox}
+\begin{center}
+{\Large\bfseries ابدأ اليوم!}\\[0.3em]
+{\small جرّب اسم المنتج مجاناً لمدة 14 يوماً}
+\end{center}
+\vspace{0.3em}
+\begin{center}
+\LR{www.example.com} \quad|\quad%
+\LR{\href{mailto:info@example.com}{info@example.com}} \quad|\quad%
+\LR{+00-000-000-0000}
+\end{center}
+\end{ctabox}
+
+\end{document}

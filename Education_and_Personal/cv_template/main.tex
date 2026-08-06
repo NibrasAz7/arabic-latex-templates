@@ -1,0 +1,209 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Academic CV Template — Nibras Center
+%  Compile with: xelatex main.tex (run twice)
+%  Engine: XeLaTeX (required for polyglossia + bidi + fontspec)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2cm,top=2cm,bottom=2cm]{geometry}
+
+% ---- Core packages (order matters for bidi) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.85]{TeX Gyre Termes}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load after polyglossia/bidi) ----
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={السيرة الذاتية الأكاديمية},
+  pdfauthor={د. اسم الباحث}
+}
+
+% ---- Section / list / table packages ----
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{setspace}
+
+% ---- Colors ----
+\definecolor{accent}{HTML}{1F3A5F}
+\definecolor{rule}{HTML}{555555}
+
+% ---- Section formatting (colored, with rule underneath) ----
+% \titleformat* formats the starred (unnumbered) version of a section.
+\titleformat*{\section}{\Large\bfseries\color{accent}}
+\titleformat*{\subsection}{\normalsize\bfseries\color{accent}}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.6ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{0.8ex plus 0.2ex}{0.4ex plus 0.1ex}
+
+% Rule under each \section* heading (redefine \section to handle the star)
+\makeatletter
+\let\oldsection\section
+\renewcommand{\section}{\@ifstar{\sectionstar}{\oldsection}}
+\newcommand{\sectionstar}[1]{\oldsection*{#1}\vspace{-0.6em}{\color{rule}\hrule height 0.4pt}\vspace{0.4em}}
+\makeatother
+
+% ---- List spacing (compact) ----
+\setlist[itemize]{topsep=0.25em, itemsep=0.12em, parsep=0pt, leftmargin=*}
+\setlist[enumerate]{topsep=0.25em, itemsep=0.12em, parsep=0pt, leftmargin=*}
+
+% ---- Table column types ----
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---- Line spacing ----
+\setstretch{1.1}
+
+% ---- No page numbers on first page, plain elsewhere ----
+\pagestyle{plain}
+
+\begin{document}
+
+% ============================================================
+% HEADER
+% ============================================================
+\thispagestyle{empty}
+\begin{center}
+{\Huge\bfseries\color{accent} د. اسم الباحث\par}
+\vspace{0.4em}
+{\large أستاذ جامعي \,$\vert$\, باحث في التقنية العصبية\par}
+\vspace{0.8em}
+{\small
+\faEnvelope~\href{mailto:name@example.com}{name@example.com} \quad
+\faPhone~\LR{+90 555 000 0000} \quad
+\faGlobe~\href{https://example.com}{example.com} \quad
+\faMapMarker~\LR{Istanbul, Turkey} \quad
+\faOrcid~\href{https://orcid.org/0000-0000-0000-0000}{\LR{ORCID}}
+\par}
+\end{center}
+
+\vspace{0.5em}
+
+% ============================================================
+% 1. الملخص المهني
+% ============================================================
+\section*{الملخص المهني}
+باحث جامعي متخصص في التقنية العصبية وواجهات الدماغ والحاسوب (\LR{BCI})،
+مع خبرة تتجاوز خمسة عشر عاماً في التدريس والبحث العلمي. نشر أكثر من ثلاثين
+ورقة بحثية في مجلات محكّمة، وأشرف على عدة مشاريع مموّلة وطُلّاب دراسات
+عليا. يهتم بتطوير أنظمة مساعدة للأشخاص ذوي الإعاقة الحركية.
+
+% ============================================================
+% 2. التعليم
+% ============================================================
+\section*{التعليم}
+\vspace{-0.3em}
+\begin{tabularx}{\textwidth}{@{}l X c@{}}
+\toprule
+\textbf{الدرجة} & \textbf{المؤسسة — عنوان الأطروحة} & \textbf{السنة} \\
+\midrule
+دكتوراه & جامعة إسطنبول التقنية — \LR{Neural Decoding for BCI} & \LR{2012} \\
+ماجستير & جامعة دمشق — تحليل الإشارات الحيوية & \LR{2008} \\
+بكالوريوس & جامعة حلب — هندسة الطب الحيوي & \LR{2005} \\
+\bottomrule
+\end{tabularx}
+
+% ============================================================
+% 3. الخبرات الأكاديمية
+% ============================================================
+\section*{الخبرات الأكاديمية}
+\textbf{أستاذ مشارك} — جامعة إسطنبول التقنية، قسم الهندسة الطبية الحيوية \hfill \LR{2018–الآن}\\
+التدريس: معالجة الإشارات الحيوية، التعلم الآلي، الأخلاقيات البحثية. الإشراف على
+رسائل الماجستير والدكتوراه.
+\vspace{0.5em}
+
+\textbf{أستاذ مساعد} — جامعة دمشق، قسم الهندسة الطبية الحيوية \hfill \LR{2012–2018}\\
+تطوير مقررات معالجة الإشارات، والمشاركة في تأسيس مختبر واجهات الدماغ والحاسوب.
+
+% ============================================================
+% 4. المنشورات
+% ============================================================
+\section*{المنشورات}
+
+\subsection*{كتب}
+\begin{enumerate}
+\item \textbf{مدخل إلى واجهات الدماغ والحاسوب.} دار النشر، \LR{2020}.
+\item \textbf{معالجة الإشارات العصبية: الأسس والتطبيقات.} دار النشر، \LR{2017}.
+\end{enumerate}
+
+\subsection*{مقالات محكمة}
+\begin{enumerate}
+\item \LR{Author, A.} (2023). Deep learning for motor imagery \LR{BCI}. \emph{Journal of Neural Engineering}, \LR{20(3)}, 123--135.
+\item \LR{Author, A.}, \LR{\& Coauthor, B.} (2021). Adaptive filters for \LR{EEG}. \emph{IEEE TNSRE}, \LR{29}, 1--10.
+\end{enumerate}
+
+\subsection*{مؤتمرات}
+\begin{enumerate}
+\item \LR{Author, A.} (2022). Real-time decoding of imagined speech. \emph{Proc. IEEE EMBC}, \LR{1--4}.
+\item \LR{Author, A.}, \LR{\& Coauthor, B.} (2019). \LR{SSVEP}-based spelling system. \emph{Proc. ICONIP}, \LR{210--218}.
+\end{enumerate}
+
+% ============================================================
+% 5. المشاريع البحثية
+% ============================================================
+\section*{المشاريع البحثية}
+\textbf{نظام تواصل مساعد مبني على واجهات الدماغ والحاسوب} \hfill \LR{2021–2024}\\
+\textit{الباحث الرئيسي} — تمويل: مجلس البحث العلمي (\LR{TUBITAK})، مبلغ \LR{300{,}000} دولار.
+
+\vspace{0.4em}
+\textbf{تطوير خوارزميات فك تشفير الكلام المتخيّل} \hfill \LR{2018–2020}\\
+\textit{باحث مشارك} — تمويل: برنامج إطار البحث الأوروبي (\LR{Horizon 2020}).
+
+% ============================================================
+% 6. الجوائز والتكريمات
+% ============================================================
+\section*{الجوائز والتكريمات}
+\begin{itemize}
+\item جائزة البحث العلمي المتميز، جامعة إسطنبول التقنية، \LR{2022}.
+\item زمالة ما بعد الدكتوراه، مؤسسة ألكسندر فون هومبولت، \LR{2015}.
+\item أفضل ورقة بحثية شابة، مؤتمر \LR{ICONIP}، \LR{2019}.
+\end{itemize}
+
+% ============================================================
+% 7. العضويات المهنية
+% ============================================================
+\section*{العضويات المهنية}
+\begin{itemize}
+\item الجمعية الدولية لهندسة الطب والأحياء (\LR{IEEE EMBS}) — عضو منذ \LR{2013}.
+\item جمعية واجهات الدماغ والحاسوب العالمية (\LR{BCI Society}) — عضو منذ \LR{2016}.
+\item هيئة التحرير، مجلة الهندسة العصبية العربية — \LR{2020–الآن}.
+\end{itemize}
+
+% ============================================================
+% 8. اللغات
+% ============================================================
+\section*{اللغات}
+\begin{itemize}
+\item \textbf{العربية:} اللغة الأم.
+\item \textbf{\LR{English}:} إجادة تامة (تحدثاً وكتابة).
+\item \textbf{\LR{Turkish}:} إجادة جيدة.
+\item \textbf{\LR{French}:} مستوى متوسط.
+\end{itemize}
+
+% ============================================================
+% 9. المهارات التقنية
+% ============================================================
+\section*{المهارات التقنية}
+\begin{itemize}
+\item لغات البرمجة: \LR{Python}, \LR{R}, \LR{MATLAB}, \LR{C++}.
+\item أدوات: \LR{LaTeX}, \LR{Git}, \LR{Docker}, \LR{Linux}.
+\item تعلّم عميق: \LR{PyTorch}, \LR{TensorFlow}, \LR{Keras}.
+\item معالجة الإشارات: \LR{MNE-Python}, \LR{EEGLAB}, \LR{FieldTrip}.
+\end{itemize}
+
+\end{document}

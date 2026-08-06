@@ -1,0 +1,169 @@
+% !TEX program = xelatex
+% ============================================================
+%  دعوة زفاف — Wedding Invitation Template
+%  قالب دعوة زفاف أنيق بإطار زخرفي وعناصر تزيينية.
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Decorative TikZ border with corner flourishes
+%    - "بسم الله الرحمن الرحيم" header
+%    - Bride and groom names in large Amiri font
+%    - Date, time, venue and RSVP contact fields
+%    - Single page with generous whitespace
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+
+% ---- Core packages (order matters for bidi) ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc,decorations.markings,decorations.pathmorphing}
+
+% ---- RTL / Arabic language support (must load before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load after polyglossia/bidi) ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={دعوة زفاف},
+  pdfauthor={الاسم}
+}
+
+% ---- Colors ----
+\definecolor{invgold}{HTML}{8B6F2A}
+\definecolor{invcream}{HTML}{FBF7EF}
+\definecolor{invink}{HTML}{2B2B2B}
+
+% ---- Line spacing ----
+\setstretch{1.4}
+
+\pagestyle{empty}
+
+% ---- Decorative corner flourish ----
+\newcommand{\cornerflourish}[2]{%
+  \begin{scope}[shift={(#1,#2)}]
+    \draw[invgold,line width=1pt] (0,0) -- (1.6,0);
+    \draw[invgold,line width=1pt] (0,0) -- (0,1.6);
+    \draw[invgold,line width=0.6pt] (0.25,0.25) -- (1.2,0.25) -- (1.2,1.2);
+    \draw[invgold,line width=0.6pt] (0.25,0.25) -- (0.25,1.2) -- (1.2,1.2);
+    \fill[invgold] (0,0) circle (2pt);
+    \fill[invgold] (1.6,0) circle (1.5pt);
+    \fill[invgold] (0,1.6) circle (1.5pt);
+  \end{scope}%
+}
+
+\begin{document}
+\color{invink}
+
+% ---- Decorative border frame ----
+\begin{tikzpicture}[remember picture,overlay]
+  \draw[invgold,line width=1.2pt]
+    ($(current page.north west)+(1.2cm,-1.2cm)$)
+    rectangle
+    ($(current page.south east)+(-1.2cm,1.2cm)$);
+  \draw[invgold,line width=0.5pt]
+    ($(current page.north west)+(1.5cm,-1.5cm)$)
+    rectangle
+    ($(current page.south east)+(-1.5cm,1.5cm)$);
+  % Corner flourishes (mirror for each corner)
+  \begin{scope}[shift={(current page.north west)}]
+    \cornerflourish{1.2}{-1.2}
+  \end{scope}
+  \begin{scope}[shift={(current page.north east)},xscale=-1]
+    \cornerflourish{1.2}{-1.2}
+  \end{scope}
+  \begin{scope}[shift={(current page.south west)},yscale=-1]
+    \cornerflourish{1.2}{-1.2}
+  \end{scope}
+  \begin{scope}[shift={(current page.south east)},xscale=-1,yscale=-1]
+    \cornerflourish{1.2}{-1.2}
+  \end{scope}
+\end{tikzpicture}
+
+\vspace*{0.4cm}
+
+\begin{center}
+
+% ---- Bismillah header ----
+{\fontsize{24pt}{30pt}\selectfont\color{invgold}
+بسم الله الرحمن الرحيم\par}
+
+\vspace{0.7cm}
+
+{\fontsize{14pt}{18pt}\selectfont
+\textarabic{وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا}\par}
+{\fontsize{12pt}{16pt}\selectfont\color{invgold}
+\textarabic{وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً}\par}
+
+\vspace{0.9cm}
+
+% ---- Invitation line ----
+{\fontsize{18pt}{24pt}\selectfont
+يسرّنا دعوتكم لحضور حفل زفاف\par}
+
+\vspace{0.7cm}
+
+% ---- Bride and groom names ----
+% TODO: استبدل الأسماء بأسماء العروسين
+{\fontsize{26pt}{32pt}\selectfont\color{invgold}
+اسم العروس\par}
+\vspace{0.1cm}
+{\fontsize{16pt}{20pt}\selectfont
+\&\par}
+\vspace{0.1cm}
+{\fontsize{26pt}{32pt}\selectfont\color{invgold}
+اسم العريس\par}
+
+\vspace{0.8cm}
+
+% ---- Decorative divider ----
+\begin{tikzpicture}
+  \draw[invgold,line width=0.8pt] (-4,0) -- (-0.6,0);
+  \draw[invgold,line width=0.8pt] (0.6,0) -- (4,0);
+  \fill[invgold] (0,0) circle (3pt);
+  \draw[invgold,line width=0.5pt] (0,0) circle (7pt);
+\end{tikzpicture}
+
+\vspace{0.6cm}
+
+% ---- Event details ----
+% TODO: املأ تاريخ ووقت ومكان الحفل
+{\fontsize{13pt}{18pt}\selectfont
+\begin{tabular}{r@{\hspace{1.2cm}}l}
+\textbf{التاريخ:} & يوم الجمعة، ١٥ شعبان ١٤٤٦هـ \\
+\textbf{الوقت:} & الساعة السابعة مساءً \\
+\textbf{المكان:} & قاعة المناسبات — المدينة \\
+\end{tabular}\par}
+
+\vspace{0.8cm}
+
+% ---- RSVP ----
+{\fontsize{12pt}{16pt}\selectfont
+\textbf{يرجى تأكيد الحضور (RSVP):}\par}
+\vspace{0.1cm}
+{\fontsize{11pt}{15pt}\selectfont\color{invgold}
+٠٥٥٥٥٥٥٥٥٥ — الاسم\par}
+
+\end{center}
+
+\end{document}

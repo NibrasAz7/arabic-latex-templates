@@ -1,0 +1,248 @@
+% !TEX program = xelatex
+% ============================================================
+%  دفتر المختبر — Lab Notebook Template
+%  نموذج دفتر مختبر منظّم بمداخل تجارب متعددة (Structured Experiment Entries)
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Structured experiment entries: ID, Date, Objective, Materials, Procedure
+%    - Observations, Results, Notes sections per entry
+%    - Multiple entry blocks using tables
+%    - Fancy headers with notebook title
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+
+% ---- Core packages ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+% ---- RTL / Arabic language support (load before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+\newfontfamily\arabicfontsf{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={دفتر المختبر},
+  pdfauthor={اسم الباحث}
+}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\tablename}{الجدول}%
+  \renewcommand{\figurename}{الشكل}%
+}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape دفتر المختبر (Lab Notebook)}
+\fancyhead[L]{\small اسم الباحث}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---- List spacing ----
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+% ---- Table column types ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ---- Line spacing ----
+\setstretch{1.4}
+
+% ---- Experiment entry info table ----
+\newcommand{\entryinfo}[2]{%
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{3.5cm} X L{3.5cm} X}
+\toprule
+\textbf{رقم التجربة (ID):} & #1 & \textbf{التاريخ (Date):} & #2 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+}
+
+\begin{document}
+
+% ============================================================
+% COVER / HEADER
+% ============================================================
+\thispagestyle{fancy}
+
+\begin{center}
+{\LARGE\bfseries دفتر المختبر (Lab Notebook)}\\[0.8em]
+% TODO: اكتب اسم الباحث والمختبر هنا.
+{\large اسم الباحث --- المختبر، القسم، الجامعة}\\[0.3em]
+{\small \today}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% ENTRY 1
+% ============================================================
+\section{التجربة الأولى}
+
+% TODO: عدّل رقم التجربة والتاريخ.
+\entryinfo{\LR{EXP-001}}{\today}
+
+\subsection*{الهدف (Objective)}
+% TODO: اكتب هدف التجربة هنا.
+هذا نص تجريبي لهدف التجربة. يصف الغرض من إجراء التجربة والسؤال البحثي المطروح.
+
+\subsection*{المواد والأدوات (Materials)}
+% TODO: اذكر المواد والأدوات المستخدمة.
+\begin{itemize}
+    \item مادة 1 --- الكمية
+    \item مادة 2 --- الكمية
+    \item جهاز 1 --- المواصفات
+\end{itemize}
+
+\subsection*{طريقة العمل (Procedure)}
+% TODO: اكتب خطوات العمل بالترتيب.
+\begin{enumerate}
+    \item الخطوة الأولى: وصف الخطوة.
+    \item الخطوة الثانية: وصف الخطوة.
+    \item الخطوة الثالثة: وصف الخطوة.
+\end{enumerate}
+
+\subsection*{الملاحظات (Observations)}
+% TODO: اكتب الملاحظات أثناء التجربة.
+هذا نص تجريبي للملاحظات. يسجل ما لوحظ أثناء إجراء التجربة.
+
+\subsection*{النتائج (Results)}
+% TODO: اكتب النتائج هنا.
+
+\begin{table}[H]
+\centering
+\caption{نتائج التجربة الأولى}
+\begin{tabularx}{\textwidth}{C{3cm} C{3cm} C{3cm}}
+\toprule
+\textbf{العينة} & \textbf{القيمة المقاسة} & \textbf{الوحدة} \\
+\midrule
+% TODO: املأ بيانات النتائج.
+1 & \LR{10.5} & \LR{mg/L} \\
+2 & \LR{12.3} & \LR{mg/L} \\
+3 & \LR{9.8}  & \LR{mg/L} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{ملاحظات إضافية (Notes)}
+% TODO: اكتب أي ملاحظات إضافية أو خطوات تالية.
+هذا نص تجريبي للملاحظات الإضافية. يذكر أي تحفظات أو خطوات تالية مقترحة.
+
+\newpage
+
+% ============================================================
+% ENTRY 2
+% ============================================================
+\section{التجربة الثانية}
+
+% TODO: عدّل رقم التجربة والتاريخ.
+\entryinfo{\LR{EXP-002}}{\today}
+
+\subsection*{الهدف (Objective)}
+% TODO: اكتب هدف التجربة هنا.
+
+\subsection*{المواد والأدوات (Materials)}
+% TODO: اذكر المواد والأدوات المستخدمة.
+\begin{itemize}
+    \item مادة 1 --- الكمية
+    \item جهاز 1 --- المواصفات
+\end{itemize}
+
+\subsection*{طريقة العمل (Procedure)}
+% TODO: اكتب خطوات العمل بالترتيب.
+\begin{enumerate}
+    \item الخطوة الأولى: وصف الخطوة.
+    \item الخطوة الثانية: وصف الخطوة.
+\end{enumerate}
+
+\subsection*{الملاحظات (Observations)}
+% TODO: اكتب الملاحظات أثناء التجربة.
+
+\subsection*{النتائج (Results)}
+% TODO: اكتب النتائج هنا.
+
+\begin{table}[H]
+\centering
+\caption{نتائج التجربة الثانية}
+\begin{tabularx}{\textwidth}{C{3cm} C{3cm} C{3cm}}
+\toprule
+\textbf{العينة} & \textbf{القيمة المقاسة} & \textbf{الوحدة} \\
+\midrule
+% TODO: املأ بيانات النتائج.
+1 & \LR{22.1} & \LR{mg/L} \\
+2 & \LR{24.0} & \LR{mg/L} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{ملاحظات إضافية (Notes)}
+% TODO: اكتب أي ملاحظات إضافية.
+
+\newpage
+
+% ============================================================
+% ENTRY 3 (template — copy as needed)
+% ============================================================
+\section{التجربة الثالثة}
+
+% TODO: انسخ كتلة التجربة هذه حسب الحاجة لإضافة مداخل جديدة.
+\entryinfo{\LR{EXP-003}}{\today}
+
+\subsection*{الهدف (Objective)}
+% TODO: اكتب هدف التجربة هنا.
+
+\subsection*{المواد والأدوات (Materials)}
+% TODO: اذكر المواد والأدوات المستخدمة.
+
+\subsection*{طريقة العمل (Procedure)}
+% TODO: اكتب خطوات العمل بالترتيب.
+
+\subsection*{الملاحظات (Observations)}
+% TODO: اكتب الملاحظات أثناء التجربة.
+
+\subsection*{النتائج (Results)}
+% TODO: اكتب النتائج هنا.
+
+\subsection*{ملاحظات إضافية (Notes)}
+% TODO: اكتب أي ملاحظات إضافية.
+
+\end{document}

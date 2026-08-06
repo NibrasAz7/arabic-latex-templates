@@ -1,0 +1,31 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*~
+.vscode/
+.idea/

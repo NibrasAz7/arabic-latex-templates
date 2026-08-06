@@ -1,0 +1,215 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Academic Article Template — Nibras Center
+%  Compile with:
+%    xelatex main.tex
+%    bibtex main
+%    xelatex main.tex
+%    xelatex main.tex
+%  Based on the BCI_Academic_arabic_Book + ASPU_Proposal_AR setups.
+% ============================================================
+%  Features:
+%    - A4, 11pt, article class
+%    - Title block with author, affiliation, abstract
+%    - Glossaries + acronyms (\gls{}, \acrfull{}, \acrshort{})
+%    - BibTeX bibliography (apalike style)
+%    - Sections/subsections/subsubsections
+%    - Fancy headers with title + author
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+
+% ---- Core packages (order matters for bidi) ----
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{supertabular}
+\usepackage{longtable}
+
+% ---- RTL / Arabic language support (must load before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load after polyglossia/bidi) ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={عنوان المقال},
+  pdfauthor={د. اسم المؤلف}
+}
+
+% ---- Glossaries + Acronyms ----
+\usepackage[acronym,toc]{glossaries}
+\makeglossaries
+\input{acronyms.tex}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+  \renewcommand{\refname}{المراجع}%
+  \renewcommand{\abstractname}{الملخص}%
+}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+\titlespacing*{\subsection}{0pt}{1.0ex plus 0.3ex}{0.7ex plus 0.2ex}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape عنوان مختصر للمقال}
+\fancyhead[L]{\small د. اسم المؤلف}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---- List spacing ----
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+% ---- Table column types ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---- Line spacing ----
+\setstretch{1.5}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries عنوان المقال العلمي}\\[1em]
+{\large د. اسم المؤلف}\\[0.3em]
+{\small القسم، الجامعة}\\[0.3em]
+{\small \texttt{email@example.com}}\\[1em]
+\end{center}
+
+\vspace{0.5em}
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\noindent\textbf{الملخص:}
+% TODO: اكتب ملخص المقال هنا (150-250 كلمة). اذكر المشكلة، المنهجية، النتائج، والاستنتاج.
+
+\vspace{0.5em}
+\noindent\textbf{الكلمات المفتاحية:} كلمة 1، كلمة 2، كلمة 3، كلمة 4.
+\end{minipage}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% BODY
+% ============================================================
+
+\section{المقدمة}
+\label{sec:intro}
+
+% TODO: اكتب مقدمة المقال هنا. استخدم \acrfull{key} و \gls{key} للإشارة إلى المصطلحات.
+% استخدم \cite{bibkey} للإشارة إلى المراجع.
+
+\section{الخلفية النظرية والأدبيات}
+\label{sec:background}
+
+% TODO: اكتب مراجعة الأدبيات هنا.
+
+\subsection{المبحث الفرعي}
+
+% TODO: اكتب المحتوى هنا.
+
+\section{المنهجية}
+\label{sec:method}
+
+% TODO: اكتب منهجية البحث هنا.
+
+\section{النتائج}
+\label{sec:results}
+
+% TODO: اكتب النتائج هنا.
+
+% ---- Example table ----
+% \begin{table}[H]
+% \centering
+% \caption{عنوان الجدول}
+% \begin{tabularx}{\textwidth}{L{4cm} X}
+% \toprule
+% \textbf{العنوان} & \textbf{الوصف}\\
+% \midrule
+% بيانات & بيانات\\
+% \bottomrule
+% \end{tabularx}
+% \end{table}
+
+% ---- Example figure ----
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.8\textwidth]{figure.png}
+% \caption{عنوان الشكل}
+% \end{figure}
+
+\section{المناقشة}
+\label{sec:discussion}
+
+% TODO: اكتب مناقشة النتائج هنا.
+
+\section{الاستنتاجات}
+\label{sec:conclusion}
+
+% TODO: اكتب الاستنتاجات هنا.
+
+% ============================================================
+% APPENDICES (optional)
+% ============================================================
+\appendix
+\section*{الملحق أ}
+\addcontentsline{toc}{section}{الملحق أ}
+
+% TODO: اكتب محتوى الملحق هنا.
+
+% ============================================================
+% GLOSSARY
+% ============================================================
+\printglossaries
+
+% ============================================================
+% BIBLIOGRAPHY
+% ============================================================
+% Add your .bib file as bibliography.bib in the project folder.
+% Run: xelatex → bibtex → xelatex → xelatex
+\bibliography{bibliography}
+\bibliographystyle{apalike}
+
+\end{document}

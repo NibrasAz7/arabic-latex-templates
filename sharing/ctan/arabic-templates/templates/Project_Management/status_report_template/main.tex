@@ -1,0 +1,204 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Status Report Template — Nibras Center
+%  مشروع بحثي: تقرير الحالة الدوري
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={تقرير الحالة},pdfauthor={الباحث الرئيسي}}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape تقرير الحالة}
+\fancyhead[L]{\small اسم المشروع}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{statusGreen}{HTML}{27AE60}
+\definecolor{statusYellow}{HTML}{D4A017}
+\definecolor{statusRed}{HTML}{C0392B}
+\definecolor{headerColor}{HTML}{1A3C6B}
+
+\setstretch{1.4}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries تقرير الحالة الدوري}\\[0.5em]
+{\Large عنوان المشروع البحثي}\\[1em]
+\end{center}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{4cm} X L{4cm} X}
+\toprule
+\textbf{رقم التقرير:} & --- & \textbf{الفترة:} & --- \\
+\textbf{تاريخ التقرير:} & --- & \textbf{مقدم التقرير:} & --- \\
+\textbf{الحالة العامة:} & \multicolumn{3}{l}{\color{statusGreen}\textbf{\Large$\bullet$} على المسار \quad \color{statusYellow}\textbf{\Large$\bullet$} يحتاج انتباه \quad \color{statusRed}\textbf{\Large$\bullet$} متأخر} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+% ============================================================
+% 1. EXECUTIVE SUMMARY
+% ============================================================
+\section{الملخص التنفيذي}
+\label{sec:summary}
+
+% TODO: اكتب ملخصاً تنفيذياً مختصراً (3-5 جمل).
+\vspace{3em}
+
+% ============================================================
+% 2. PROGRESS
+% ============================================================
+\section{التقدم المنجز في هذه الفترة}
+\label{sec:progress}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{C{1cm} L{5cm} C{2cm} C{2cm} C{2cm}}
+\toprule
+\textbf{رقم} & \textbf{المهمة} & \textbf{نسبة الإنجاز} & \textbf{المسؤول} & \textbf{الحالة} \\
+\midrule
+1 & مراجعة الأدبيات & 100\% & Co1 & \color{statusGreen}\textbf{مكتملة} \\
+2 & تصميم المنهجية & 80\% & PI & \color{statusYellow}\textbf{قيد التنفيذ} \\
+3 & تجهيز المعدات & 50\% & Tech & \color{statusYellow}\textbf{قيد التنفيذ} \\
+4 & جمع البيانات & 20\% & Co2 & \color{statusRed}\textbf{متأخرة} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 3. UPCOMING MILESTONES
+% ============================================================
+\section{المعالم القادمة}
+\label{sec:upcoming}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{C{1cm} L{5cm} C{3cm} C{3cm}}
+\toprule
+\textbf{رقم} & \textbf{المعلم} & \textbf{التاريخ المتوقع} & \textbf{الحالة} \\
+\midrule
+M1 & انتهاء تصميم المنهجية & --- & \color{statusYellow}\textbf{على المسار} \\
+M2 & انتهاء تجهيز المعدات & --- & \color{statusYellow}\textbf{على المسار} \\
+M3 & انتهاء جمع البيانات & --- & \color{statusRed}\textbf{معرض للتأخير} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 4. ISSUES AND RISKS
+% ============================================================
+\section{القضايا والمخاطر الحالية}
+\label{sec:issues}
+
+\subsection{القضايا}
+\begin{itemize}
+    \item \textbf{القضية 1:} تأخر في تسليم جهاز القياس — يجري العمل على حلها.
+    \item \textbf{القضية 2:} نقص في عدد العينات — يجري توسيع نطاق التجنيد.
+\end{itemize}
+
+\subsection{المخاطر}
+\begin{itemize}
+    \item \textbf{المخاطرة 1:} احتمال تأخر إضافي في جمع البيانات (مستوى: عالٍ).
+    \item \textbf{المخاطرة 2:} صعوبة في الوصول إلى مجلة محكمة (مستوى: متوسط).
+\end{itemize}
+
+% ============================================================
+% 5. BUDGET STATUS
+% ============================================================
+\section{حالة الميزانية}
+\label{sec:budget}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{5cm} C{3cm} C{3cm} C{3cm}}
+\toprule
+\textbf{البند} & \textbf{المعتمد} & \textbf{المصروف} & \textbf{المتبقي} \\
+\midrule
+الرواتب والأجور & 50,000 & 25,000 & 25,000 \\
+المعدات & 20,000 & 18,000 & 2,000 \\
+المواد الاستهلاكية & 5,000 & 3,000 & 2,000 \\
+السفر والمؤتمرات & 10,000 & 2,000 & 8,000 \\
+النشر & 5,000 & 0 & 5,000 \\
+أخرى & 10,000 & 1,000 & 9,000 \\
+\midrule
+\textbf{المجموع} & \textbf{100,000} & \textbf{49,000} & \textbf{51,000} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{نسبة استهلاك الميزانية:} \textbf{49\%} \quad \textbf{نسبة إنجاز المشروع:} \textbf{45\%}
+
+% ============================================================
+% 6. NEXT PERIOD PLAN
+% ============================================================
+\section{خطة الفترة القادمة}
+\label{sec:next}
+
+\begin{enumerate}
+    \item إكمال تصميم المنهجية (الأسبوع 1--2).
+    \item استلام الجهاز وبدء التجهيز (الأسبوع 2--3).
+    \item تسريع جمع البيانات (الأسبوع 3--6).
+    \item بدء التحليل الأولي للبيانات المتاحة (الأسبوع 4--6).
+\end{enumerate}
+
+% ============================================================
+% 7. APPROVAL
+% ============================================================
+\section*{الاعتماد}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{L{4cm} X X}
+\toprule
+\textbf{مقدم التقرير} & \textbf{الباحث الرئيسي} & \textbf{مدير المشروع} \\
+\midrule
+\rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

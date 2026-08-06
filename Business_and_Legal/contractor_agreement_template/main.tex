@@ -1,0 +1,230 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Independent Contractor Agreement Template — Nibras Center
+%  عقد مقاول مستقل / متعاون حر
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={عقد مقاول مستقل},pdfauthor={الشركة}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape عقد مقاول مستقل}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.5}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries عقد مقاول مستقل}\\[0.5em]
+{\large (\LR{Independent Contractor Agreement})}\\[1em]
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% PARTIES
+% ============================================================
+\noindent\textbf{الأطراف:}
+
+\begin{enumerate}
+    \item \textbf{العميل (الشركة):} \rule{8cm}{0.4pt}، رقم السجل التجاري: \rule{4cm}{0.4pt}، المقر: \rule{6cm}{0.4pt}.
+
+    \item \textbf{المقاول (المتعاون الحر):} \rule{8cm}{0.4pt}، رقم الهوية/الجواز: \rule{4cm}{0.4pt}، العنوان: \rule{6cm}{0.4pt}.
+\end{enumerate}
+
+\vspace{1em}
+
+% ============================================================
+% 1. SCOPE OF WORK
+% ============================================================
+\section{نطاق العمل}
+\label{sec:scope}
+\begin{enumerate}
+    \item \textbf{وصف العمل:} \rule{10cm}{0.4pt}
+    \item \textbf{المخرجات المطلوبة:}
+    \begin{itemize}
+        \item \rule{10cm}{0.4pt}
+        \item \rule{10cm}{0.4pt}
+        \item \rule{10cm}{0.4pt}
+    \end{itemize}
+    \item \textbf{المعايير:} يجب أن تكون المخرجات وفقاً للمعايير المتعارف عليها في الصناعة.
+    \item يجوز تعديل نطاق العمل باتفاق مكتوب بين الطرفين.
+\end{enumerate}
+
+% ============================================================
+% 2. TIMELINE
+% ============================================================
+\section{الجدول الزمني}
+\label{sec:timeline}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{C{1cm} L{6cm} C{3cm} X}
+\toprule
+\textbf{رقم} & \textbf{المخرج} & \textbf{تاريخ التسليم} & \textbf{ملاحظات} \\
+\midrule
+1 & --- & --- & --- \\
+2 & --- & --- & --- \\
+3 & --- & --- & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 3. PAYMENT
+% ============================================================
+\section{الأتعاف والمدفوعات}
+\label{sec:payment}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{6cm} C{3cm} X}
+\toprule
+\textbf{البند} & \textbf{المبلغ (\LR{USD})} & \textbf{موعد الدفع} \\
+\midrule
+دفعة أولى (عند التوقيع) & --- & عند التوقيع \\
+دفعة ثانية (منتصف المشروع) & --- & عند تسليم المخرج 2 \\
+دفعة نهائية (عند التسليم) & --- & عند التسليم النهائي \\
+\midrule
+\textbf{الإجمالي} & \textbf{---} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{itemize}
+    \item تُدفع الفواتير خلال \rule{2cm}{0.4pt} يوماً من استلامها.
+    \item المسؤول عن الضرائب: المقاول مسؤول عن ضرائبه الخاصة.
+    \item لا تُدفع مصاريف إضافية إلا بموافقة مسبقة من العميل.
+\end{itemize}
+
+% ============================================================
+% 4. CONTRACTOR STATUS
+% ============================================================
+\section{صفة المقاول}
+\label{sec:status}
+\begin{enumerate}
+    \item \textbf{المقاول ليس موظفاً} لدى العميل، ولا تنطبق عليه أحكام عقد العمل.
+    \item لا يحق للمقاول الحصول على مزايا الموظفين (تأمين صحي، إجازات مدفوعة، تقاعد).
+    \item يتحمل المقاول مسؤولية ضرائبه وتأمينه الخاص.
+    \item يحق للمقاول تحديد ساعات ومكان عمله، شريطة الالتزام بالجدول الزمني.
+    \item يحق للمقاول العمل لدى عملاء آخرين، شريطة عدم تعارض المصالح.
+\end{enumerate}
+
+% ============================================================
+% 5. IP
+% ============================================================
+\section{الملكية الفكرية}
+\label{sec:ip}
+\begin{enumerate}
+    \item تنتقل جميع حقوق الملكية الفكرية في المخرجات إلى العميل فور تسليمها ودفع الأتعاف.
+    \item يوقّع المقاول اتفاقية تنازل منفصلة عن الملكية الفكرية.
+    \item لا يحق للمقاول استخدام المخرجات لأغراض شخصية أو إعادة بيعها.
+    \item الأدوات والقوالب التي يستخدمها المقاول قبل العقد تبقى ملكاً له، ويمنح العميل ترخيصاً لاستخدامها.
+\end{enumerate}
+
+% ============================================================
+% 6. CONFIDENTIALITY
+% ============================================================
+\section{السرية}
+\label{sec:confidentiality}
+يلتزم المقاول بالحفاظ على سرية جميع معلومات العميل، وفقاً لاتفاقية عدم الإفصاح (\LR{NDA}) الموقّعة بين الطرفين. يستمر هذا الالتزام لمدة \rule{2cm}{0.4pt} سنوات بعد انتهاء العقد.
+
+% ============================================================
+% 7. WARRANTIES
+% ============================================================
+\section{الضمانات}
+\label{sec:warranties}
+\begin{enumerate}
+    \item يضمن المقاول أن المخرجات أصلية ولا تنتهك حقوق ملكية فكرية لأطراف ثالثة.
+    \item يضمن أن العمل سيكون خالياً من العيوب الجوهرية لمدة \rule{2cm}{0.4pt} يوماً بعد التسليم.
+    \item يصلح المقاول أي عيوب تكتشف خلال فترة الضمان دون مقابل.
+\end{enumerate}
+
+% ============================================================
+% 8. TERMINATION
+% ============================================================
+\section{إنهاء العقد}
+\label{sec:termination}
+\begin{enumerate}
+    \item يجوز لأي طرف إنهاء العقد بإشعار مسبق \rule{2cm}{0.4pt} يوماً.
+    \item يجوز للعميل الإنهاء فوراً «لسبب» (إخلال جسيم، تأخر متكرر).
+    \item عند الإنهاء، يُدفع للمقاول مقابل العمل المنجز حتى تاريخ الإنهاء.
+    \item يسلّم المقاول جميع المواد والوثائق المتعلقة بالمشروع.
+\end{enumerate}
+
+% ============================================================
+% 9. LIABILITY
+% ============================================================
+\section{الحدّ من المسؤولية}
+\label{sec:liability}
+\begin{enumerate}
+    \item لا تتجاوز مسؤولية المقاول إجمالي الأتعاف المدفوعة.
+    \item لا يكون المقاول مسؤولاً عن الأضرار غير المباشرة.
+    \item يلتزم المقاول بالحصول على تأمين المسؤولية المهنية.
+\end{enumerate}
+
+% ============================================================
+% 10. GOVERNING LAW
+% ============================================================
+\section{القانون الحاكم}
+\label{sec:law}
+تُفسَّر هذه الاتفاقية وفقاً لقوانين \rule{6cm}{0.4pt}. تُحلّ النزاعات عن طريق التحكيم في \rule{4cm}{0.4pt}.
+
+% ============================================================
+% SIGNATURES
+% ============================================================
+\vspace{2em}
+\section*{التوقيعات}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\textwidth}{L{5cm} X X}
+\toprule
+& \textbf{العميل} & \textbf{المقاول} \\
+\midrule
+\textbf{الاسم} & --- & --- \\
+\textbf{الصفة} & --- & --- \\
+\textbf{التوقيع} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\textbf{التاريخ} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

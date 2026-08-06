@@ -1,0 +1,183 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Articles of Incorporation Template — Nibras Center
+%  عقد تأسيس شركة
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={عقد تأسيس شركة},pdfauthor={المؤسسون}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape عقد تأسيس شركة}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.5}
+
+\begin{document}
+
+% ============================================================
+% TITLE
+% ============================================================
+\begin{center}
+{\LARGE\bfseries عقد تأسيس شركة}\\[0.5em]
+{\large (\LR{Articles of Incorporation})}\\[1em]
+{\normalsize اسم الشركة: \rule{6cm}{0.4pt}}\\[0.3em]
+{\normalsize التاريخ: \rule{4cm}{0.4pt}}
+\end{center}
+
+\vspace{1.5em}
+
+% ============================================================
+% PREAMBLE
+% ============================================================
+\noindent\textbf{تمهيد:}
+
+\noindent إنه في يوم \rule{2cm}{0.4pt} الموافق \rule{3cm}{0.4pt}، اجتمع المؤسسون الموقّعون في نهاية هذا العقد، واتفقوا على تأسيس شركة وفقاً للأحكام التالية:
+
+\vspace{1em}
+
+% ============================================================
+% ARTICLES
+% ============================================================
+\section{اسم الشركة}
+\label{art:name}
+اسم الشركة هو: \rule{6cm}{0.4pt} (\LR{Company Name})، وتُعرف في هذا العقد باسم «الشركة».
+
+\section{الشكل القانوني}
+\label{art:form}
+الشركة هي شركة \rule{4cm}{0.4pt} (\LR{LLC / C-Corp / etc.})، مُسجّلة وفقاً لأحكام قانون الشركات في \rule{4cm}{0.4pt}.
+
+\section{المقر الرئيسي}
+\label{art:hq}
+المقر الرئيسي للشركة يقع في: \rule{8cm}{0.4pt}. ويجوز للشركة تغيير مقرها أو فتح فروع أخرى بقرار من الجمعية العامة / مجلس الإدارة.
+
+\section{الغرض من الشركة}
+\label{art:purpose}
+الغرض الرئيسي من الشركة هو:
+\begin{enumerate}
+    \item \rule{12cm}{0.4pt}
+    \item \rule{12cm}{0.4pt}
+    \item \rule{12cm}{0.4pt}
+\end{enumerate}
+ويجوز للشركة ممارسة أي أنشطة تجارية أخرى تتفق مع غرضها الرئيسي وبما يسمح به القانون.
+
+\section{رأس المال}
+\label{art:capital}
+\begin{itemize}
+    \item \textbf{رأس المال المصرّح به:} \rule{4cm}{0.4pt} \LR{USD}، مقسّم إلى \rule{3cm}{0.4pt} سهم بقيمة اسمية \rule{3cm}{0.4pt} لكل سهم.
+    \item \textbf{رأس المال المدفوع:} \rule{4cm}{0.4pt} \LR{USD}.
+    \item \textbf{رأس المال غير المدفوع:} \rule{4cm}{0.4pt} \LR{USD}، يُدفع على دفعات وفقاً لقرار مجلس الإدارة.
+\end{itemize}
+
+\section{المؤسسون وحصصهم}
+\label{art:founders}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{C{1cm} L{4cm} C{3cm} C{3cm} C{3cm}}
+\toprule
+\textbf{رقم} & \textbf{اسم المؤسس} & \textbf{عدد الأسهم} & \textbf{النسبة \%} & \textbf{القيمة (\LR{USD})} \\
+\midrule
+1 & --- & --- & --- & --- \\
+2 & --- & --- & --- & --- \\
+3 & --- & --- & --- & --- \\
+\midrule
+& \textbf{المجموع} & \textbf{---} & \textbf{100\%} & \textbf{---} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{مدة الشركة}
+\label{art:duration}
+مدة الشركة غير محدودة، تبدأ من تاريخ قيدها في السجل التجاري، وتستمر في الوجود ما لم تُحلّ وفقاً لأحكام هذا العقد أو القانون.
+
+\section{إدارة الشركة}
+\label{art:management}
+\begin{itemize}
+    \item تُدار الشركة بواسطة مجلس إدارة يتألف من \rule{2cm}{0.4pt} عضو يُنتخبون من قبل المساهمين.
+    \item يُعقد مجلس الإدارة اجتماعاته \rule{3cm}{0.4pt} مرات في السنة على الأقل.
+    \item تُتخذ القرارات بالأغلبية المطلقة ما لم يُنص على خلاف ذلك.
+\end{itemize}
+
+\section{الأرباح والخسائر}
+\label{art:profits}
+\begin{itemize}
+    \item تُوزّع الأرباح على المساهمين بنسبة حصصهم في رأس المال.
+    \item تتحمل الخسائر بنفس النسبة.
+    \item يقرر مجلس الإدارة نسبة الأرباح الموزّعة ونسبة الاحتياطي.
+\end{itemize}
+
+\section{التعديلات}
+\label{art:amendments}
+لا يجوز تعديل أي بند من بنود هذا العقد إلا بقرار من الجمعية العامة بغالبية \rule{2cm}{0.4pt}\% من أسهم الشركة، وبشرط موافقة الجهات المختصة.
+
+\section{حلّ الشركة}
+\label{art:dissolution}
+يجوز حلّ الشركة بقرار من الجمعية العامة أو بموجب حكم قضائي، وفي حالة الحلّ تُصفّى أموال الشركة وتُسدّد ديونها، ثم يُوزّع ما تبقّى على المساهمين بنسبة حصصهم.
+
+\section{الأحكام العامة}
+\label{art:general}
+\begin{itemize}
+    \item تُفسَّر بنود هذا العقد وفقاً لقوانين \rule{4cm}{0.4pt}.
+    \item في حالة نشوء أي نزاع، يُحلّ عن طريق التحكيم في \rule{4cm}{0.4pt}.
+    \item تُعتبر الملاحق المرفقة بهذا العقد جزءاً لا يتجزأ منه.
+\end{itemize}
+
+% ============================================================
+% SIGNATURES
+% ============================================================
+\vspace{2em}
+\section*{توقيعات المؤسسين}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\textwidth}{C{1cm} L{5cm} X X}
+\toprule
+\textbf{رقم} & \textbf{اسم المؤسس} & \textbf{التوقيع} & \textbf{التاريخ} \\
+\midrule
+1 & --- & \rule{4cm}{0.4pt} & \rule{3cm}{0.4pt} \\
+2 & --- & \rule{4cm}{0.4pt} & \rule{3cm}{0.4pt} \\
+3 & --- & \rule{4cm}{0.4pt} & \rule{3cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2em}
+\noindent\textit{ملاحظة: هذا القالب لأغراض توثيقية فقط ولا يُغني عن الاستشارة القانونية المتخصصة.}
+
+\end{document}

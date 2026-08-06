@@ -1,0 +1,250 @@
+% !TEX program = xelatex
+% ============================================================
+%  اتفاقية الشراكة — Partnership Agreement Template
+%  نموذج اتفاقية شراكة بين طرفين أو أكثر لتأسيس وإدارة مشروع مشترك
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - أطراف ومقدمات (Parties & Recitals)
+%    - مواد مرقمة: الغرض، المساهمات، توزيع الأرباح، الإدارة، الواجبات، المدة، الإنهاء، حل النزاعات
+%    - جدول مساهمات الشركاء (Contributions Table)
+%    - جدول توزيع الأرباح والخسائر (Profit/Loss Sharing Table)
+%    - كتلة توقيعات للأطراف (Signatures Block)
+%    - نص عربي قانوني مع مصطلحات إنجليزية بين قوسين
+% ============================================================
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={اتفاقية الشراكة},pdfauthor={اسم الشركة}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape اتفاقية الشراكة (Partnership Agreement)}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.3}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries اتفاقية الشراكة}\\[0.5em]
+{\large (\LR{Partnership Agreement})}\\[1em]
+\end{center}
+
+\vspace{0.5em}
+
+% TODO: استبدل التاريخ والمرجع بالقيم الفعلية
+\noindent\textbf{رقم الاتفاقية:} \rule{4cm}{0.4pt} \hfill \textbf{التاريخ:} \rule{4cm}{0.4pt}
+
+\vspace{1em}
+
+% ============================================================
+% PARTIES
+% ============================================================
+\noindent\textbf{الأطراف (\LR{Parties}):}
+
+\noindent وقّع الطرفان أدناه على هذه الاتفاقية، ويُشار إليهما مجتمعين بـ«الطرفين» ومنفردين بـ«الطرف»:
+
+\begin{enumerate}
+    \item \textbf{الطرف الأول (\LR{First Party}):} \rule{6cm}{0.4pt}، الشركة المسجّلة في \rule{4cm}{0.4pt}، رقم السجل التجاري: \rule{3cm}{0.4pt}، ويمثلها في التوقيع \rule{5cm}{0.4pt} بصفته \rule{3cm}{0.4pt}.
+
+    \item \textbf{الطرف الثاني (\LR{Second Party}):} \rule{6cm}{0.4pt}، رقم الهوية/الجواز: \rule{3cm}{0.4pt}، العنوان: \rule{5cm}{0.4pt}.
+\end{enumerate}
+
+\vspace{1em}
+
+% ============================================================
+% RECITALS
+% ============================================================
+\noindent\textbf{الديباجة (\LR{Recitals}):}
+
+\begin{enumerate}
+    \item يمتلك الطرف الأول خبرة وموارد في مجال \rule{5cm}{0.4pt}.
+    \item يمتلك الطرف الثاني خبرة وموارد في مجال \rule{5cm}{0.4pt}.
+    \item يرغب الطرفان في تأسيس شراكة (\LR{Partnership}) لإدارة مشروع مشترك وفقاً لشروط هذه الاتفاقية.
+    \item وقّع الطرفان هذه الاتفاقية بمحض إرادتهما الحرّة وبكامل أهليتهما القانونية.
+\end{enumerate}
+
+\vspace{1em}
+
+% ============================================================
+% 1. PURPOSE
+% ============================================================
+\section{المادة الأولى: الغرض من الشراكة (\LR{Purpose})}
+\label{sec:purpose}
+يتمثل الغرض من هذه الشراكة في تأسيس وإدارة مشروع مشترك (\LR{Joint Venture}) في مجال \rule{6cm}{0.4pt}، وتشمل الأهداف ما يلي:
+\begin{enumerate}
+    \item تطوير وتسويق المنتجات/الخدمات التالية: \rule{8cm}{0.4pt}.
+    \item تحقيق عوائد مالية مشتركة للطرفين.
+    \item الاستفادة من خبرات وموارد الطرفين بشكل تكاملي.
+\end{enumerate}
+
+% ============================================================
+% 2. CONTRIBUTIONS
+% ============================================================
+\section{المادة الثانية: مساهمات الشركاء (\LR{Contributions})}
+\label{sec:contributions}
+يلتزم كل طرف بتقديم المساهمات المحددة في الجدول أدناه خلال \rule{2cm}{0.4pt} يوماً من تاريخ توقيع الاتفاقية:
+
+% TODO: املأ تفاصيل مساهمات كل طرف
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{4cm} X X}
+\toprule
+\textbf{نوع المساهمة} & \textbf{الطرف الأول} & \textbf{الطرف الثاني} \\
+\midrule
+المساهمة النقدية (\LR{Cash}) & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+المساهمة العينية (\LR{In-kind}) & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+الخبرة والعمل (\LR{Labor}) & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\midrule
+\textbf{إجمالي القيمة} & \textbf{\rule{4cm}{0.4pt}} & \textbf{\rule{4cm}{0.4pt}} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 3. PROFIT/LOSS SHARING
+% ============================================================
+\section{المادة الثالثة: توزيع الأرباح والخسائر (\LR{Profit/Loss Sharing})}
+\label{sec:profitloss}
+\begin{enumerate}
+    \item تُوزَّع الأرباح والخسائر (\LR{Profits and Losses}) بين الطرفين بالنسب المحددة في الجدول أدناه:
+
+% TODO: حدّد نسب التوزيع
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{6cm} C{3cm} C{3cm}}
+\toprule
+\textbf{البند} & \textbf{الطرف الأول} & \textbf{الطرف الثاني} \\
+\midrule
+نسبة توزيع الأرباح & \rule{2cm}{0.4pt}\% & \rule{2cm}{0.4pt}\% \\
+نسبة تحمّل الخسائر & \rule{2cm}{0.4pt}\% & \rule{2cm}{0.4pt}\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+    \item تُوزَّع الأرباح \rule{2cm}{0.4pt} (شهرياً/ربعياً/سنوياً) بناءً على القوائم المالية المعتمدة.
+    \item تُرحَّل الخسائر إلى السنوات المالية التالية وفق القوانين السارية.
+\end{enumerate}
+
+% ============================================================
+% 4. MANAGEMENT
+% ============================================================
+\section{المادة الرابعة: إدارة الشراكة (\LR{Management})}
+\label{sec:management}
+\begin{enumerate}
+    \item تُدار الشراكة بقرارات مشتركة بين الطرفين، وتتطلب القرارات الكبرى موافقة الطرفين بالكتابة.
+    \item تُتخذ القرارات اليومية (\LR{Day-to-day Operations}) من قبل \rule{5cm}{0.4pt}.
+    \item تُعقد اجتماعات دورية \rule{2cm}{0.4pt} (شهرياً/ربعياً) لمراجعة الأداء المالي والتشغيلي.
+    \item تُحفظ سجلات (\LR{Records}) دقيقة لجميع القرارات والاجتماعات.
+\end{enumerate}
+
+% ============================================================
+% 5. DUTIES
+% ============================================================
+\section{المادة الخامسة: واجبات الشركاء (\LR{Duties})}
+\label{sec:duties}
+يلتزم كل طرف بما يلي:
+\begin{enumerate}
+    \item تقديم المساهمات المتفق عليها في الوقت المحدد.
+    \item العمل بأمانة وإخلاص لتحقيق أهداف الشراكة (\LR{Fiduciary Duty}).
+    \item عدم الانخراط في أنشطة تتعارض مع مصالح الشراكة.
+    \item الحفاظ على سرية معلومات الشراكة.
+    \item عدم نقل حقوق أو التزامات هذه الاتفاقية لطرف ثالث دون موافقة الطرف الآخر كتابةً.
+\end{enumerate}
+
+% ============================================================
+% 6. TERM
+% ============================================================
+\section{المادة السادسة: مدة الاتفاقية (\LR{Term})}
+\label{sec:term}
+\begin{enumerate}
+    \item \textbf{تاريخ بدء الاتفاقية:} \rule{4cm}{0.4pt}
+    \item \textbf{مدة الاتفاقية:} \rule{2cm}{0.4pt} سنوات، قابلة للتجديد بالاتفاق المتبادل.
+    \item \textbf{الإشعار قبل الانتهاء:} يُشعر الطرف الآخر قبل \rule{2cm}{0.4pt} يوماً من تاريخ الانتهاء في حال عدم الرغبة في التجديد.
+\end{enumerate}
+
+% ============================================================
+% 7. TERMINATION
+% ============================================================
+\section{المادة السابعة: إنهاء الاتفاقية (\LR{Termination})}
+\label{sec:termination}
+يجوز إنهاء هذه الاتفاقية في الحالات التالية:
+\begin{enumerate}
+    \item \textbf{انتهاء المدة:} بانتهاء المدة المتفق عليها دون تجديد.
+    \item \textbf{الاتفاق المتبادل:} بموافقة الطرفين كتابةً.
+    \item \textbf{الإخلال الجسيم:} عند إخلال أحد الطرفين بالتزاماته، مع منحه مهلة \rule{2cm}{0.4pt} يوماً للتصحيح.
+    \item \textbf{الإفلاس أو التصفية:} عند إفلاس أحد الطرفين أو تصفية أعماله.
+\end{enumerate}
+
+\noindent عند الإنهاء، تُصفّى أصول الشراكة وتُسدد الالتزامات، ثم يُوزَّع ما تبقّى بين الطرفين بالنسب المتفق عليها.
+
+% ============================================================
+% 8. DISPUTE RESOLUTION
+% ============================================================
+\section{المادة الثامنة: حل النزاعات (\LR{Dispute Resolution})}
+\label{sec:dispute}
+\begin{enumerate}
+    \item يلتزم الطرفان بحل النزاعات (\LR{Disputes}) ودياً عبر المفاوضات المباشرة أولاً.
+    \item في حال عدم الوصول إلى حل خلال \rule{2cm}{0.4pt} يوماً، يُحال النزاع إلى التحكيم (\LR{Arbitration}) في \rule{4cm}{0.4pt}.
+    \item تُفسَّر هذه الاتفاقية وفقاً لقوانين \rule{5cm}{0.4pt}.
+\end{enumerate}
+
+% ============================================================
+% SIGNATURES
+% ============================================================
+\vspace{2em}
+\section*{التوقيعات (\LR{Signatures})}
+
+% TODO: املأ بيانات الموقّعين
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\textwidth}{L{5cm} X X}
+\toprule
+& \textbf{الطرف الأول} & \textbf{الطرف الثاني} \\
+\midrule
+\textbf{الاسم} & --- & --- \\
+\textbf{الصفة} & --- & --- \\
+\textbf{التوقيع} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\textbf{التاريخ} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

@@ -1,0 +1,199 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Book Template — Nibras Center
+%  Compile with: xelatex main.tex (run twice for TOC)
+%  Based on the Mind_between_vibrations_AR project setup.
+% ============================================================
+%  This is the PLACEHOLDER version — it includes sample text
+%  and comments explaining each section. For an empty skeleton,
+%  use main_skeleton.tex instead.
+% ============================================================
+
+\documentclass[12pt,oneside,a5paper]{book}
+
+% ---- Geometry ----
+% A5 pocket-book size. Adjust to a4paper for larger formats.
+\usepackage[top=1cm, bottom=1cm, left=1cm, right=1.5cm, headheight=15pt, includehead, includefoot, a5paper]{geometry}
+
+% ---- Core packages ----
+\usepackage{url,amsmath}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[quiet,nolocalmarks]{polyglossia}
+\usepackage[linktocpage,breaklinks,linktoc=all,hidelinks]{hyperref}
+\usepackage[doublespacing]{setspace}
+\usepackage{titling}
+\usepackage{ifthen}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage[titles]{tocloft}
+\usepackage{etoolbox}
+\usepackage[figure,table]{totalcount}
+\usepackage[nottoc]{tocbibind}
+\usepackage[within=chapter]{newfloat}
+\usepackage[labelsep=period]{caption}
+\usepackage{collcell}
+\usepackage{float}
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage{setspace}
+
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\setstretch{2.1}
+
+% ---- Fonts ----
+% Amiri is a high-quality Arabic font shipped with TeX Live.
+% If you want a different font, replace "Amiri-Regular.ttf" with
+% the filename of your preferred .ttf/.otf font (must be findable
+% by fontconfig or placed in the project folder).
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.93]{Amiri-Regular.ttf}
+\newfontfamily\quranfont[Script=Arabic]{Amiri Quran}
+\setmonofont{Amiri-Regular.ttf}
+\let\arabicfonttt\ttfamily
+\newfontfamily\englishfont[Scale=1]{TeX Gyre Termes}
+\let\XeTeX\undefined
+\let\XeLaTeX\undefined
+
+% ---- Languages ----
+% locale=algeria affects numerals and date formats. Change to
+% your locale (e.g. morocco, tunisia, libya, egypt, etc.) or
+% remove the locale option for the default.
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1,locale=algeria]{arabic}
+\setotherlanguage[variant=british]{english}
+\setotherlanguage{german}
+
+% ---- Spacing ----
+\setlength{\parindent}{.4in}
+\setcounter{secnumdepth}{5}
+\setlength{\intextsep}{\baselineskip}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{
+  \renewcommand{\contentsname}{الفهرس}
+  \renewcommand{\listtablename}{قائمة الجداول}
+  \renewcommand{\listfigurename}{قائمة الأشكال}
+  \renewcommand{\chaptername}{الفصل}
+  \renewcommand{\cftchapfont}{\normalfont}
+  \renewcommand{\cftchappagefont}{\normalfont}
+  \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+}
+\renewcommand{\cftchapaftersnum}{.}
+\renewcommand{\cftfigaftersnum}{.}
+\renewcommand{\cfttabaftersnum}{.}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+\setlength{\cftbeforesecskip}{.5\baselineskip}
+\setlength{\cftbeforesubsecskip}{0.5\baselineskip}
+\setlength{\cftbeforetabskip}{0.5\baselineskip}
+\setlength{\cftbeforefigskip}{0.5\baselineskip}
+\setlength{\cftfigindent}{0em}
+\setlength{\cfttabindent}{0em}
+\setlength{\cftfignumwidth}{1.5em}
+\cftsetindents{section}{0.5em}{1.5em}
+\cftsetindents{chapter}{0.5em}{1.5em}
+\renewcommand{\bibname}{المراجع}
+\DeclareTotalCounter{appendixfigure}
+\DeclareTotalCounter{appendixtable}
+\DeclareFloatingEnvironment[fileext=loaf,placement={ht},listname={جدول الملحقات},name=Figure]{appendixfigure}
+\DeclareFloatingEnvironment[fileext=loat,placement={ht},listname={جدول الملحقات},name=Table]{appendixtable}
+
+% ---- Page style ----
+\pagestyle{plain}  % remove this line to include headers
+
+% ---- TOC header rows ----
+\addtocontents{lot}{\noindent\underline{جدول}\hfill \underline{صفحة}\par}
+\addtocontents{lof}{\noindent\underline{أشكال}\hfill \underline{صفحة}\par}
+\addtocontents{loat}{\noindent\underline{Table}\hfill \underline{Page}\par}
+\addtocontents{loaf}{\noindent\underline{صفحة}\hfill \underline{أشكال}\par}
+
+% ---- Chapter formatting (two-line: "الفصل ١" then title) ----
+\titleformat{\chapter}[display]
+  {\centering\normalfont\bfseries\Large}
+  {\chaptertitlename\ \thechapter}
+  {0.2em}
+  {\Large}
+
+\titlespacing*{\chapter}
+  {0pt}
+  {5pt}
+  {10pt}
+
+% ---- Section formatting ----
+\titleformat{\section}
+  {\fontsize{14}{17}\selectfont\bfseries}{\thesection}{0.6em}{}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+
+\titleformat{\subsection}
+  {\fontsize{12}{14}\selectfont\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+
+\titleformat{\subsubsection}
+  {\fontsize{12}{14}\selectfont\bfseries}{\thesubsubsection.}{0.5em}{}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+% ============================================================
+%  MAIN DOCUMENT
+% ============================================================
+\begin{document}
+
+\pagenumbering{arabic}
+
+% ---- Title page ----
+\pagestyle{empty}
+
+\null
+\vfill
+\begin{flushleft}
+    {\fontsize{40}{48}\selectfont \textbf{عنوان الكتاب}} \\
+    {\large عنوان فرعي}\\[1em]
+    {\Large     د. اسم المؤلف}
+\end{flushleft}
+
+% ---- Copyright / publication data ----
+\input{Chapters/copyright.tex}
+
+% ---- Dedication ----
+\input{Chapters/dedication.tex}
+
+% ---- Acknowledgments ----
+\input{Chapters/acknowledgments.tex}
+
+% ---- Introduction ----
+\input{Chapters/introduction.tex}
+
+% ---- Table of contents ----
+\setcounter{tocdepth}{1}
+\begin{singlespace}\tableofcontents\end{singlespace}
+
+\iftotaltables
+\begingroup
+\renewcommand*{\addvspace}[1]{}
+\begin{singlespace}\listoftables\end{singlespace}
+\endgroup
+\fi
+\iftotalfigures
+\begingroup
+\renewcommand*{\addvspace}[1]{}
+\begin{singlespace}\listoffigures\end{singlespace}
+\endgroup
+\fi
+\iftotalappendixtables\begin{singlespace}\listofappendixtables\end{singlespace}\fi
+\iftotalappendixfigures\begin{singlespace}\listofappendixfigures\end{singlespace}\fi
+
+% ---- Chapters ----
+% Add or remove \input lines as needed.
+\input{Chapters/chapter01.tex}
+\input{Chapters/chapter02.tex}
+\input{Chapters/chapter03.tex}
+
+% ---- Conclusion ----
+\input{Chapters/conclusion.tex}
+
+% ---- Back matter (blurb / about the author) ----
+\input{Chapters/back.tex}
+
+\end{document}

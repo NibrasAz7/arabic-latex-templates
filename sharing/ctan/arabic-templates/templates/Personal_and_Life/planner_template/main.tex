@@ -1,0 +1,192 @@
+% !TEX program = xelatex
+% ============================================================
+%  مخطط أسبوعي — Weekly Planner Template
+%  جدول أسبوعي: صفوف = فترات زمنية، أعمدة = أيام الأسبوع (السبت..الجمعة)،
+%  مع صناديق للأولويات وقائمة المهام وتتبّع العادات وملاحظات.
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Week-of date header placeholder
+%    - Priorities box and to-do list
+%    - Schedule table: time slots (rows) x 7 days (columns)
+%    - Habit tracker row
+%    - Notes section
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry (landscape for a week spread) ----
+\usepackage[a4paper,landscape,margin=1.4cm,top=1.4cm,bottom=1.4cm,headheight=16pt]{geometry}
+
+% ---- Core packages (order matters for bidi) ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{tikz}
+
+% ---- RTL / Arabic language support (must load before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load after polyglossia/bidi) ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={مخطط أسبوعي},
+  pdfauthor={الاسم}
+}
+
+% ---- Colors ----
+\definecolor{planaccent}{HTML}{2F6F4F}
+\definecolor{planhead}{HTML}{1F4F3A}
+\definecolor{planbg}{HTML}{EEF5F0}
+\definecolor{planink}{HTML}{2B2B2B}
+
+% ---- Line spacing ----
+\setstretch{1.2}
+
+\pagestyle{empty}
+
+% ---- Boxes ----
+\newtcolorbox{prioritiesbox}{
+  colback=planbg,colframe=planaccent,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries\color{white},coltitle=white,
+  title=الأولويات (Priorities),
+  left=6pt,right=6pt,top=4pt,bottom=4pt
+}
+\newtcolorbox{notesbox}{
+  colback=white,colframe=planaccent,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries\color{white},coltitle=white,
+  title=ملاحظات (Notes),
+  left=6pt,right=6pt,top=4pt,bottom=4pt
+}
+
+% Schedule column type: fixed width, top-aligned
+\newcolumntype{S}{>{\centering\arraybackslash}p{1.7cm}}
+\newcolumntype{T}{>{\centering\arraybackslash}p{1.5cm}}
+
+\begin{document}
+\color{planink}
+
+% ---- Header ----
+\begin{center}
+{\fontsize{26pt}{32pt}\selectfont\bfseries\color{planaccent}
+المخطط الأسبوعي\par}
+\vspace{0.1cm}
+% TODO: املأ تاريخ بداية الأسبوع
+{\large\color{planhead} أسبوع: \rule{4cm}{0.4pt} — الاسم\par}
+\end{center}
+
+\vspace{0.3cm}
+
+% ---- Priorities + To-do (side by side) ----
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+\begin{prioritiesbox}
+% TODO: اكتب أولوياتك لهذا الأسبوع
+\begin{enumerate}[label=\textarabic{\arabic*.},leftmargin=1.4em,itemsep=1pt,topsep=0pt]
+  \item الأولوية الأولى
+  \item الأولوية الثانية
+  \item الأولوية الثالثة
+\end{enumerate}
+\end{prioritiesbox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\begin{tcolorbox}[colback=white,colframe=planaccent,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries\color{white},coltitle=white,title=قائمة المهام (To-Do),
+  left=6pt,right=6pt,top=4pt,bottom=4pt]
+% TODO: اكتب قائمة مهامك
+\begin{itemize}[label=$\square$,leftmargin=1.4em,itemsep=1pt,topsep=0pt]
+  \item مهمة رقم ١
+  \item مهمة رقم ٢
+  \item مهمة رقم ٣
+  \item مهمة رقم ٤
+\end{itemize}
+\end{tcolorbox}
+\end{minipage}
+
+\vspace{0.25cm}
+
+% ---- Weekly schedule table ----
+% RTL: first column (rightmost) = السبت ... last (leftmost) = الجمعة
+\noindent
+{\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\linewidth}{|T|S|S|S|S|S|S|S|}
+\hline
+\rowcolor{planhead}
+\textcolor{white}{\textbf{الوقت}} &
+\textcolor{white}{\textbf{السبت}} &
+\textcolor{white}{\textbf{الأحد}} &
+\textcolor{white}{\textbf{الاثنين}} &
+\textcolor{white}{\textbf{الثلاثاء}} &
+\textcolor{white}{\textbf{الأربعاء}} &
+\textcolor{white}{\textbf{الخميس}} &
+\textcolor{white}{\textbf{الجمعة}} \\
+\hline
+\textbf{صباحًا} & & & & & & & \\
+\hline
+\textbf{١٢:٠٠} & & & & & & & \\
+\hline
+\textbf{١٦:٠٠} & & & & & & & \\
+\hline
+\textbf{مساءً} & & & & & & & \\
+\hline
+\end{tabularx}}
+
+\vspace{0.25cm}
+
+% ---- Habit tracker ----
+\noindent
+\begin{tcolorbox}[colback=planbg,colframe=planaccent,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries\color{white},coltitle=white,title=تتبّع العادات (Habit Tracker),
+  left=6pt,right=6pt,top=4pt,bottom=4pt]
+% TODO: عدّل قائمة العادات. ضع علامة (✓) في خانة كل يوم تُنجز فيه العادة.
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{|X|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{planhead}
+\textcolor{white}{\textbf{العادة}} &
+\textcolor{white}{\textbf{سبت}} &
+\textcolor{white}{\textbf{أحد}} &
+\textcolor{white}{\textbf{اثن}} &
+\textcolor{white}{\textbf{ثلا}} &
+\textcolor{white}{\textbf{أرب}} &
+\textcolor{white}{\textbf{خمي}} &
+\textcolor{white}{\textbf{جمع}} \\
+\hline
+قراءة (Reading) & & & & & & & \\
+\hline
+رياضة (Exercise) & & & & & & & \\
+\hline
+شرب الماء (Water) & & & & & & & \\
+\hline
+\end{tabularx}}
+\end{tcolorbox}
+
+\vspace{0.25cm}
+
+% ---- Notes ----
+\begin{notesbox}
+% TODO: اكتب ملاحظاتك الأسبوعية
+\vspace{0.3cm}
+\end{notesbox}
+
+\end{document}

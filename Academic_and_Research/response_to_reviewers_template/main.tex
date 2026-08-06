@@ -1,0 +1,228 @@
+% !TEX program = xelatex
+% ============================================================
+%  الرد على المراجعين — Response to Reviewers Template
+%  نموذج رسالة الرد على مراجعات المجلة العلمية (Point-by-Point Response)
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Letter format with editor name and manuscript ID
+%    - Point-by-point response table (Reviewer comment | Author response | Line numbers)
+%    - tabularx + booktabs for clean response tables
+%    - Separate blocks per reviewer
+%    - Fancy headers with manuscript title
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+
+% ---- Core packages ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+% ---- RTL / Arabic language support (load before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+\newfontfamily\arabicfontsf{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={الرد على المراجعين},
+  pdfauthor={اسم المؤلف}
+}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\tablename}{الجدول}%
+}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape الرد على المراجعين}
+\fancyhead[L]{\small اسم المؤلف}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---- List spacing ----
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+% ---- Table column types ----
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ---- Line spacing ----
+\setstretch{1.4}
+
+\begin{document}
+
+% ============================================================
+% LETTER HEADER
+% ============================================================
+\thispagestyle{fancy}
+
+\begin{flushleft}
+\textbf{\today}
+\end{flushleft}
+
+\vspace{1em}
+
+\noindent
+\textbf{إلى المحرر الموقر،}\\[0.5em]
+% TODO: اكتب اسم المحرر هنا.
+د. اسم المحرر\\
+% TODO: اكتب اسم المجلة هنا.
+اسم المجلة العلمية
+
+\vspace{1em}
+
+\noindent
+\textbf{الموضوع:} الرد على مراجعات المخطوطة (Manuscript) رقم \\
+% TODO: اكتب رقم المخطوطة هنا.
+\textbf{\LR{MANUSCRIPT-ID-12345}}\\
+% TODO: اكتب عنوان المخطوطة هنا.
+\textbf{عنوان المخطوطة (Manuscript Title)}
+
+\vspace{1em}
+
+\noindent
+المحرر الموقر،
+
+\vspace{0.5em}
+
+% TODO: اكتب مقدمة الرسالة هنا. اشكر المحرر والمراجعين على ملاحظاتهم.
+نشكركم على مراجعة مخطوطتنا وإتاحة الفرصة لتحسينها. نقدم فيما يلي رداً تفصيلياً على ملاحظات المراجعين واحداً تلو الآخر (Point-by-Point). تظهر تعليقات المراجعين متبوعة بردنا مع الإشارة إلى أرقام الأسطر (Line numbers) المعدّلة في النسخة المنقحة.
+
+\vspace{1em}
+
+% ============================================================
+% REVIEWER 1
+% ============================================================
+\section{الرد على ملاحظات المراجع الأول (Reviewer 1)}
+
+% TODO: أضف جدول الرد على ملاحظات المراجع الأول.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{5cm} Y L{2.5cm}}
+\toprule
+\textbf{تعليق المراجع} & \textbf{رد المؤلف} & \textbf{أرقام الأسطر} \\
+\midrule
+% TODO: انسخ تعليق المراجع الأول هنا.
+\LR{Comment 1:} نص تعليق المراجع الأول هنا.
+& % TODO: اكتب ردك هنا.
+رد المؤلف على التعليق الأول مع شرح التعديل المُجرى.
+& \LR{12--18} \\
+\midrule
+% TODO: انسخ تعليق المراجع الثاني هنا.
+\LR{Comment 2:} نص تعليق المراجع الثاني هنا.
+& % TODO: اكتب ردك هنا.
+رد المؤلف على التعليق الثاني مع شرح التعديل المُجرى.
+& \LR{45--52} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% REVIEWER 2
+% ============================================================
+\section{الرد على ملاحظات المراجع الثاني (Reviewer 2)}
+
+% TODO: أضف جدول الرد على ملاحظات المراجع الثاني.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{5cm} Y L{2.5cm}}
+\toprule
+\textbf{تعليق المراجع} & \textbf{رد المؤلف} & \textbf{أرقام الأسطر} \\
+\midrule
+% TODO: انسخ تعليق المراجع الأول هنا.
+\LR{Comment 1:} نص تعليق المراجع الأول هنا.
+& % TODO: اكتب ردك هنا.
+رد المؤلف على التعليق الأول مع شرح التعديل المُجرى.
+& \LR{67--73} \\
+\midrule
+% TODO: انسخ تعليق المراجع الثاني هنا.
+\LR{Comment 2:} نص تعليق المراجع الثاني هنا.
+& % TODO: اكتب ردك هنا.
+رد المؤلف على التعليق الثاني مع شرح التعديل المُجرى.
+& \LR{98--105} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% REVIEWER 3 (optional)
+% ============================================================
+\section{الرد على ملاحظات المراجع الثالث (Reviewer 3)}
+
+% TODO: إذا كان هناك مراجع ثالث، أضف جدول الرد هنا. وإلا احذف هذا القسم.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{L{5cm} Y L{2.5cm}}
+\toprule
+\textbf{تعليق المراجع} & \textbf{رد المؤلف} & \textbf{أرقام الأسطر} \\
+\midrule
+% TODO: انسخ تعليق المراجع الأول هنا.
+\LR{Comment 1:} نص تعليق المراجع الأول هنا.
+& % TODO: اكتب ردك هنا.
+رد المؤلف على التعليق الأول مع شرح التعديل المُجرى.
+& \LR{130--138} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% CLOSING
+% ============================================================
+\section{ملاحظات ختامية}
+
+% TODO: اكتب ملاحظات ختامية هنا.
+نأمل أن تكون التعديلات المُجرىة قد عالجت جميع ملاحظات المراجعين. ونحن ممتنون لوقتهم وملاحظاتهم القيّمة التي ساهمت في تحسين جودة المخطوطة. نرحب بأي ملاحظات إضافية.
+
+\vspace{1.5em}
+
+\noindent
+مع خالص التقدير،\\[1em]
+% TODO: اكتب اسم المؤلف ومعلومات التواصل هنا.
+\textbf{اسم المؤلف}\\
+القسم، الجامعة\\
+\texttt{email@example.com}
+
+\end{document}

@@ -1,0 +1,150 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Cheatsheet Template — Nibras Center
+%  Compile with: xelatex main.tex
+%  Single-page landscape reference sheet, 3 columns, RTL Arabic.
+% ============================================================
+
+\documentclass[10pt,a4paper]{article}
+
+% ---- Geometry: landscape, tight margins ----
+\usepackage[a4paper,landscape,margin=0.5cm]{geometry}
+
+% ---- Multi-column layout ----
+\usepackage{multicol}
+
+% ---- Core packages (order matters for bidi) ----
+\usepackage{amsmath}
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=0.85]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.85]{Amiri-Regular.ttf}
+\newfontfamily\arabicfonttt[Script=Arabic,Scale=0.85]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.85]{TeX Gyre Termes}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load after polyglossia/bidi) ----
+\usepackage[hidelinks]{hyperref}
+
+% ---- Colors and boxes ----
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% ---- Lists ----
+\usepackage{enumitem}
+
+% ---- Section formatting ----
+\usepackage{titlesec}
+
+% ---- Line spacing ----
+\usepackage{setspace}
+
+% ============================================================
+% Color palette
+% ============================================================
+\definecolor{titlebg}{HTML}{1F3A5F}
+\definecolor{titlefg}{HTML}{FFFFFF}
+\definecolor{sec1bg}{HTML}{2E5A88}
+\definecolor{sec2bg}{HTML}{3B7A57}
+\definecolor{sec3bg}{HTML}{8B4513}
+\definecolor{sec4bg}{HTML}{6A1B9A}
+\definecolor{sec5bg}{HTML}{B71C1C}
+\definecolor{boxfg}{HTML}{FFFFFF}
+\definecolor{ruleclr}{HTML}{1F3A5F}
+
+% ---- Compact spacing ----
+\setstretch{1.0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2em}
+
+% ---- Tight lists ----
+\setlist[itemize]{topsep=0.1em, itemsep=0.05em, parsep=0pt, leftmargin=1.2em}
+\setlist[enumerate]{topsep=0.1em, itemsep=0.05em, parsep=0pt, leftmargin=1.4em}
+
+% ---- Section header command: colored full-width box ----
+\newcommand{\secbox}[2]{%
+  \par\vspace{0.3em}%
+  \noindent\colorbox{#1}{\makebox[\dimexpr\linewidth-2\fboxsep\relax]{\textbf{\color{boxfg}\small #2}}}%
+  \par\vspace{0.15em}%
+}
+
+\begin{document}
+
+% ============================================================
+% TITLE BAR
+% ============================================================
+\noindent\colorbox{titlebg}{%
+  \makebox[\dimexpr\textwidth-2\fboxsep\relax]{%
+    \begin{minipage}{0.98\dimexpr\textwidth-2\fboxsep\relax}
+      \centering
+      {\color{titlefg}\Large\bfseries عنوان الملخص المرجعي\par}
+      \vspace{0.2em}
+      {\color{titlefg}\small المؤلف: د. اسم المؤلف \quad|\quad التاريخ: \today\par}
+    \end{minipage}%
+  }%
+}
+\vspace{0.4em}
+
+% ============================================================
+% THREE-COLUMN CONTENT
+% ============================================================
+\begin{multicols}{3}
+\setlength{\columnsep}{0.6em}
+\raggedright
+
+% ---- Section 1: Key terms ----
+\secbox{sec1bg}{المصطلحات الأساسية}
+\begin{itemize}
+  \item \LR{BCI} — ترابط الدماغ–الحاسوب
+  \item \LR{EEG} — تخطيط كهربية الدماغ
+  \item \LR{ERP} — جهد الحدث الكامن
+  \item \LR{SNR} — نسبة الإشارة إلى الضوضاء
+  \item \LR{CSP} — تحليل المكوّنات المكانية المشتركة
+\end{itemize}
+
+% ---- Section 2: Commands ----
+\secbox{sec2bg}{الأوامر}
+\begin{itemize}
+  \item \LR{xelatex main.tex} — الترجمة
+  \item \LR{bibtex main} — المراجع
+  \item \LR{makeglossaries main} — المسرد
+  \item \LR{latexmk -xelatex} — بناء كامل
+\end{itemize}
+
+% ---- Section 3: Equations ----
+\secbox{sec3bg}{المعادلات}
+\begin{itemize}
+  \item التغاير: $\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2$
+  \item الارتباط: $r = \frac{\mathrm{cov}(X,Y)}{\sigma_X \sigma_Y}$
+  \item مرشح \LR{Butterworth}: $H(f) = \frac{1}{\sqrt{1+(f/f_c)^{2n}}}$
+  \item \LR{SNR} بالديسيبل: $\mathrm{SNR}_{dB} = 10\log_{10}\!\left(\frac{P_s}{P_n}\right)$
+\end{itemize}
+
+% ---- Section 4: Tips ----
+\secbox{sec4bg}{نصائح عملية}
+\begin{enumerate}
+  \item استخدم \LR{\textbackslash LR\{\}} للمصطلحات الإنجليزية داخل النص العربي.
+  \item حمّل \LR{bidi} قبل \LR{polyglossia} لتجنّب تعارضات الاتجاه.
+  \item اجعل \LR{hyperref} آخر الحزم لتفادي مشاكل الروابط.
+  \item راجع سجل الأخطاء عند فشل الترجمة.
+\end{enumerate}
+
+% ---- Section 5: References ----
+\secbox{sec5bg}{المراجع}
+\begin{itemize}
+  \item المؤلف، \emph{عنوان الكتاب}، الناشر، سنة.
+  \item \LR{Wolpaw, J. et al. (2002). BCI: Principles and Practice.}
+  \item \LR{Nicolas-Alonso, L. \& Gomez-Gil, J. (2012).}
+  \item موقع \LR{\url{https://example.com}} للاطلاع.
+\end{itemize}
+
+\end{multicols}
+
+\end{document}

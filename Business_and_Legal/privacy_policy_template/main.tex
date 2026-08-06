@@ -1,0 +1,214 @@
+% !TEX program = xelatex
+% ============================================================
+%  سياسة الخصوصية — Privacy Policy Template
+%  نموذج سياسة خصوصية للمواقع والتطبيقات مع مراجع GDPR/CCPA
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - أقسام مرقمة: المقدمة، البيانات المجمّعة، استخدام البيانات، المشاركة، الأمان، الحقوق، الكوكيز، التواصل
+%    - جدول أنواع البيانات المجمّعة (Data Types Table)
+%    - جدول الكوكيز (Cookies Table)
+%    - مراجع GDPR و CCPA كعناصر نائبة
+%    - نص عربي قانوني مع مصطلحات إنجليزية بين قوسين
+% ============================================================
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={سياسة الخصوصية},pdfauthor={اسم الشركة}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape سياسة الخصوصية (Privacy Policy)}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.3}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries سياسة الخصوصية}\\[0.5em]
+{\large (\LR{Privacy Policy})}\\[1em]
+\end{center}
+
+\vspace{0.5em}
+
+% TODO: استبدل التاريخ والمرجع بالقيم الفعلية
+\noindent\textbf{رقم الوثيقة:} \rule{4cm}{0.4pt} \hfill \textbf{تاريخ آخر تحديث:} \rule{4cm}{0.4pt}
+
+\vspace{1em}
+
+% ============================================================
+% 1. INTRODUCTION
+% ============================================================
+\section{المقدمة (\LR{Introduction})}
+\label{sec:intro}
+توضّح سياسة الخصوصية هذه كيف يقوم \rule{5cm}{0.4pt} (يُشار إليه بـ«الشركة» أو «نحن») بجمع بياناتك الشخصية (\LR{Personal Data}) واستخدامها وحمايتها ومشاركتها. باستخدامك لخدماتنا أو موقعنا أو تطبيقنا، فإنك توافق على الممارسات الموضّحة في هذه السياسة.
+
+\medskip
+\noindent\textbf{المراجع القانونية:} تتوافق هذه السياسة مع:
+\begin{itemize}
+    \item النظام العام لحماية البيانات (\LR{GDPR — General Data Protection Regulation}).
+    \item قانون الخصوصية في كاليفورنيا (\LR{CCPA — California Consumer Privacy Act}).
+    % TODO: أضف القوانين المحلية المعمول بها
+\end{itemize}
+
+% ============================================================
+% 2. DATA COLLECTED
+% ============================================================
+\section{البيانات التي نجمعها (\LR{Data Collected})}
+\label{sec:data}
+نجمع أنواعاً مختلفة من البيانات لتقديم خدماتنا وتحسينها:
+
+% TODO: املأ أنواع البيانات الفعلية
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{4cm} X L{3cm}}
+\toprule
+\textbf{نوع البيانات} & \textbf{الوصف} & \textbf{الأساس القانوني} \\
+\midrule
+بيانات الهوية (\LR{Identity}) & الاسم، رقم الهوية، تاريخ الميلاد & \rule{2.5cm}{0.4pt} \\
+بيانات التواصل (\LR{Contact}) & البريد الإلكتروني، رقم الهاتف، العنوان & \rule{2.5cm}{0.4pt} \\
+البيانات التقنية (\LR{Technical}) & عنوان \LR{IP}، نوع المتصفح، نظام التشغيل & \rule{2.5cm}{0.4pt} \\
+بيانات الاستخدام (\LR{Usage}) & سجل النشاط، تفضيلات المستخدم & \rule{2.5cm}{0.4pt} \\
+البيانات المالية (\LR{Financial}) & بيانات الدفع، الفواتير & \rule{2.5cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 3. USE OF DATA
+% ============================================================
+\section{استخدام البيانات (\LR{Use of Data})}
+\label{sec:use}
+نستخدم بياناتك الشخصية للأغراض التالية:
+\begin{enumerate}
+    \item \textbf{تقديم الخدمات:} تنفيذ طلباتك وتقديم الخدمات المطلوبة.
+    \item \textbf{تحسين الخدمات:} تحليل الاستخدام وتطوير ميزات جديدة.
+    \item \textbf{التواصل:} الرد على استفساراتك وإرسال الإشعارات.
+    \item \textbf{الامتثال القانوني:} الالتزام بالالتزامات القانونية والتنظيمية.
+    \item \textbf{الأمن:} منع الاحتيال وحماية الحسابات.
+\end{enumerate}
+
+% ============================================================
+% 4. DATA SHARING
+% ============================================================
+\section{مشاركة البيانات (\LR{Data Sharing})}
+\label{sec:sharing}
+لا نبيع بياناتك الشخصية. قد نشاركها في الحالات التالية:
+\begin{enumerate}
+    \item \textbf{مزوّدو الخدمات (\LR{Service Providers}):} أطراف ثالثة تساعدنا في تقديم خدماتنا، مع التزامهم بسرية البيانات.
+    \item \textbf{السلطات القانونية (\LR{Legal Authorities}):} عند الطلب القانوني أو أمر قضائي.
+    \item \textbf{تحويلات الأعمال (\LR{Business Transfers}):} في حال الاندماج أو الاستحواذ، مع التزام الطرف المستحوِظ بنفس المعايير.
+    \item \textbf{موافقتك (\LR{With Consent}):} عند موافقتك الصريحة على المشاركة.
+\end{enumerate}
+
+% ============================================================
+% 5. DATA SECURITY
+% ============================================================
+\section{أمن البيانات (\LR{Data Security})}
+\label{sec:security}
+نتخذ تدابير أمنية مناسبة لحماية بياناتك، تشمل:
+\begin{enumerate}
+    \item التشفير (\LR{Encryption}) أثناء النقل والتخزين.
+    \item ضوابط الوصول (\LR{Access Controls}) المحدودة للموظفين المصرّح لهم.
+    \item مراجعات أمنية دورية وتقييم المخاطر.
+    \item خطة استجابة للحوادث (\LR{Incident Response Plan}) في حال حدوث خرق.
+\end{enumerate}
+
+\noindent\textbf{الإخطار بالخرق:} في حال حدوث خرق للبيانات (\LR{Data Breach})، نلتزم بإخطار المستخدمين والجهات المختصة خلال \rule{2cm}{0.4pt} ساعة وفقاً لمتطلبات \LR{GDPR}.
+
+% ============================================================
+% 6. USER RIGHTS
+% ============================================================
+\section{حقوق المستخدم (\LR{User Rights})}
+\label{sec:rights}
+يتمتع المستخدمون بالحقوق التالية وفقاً لـ \LR{GDPR} و \LR{CCPA}:
+\begin{enumerate}
+    \item \textbf{حق الوصول (\LR{Right of Access}):} طلب نسخة من بياناتك الشخصية.
+    \item \textbf{حق التصحيح (\LR{Right to Rectification}):} تصحيح البيانات غير الدقيقة.
+    \item \textbf{حق الحذف (\LR{Right to Erasure}):} طلب حذف بياناتك (حق النسيان).
+    \item \textbf{حق تقييد المعالجة (\LR{Right to Restriction}):} تقييد معالجة بياناتك في حالات معينة.
+    \item \textbf{حق نقل البيانات (\LR{Right to Data Portability}):} استلام بياناتك بصيغة قابلة للنقل.
+    \item \textbf{حق الاعتراض (\LR{Right to Object}):} الاعتراض على معالجة بياناتك.
+    \item \textbf{حق سحب الموافقة (\LR{Right to Withdraw Consent}):} سحب موافقتك في أي وقت.
+\end{enumerate}
+
+\noindent لممارسة أي من هذه الحقوق، يُرجى التواصل معنا عبر القسم الثامن.
+
+% ============================================================
+% 7. COOKIES
+% ============================================================
+\section{ملفات تعريف الارتباط (\LR{Cookies})}
+\label{sec:cookies}
+نستخدم ملفات تعريف الارتباط (\LR{Cookies}) لتحسين تجربتك. فيما يلي أنواع الكوكيز التي نستخدمها:
+
+% TODO: املأ تفاصيل الكوكيز الفعلية
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{3.5cm} X C{2.5cm} C{2.5cm}}
+\toprule
+\textbf{النوع} & \textbf{الغرض} & \textbf{المدة} & \textbf{ضروري؟} \\
+\midrule
+كوكيز ضرورية (\LR{Essential}) & تمكين الوظائف الأساسية & جلسة & نعم \\
+كوكيز تحليلية (\LR{Analytical}) & تحليل أداء الموقع & \rule{1.5cm}{0.4pt} يوماً & لا \\
+كوكيز وظيفية (\LR{Functional}) & تذكّر التفضيلات & \rule{1.5cm}{0.4pt} يوماً & لا \\
+كوكيز تسويقية (\LR{Marketing}) & عرض إعلانات مخصّصة & \rule{1.5cm}{0.4pt} يوماً & لا \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent يمكنك إدارة الكوكيز أو حذفها عبر إعدادات متصفحك. لاحظ أن تعطيل الكوكيز الضرورية قد يؤثر على وظائف الموقع.
+
+% ============================================================
+% 8. CONTACT
+% ============================================================
+\section{التواصل معنا (\LR{Contact Us})}
+\label{sec:contact}
+لأي استفسار يتعلق بسياسة الخصوصية أو لممارسة حقوقك، يُرجى التواصل معنا:
+
+\begin{itemize}
+    \item \textbf{مسؤول حماية البيانات (\LR{Data Protection Officer}):} \rule{6cm}{0.4pt}
+    \item \textbf{البريد الإلكتروني:} \rule{6cm}{0.4pt}
+    \item \textbf{الهاتف:} \rule{6cm}{0.4pt}
+    \item \textbf{العنوان البريدي:} \rule{8cm}{0.4pt}
+\end{itemize}
+
+\medskip
+\noindent\textbf{الجهة المختصة:} في حال عدم ردّنا على طلبك، يحق لك تقديم شكوى لدى الجهة المختصة بحماية البيانات (\LR{Supervisory Authority}) في \rule{4cm}{0.4pt}.
+
+\end{document}

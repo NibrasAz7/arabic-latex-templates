@@ -1,0 +1,182 @@
+% !TEX program = xelatex
+% ============================================================
+%  كتاب الوصفات — Recipe Book Template
+%  قالب صفحة وصفة: اسم الوصفة، معلومات (وقت التحضير|الطبخ|الحصص|الصعوبة)،
+%  مقاديمرتبة في عمودين، خطوات مرقّمة، ملاحظات، وقيم غذائية.
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Recipe name header with decorative rule
+%    - Meta row: prep time | cook time | servings | difficulty
+%    - Two-column ingredients list
+%    - Numbered cooking steps
+%    - Notes box (tcolorbox) and nutrition placeholder
+%    - Reusable per recipe (sample recipe included)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2cm,top=2cm,bottom=2cm,headheight=16pt]{geometry}
+
+% ---- Core packages (order matters for bidi) ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{tikz}
+
+% ---- RTL / Arabic language support (must load before hyperref) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load after polyglossia/bidi) ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={كتاب الوصفات},
+  pdfauthor={الاسم}
+}
+
+% ---- Colors ----
+\definecolor{recipeaccent}{HTML}{8B3A2A}
+\definecolor{recipebg}{HTML}{FBF3EE}
+\definecolor{recipeink}{HTML}{2B2B2B}
+
+% ---- Line spacing ----
+\setstretch{1.3}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries\color{recipeaccent}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries\color{recipeaccent}}{\thesubsection}{0.6em}{}
+
+% ---- Header / footer ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small كتاب الوصفات}
+\fancyhead[L]{\small الاسم}
+\fancyfoot[C]{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---- Recipe meta cell ----
+\newcommand{\metacell}[2]{%
+  \begin{center}
+    {\small\color{recipeaccent}\textbf{#1}}\\[2pt]
+    {\normalsize #2}
+  \end{center}}
+
+% ---- Notes box ----
+\newtcolorbox{notesbox}{
+  colback=recipebg,colframe=recipeaccent,boxrule=0.6pt,arc=2pt,
+  fonttitle=\bfseries,title=ملاحظات,
+  left=8pt,right=8pt,top=6pt,bottom=6pt,breakable
+}
+
+\begin{document}
+\color{recipeink}
+
+% ============================================================
+%  Recipe: وصفة تجريبية (Sample Recipe)
+%  TODO: انسخ كتلة الوصفة هذه لكل وصفة جديدة وعدّل المحتوى.
+% ============================================================
+
+\section*{وصفة تجريبية (Sample Recipe)}
+% TODO: استبدل باسم الوصفة الحقيقية
+{\large\itshape\color{recipeaccent}
+وصفة عربية تقليدية — مثال توضيحي\par}
+
+\vspace{0.2cm}
+\begin{tikzpicture}
+  \draw[recipeaccent,line width=1pt] (0,0) -- (\linewidth-1cm,0);
+\end{tikzpicture}
+\vspace{0.4cm}
+
+% ---- Meta row ----
+\noindent
+\begin{tabularx}{\linewidth}{|X|X|X|X|}
+\hline
+\metacell{وقت التحضير}{٢٠ دقيقة} &
+\metacell{وقت الطبخ}{٤٥ دقيقة} &
+\metacell{الحصص}{٤ أشخاص} &
+\metacell{الصعوبة}{متوسطة} \\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+% ---- Ingredients ----
+\subsection*{المقادير (Ingredients)}
+% TODO: املأ قائمة المقادير
+\begin{multicols}{2}
+\begin{enumerate}[label=\textarabic{\arabic*.},leftmargin=1.4em,itemsep=2pt]
+  \item كوبان من الدقيق
+  \item كوب من السكر
+  \item نصف كوب من زيت الزيتون
+  \item ثلاث بيضات
+  \item ملعقة صغيرة من البيكنج باودر
+  \item رشة ملح
+  \item ملعقة صغيرة من الفانيليا
+  \item كوب من الحليب
+\end{enumerate}
+\end{multicols}
+
+\vspace{0.4cm}
+
+% ---- Steps ----
+\subsection*{طريقة التحضير (Instructions)}
+% TODO: املأ خطوات التحضير
+\begin{enumerate}[label=\textarabic{\arabic*.},leftmargin=1.6em,itemsep=4pt]
+  \item يُسخّن الفرن إلى ١٨٠ درجة مئوية وتُدهن صينية الخبز.
+  \item يُنخل الدقيق مع البيكنج باودر والملح في وعاء كبير.
+  \item يُخفق البيض مع السكر والفانيليا حتى يصبح المزيج كريميًا.
+  \item يُضاف زيت الزيتون والحليب تدريجيًا مع الاستمرار في الخفق.
+  \item يُضاف خليط الدقيق تدريجيًا ويُحرّك حتى تتجانس المكونات.
+  \item يُصب الخليط في الصينية وتُخبز لمدة ٤٠–٤٥ دقيقة.
+  \item تُترك لتبرد قبل التقديم.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+% ---- Notes box ----
+\begin{notesbox}
+% TODO: أضف ملاحظاتك هنا
+\begin{itemize}[leftmargin=1.2em,itemsep=2pt]
+  \item يمكن إضافة قشر الليمون المبشور لنكهة إضافية.
+  \item يُحفظ الكيك في وعاء محكم لمدة تصل إلى ثلاثة أيام.
+\end{itemize}
+\end{notesbox}
+
+\vspace{0.5cm}
+
+% ---- Nutrition placeholder ----
+\subsection*{القيمة الغذائية (Nutrition)}
+% TODO: املأ القيم الغذائية لكل حصة
+\noindent
+\begin{tabularx}{\linewidth}{|X|X|X|X|}
+\hline
+\textbf{السعرات} & \textbf{الدهون} & \textbf{الكربوهيدرات} & \textbf{البروتين} \\
+\hline
+٢٥٠ سعرة & ١٢ جم & ٣٠ جم & ٦ جم \\
+\hline
+\end{tabularx}
+
+\end{document}

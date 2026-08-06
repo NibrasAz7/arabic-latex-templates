@@ -1,0 +1,25 @@
+﻿cff-version: 1.2.0
+message: "If you use these templates in your work, please cite as below."
+title: "arabic-latex-templates: A collection of 91 Arabic/RTL LaTeX templates"
+type: software
+authors:
+  - family-names: "Contributors"
+    given-names: "arabic-latex-templates"
+repository-code: "https://github.com/NibrasAz7/arabic-latex-templates"
+version: 1.0.0
+date-released: 2026-08-06
+license: LPPL-1.3c
+keywords:
+  - latex
+  - templates
+  - arabic
+  - rtl
+  - xelatex
+  - amiri
+  - polyglossia
+  - bidi
+abstract: >-
+  A collection of 91 Arabic/RTL LaTeX templates organized into 10 categories
+  (academic, business, legal, project management, finance, presentations,
+  letters, marketing, personal, technical). All templates use XeLaTeX with
+  the Amiri font and polyglossia/bidi for full right-to-left typesetting.

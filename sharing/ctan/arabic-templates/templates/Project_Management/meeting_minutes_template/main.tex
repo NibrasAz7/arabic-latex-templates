@@ -1,0 +1,241 @@
+% !TEX program = xelatex
+% ============================================================
+%  محضر الاجتماع — Meeting Minutes Template
+%  نموذج لتوثيق محاضر اجتماعات المشروع بشكل منظم
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Header with date, time, location, chair, attendees, absentees
+%    - Agenda items table
+%    - Discussion summary section
+%    - Decisions section
+%    - Action items table (Action | Owner | Deadline | Status)
+%    - Next meeting info
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape محضر الاجتماع}
+\fancyhead[L]{\small اسم المشروع}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.3}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries محضر الاجتماع}\\[0.3em]
+{\large Meeting Minutes}\\[1em]
+\end{center}
+
+% ============================================================
+% MEETING INFO TABLE
+% ============================================================
+% TODO: املأ بيانات الاجتماع أدناه.
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{3.5cm} X L{3.5cm} X}
+\toprule
+\textbf{التاريخ:} & --- & \textbf{الوقت:} & --- \\
+\textbf{المكان:} & --- & \textbf{نوع الاجتماع:} & --- \\
+\textbf{رئيس الاجتماع:} & --- & \textbf{محضر الاجتماع:} & --- \\
+\textbf{اسم المشروع:} & --- & \textbf{رقم الاجتماع:} & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{0.5em}
+
+% ============================================================
+% ATTENDEES & ABSENTEES
+% ============================================================
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{L{3.5cm} X L{3.5cm} X}
+\toprule
+\textbf{الحضور:} & \multicolumn{3}{l}{%
+\begin{minipage}[t]{\linewidth}
+\vspace{0.2em}
+\begin{itemize}
+    \item الاسم الأول --- المنصب / القسم
+    \item الاسم الثاني --- المنصب / القسم
+    \item الاسم الثالث --- المنصب / القسم
+    % TODO: أضف الحاضرين.
+\end{itemize}
+\vspace{-0.3em}
+\end{minipage}} \\
+\textbf{الغياب:} & \multicolumn{3}{l}{%
+\begin{minipage}[t]{\linewidth}
+\vspace{0.2em}
+\begin{itemize}
+    \item الاسم الرابع --- سبب الغياب
+    % TODO: أضف الغائبين.
+\end{itemize}
+\vspace{-0.3em}
+\end{minipage}} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 1. AGENDA ITEMS
+% ============================================================
+\section{بنود جدول الأعمال}
+\label{sec:agenda}
+
+% TODO: عدّل بنود جدول الأعمال حسب اجتماعك.
+\begin{table}[H]
+\centering
+\caption{بنود جدول الأعمال}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{C{1cm} L{6cm} L{4cm} X}
+\toprule
+\textbf{رقم} & \textbf{البند} & \textbf{المسؤول} & \textbf{المدة} \\
+\midrule
+1 & مراجعة محضر الاجتماع السابق & رئيس الاجتماع & 10 دقائق \\
+2 & عرض تقدم العمل & مدير المشروع & 20 دقيقة \\
+3 & مناقشة المخاطر والمشكلات & فريق المشروع & 30 دقيقة \\
+4 & مراجعة الميزانية & المسؤول المالي & 15 دقيقة \\
+5 & القرارات المطلوبة & رئيس الاجتماع & 15 دقيقة \\
+6 & جدولة الاجتماع القادم & الجميع & 5 دقائق \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 2. DISCUSSION
+% ============================================================
+\section{المناقشات}
+\label{sec:discussion}
+
+% TODO: لخّص النقاط الرئيسية لكل بند من بنود جدول الأعمال.
+\subsection{البند الأول: مراجعة محضر الاجتماع السابق}
+تمت مراجعة محضر الاجتماع السابق والموافقة عليه مع تعديل بسيط. تم التأكد من إنجاز جميع بنود العمل السابقة.
+
+\subsection{البند الثاني: عرض تقدم العمل}
+تم عرض التقدم المحرز منذ الاجتماع السابق. المشروع يسير وفق الجدول المخطط له في معظم المهام، مع تأخير بسيط في مهمة واحدة.
+
+\subsection{البند الثالث: مناقشة المخاطر والمشكلات}
+تمت مناقشة المخاطر الرئيسية وطرق التعامل معها. تم تحديد خطر جديد يتعلق بتأخر المورد في التسليم.
+
+% ============================================================
+% 3. DECISIONS
+% ============================================================
+\section{القرارات}
+\label{sec:decisions}
+
+% TODO: اكتب القرارات المتخذة في الاجتماع.
+\begin{enumerate}
+    \item الموافقة على إضافة مورد بديل لتقليل خطر التأخير.
+    \item تأجيل المهمة المتأخرة لمدة أسبوع مع إعادة توزيع الموارد.
+    \item الموافقة على طلب ميزانية إضافية لشراء معدات جديدة.
+\end{enumerate}
+
+% ============================================================
+% 4. ACTION ITEMS
+% ============================================================
+\section{بنود العمل}
+\label{sec:actions}
+
+% TODO: حدّد بنود العمل الناتجة عن الاجتماع.
+\begin{table}[H]
+\centering
+\caption{بنود العمل الناتجة عن الاجتماع}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{C{1cm} L{5cm} L{3cm} L{2.5cm} L{2.5cm}}
+\toprule
+\textbf{رقم} & \textbf{بند العمل} & \textbf{المسؤول} & \textbf{الموعد النهائي} & \textbf{الحالة} \\
+\midrule
+1 & التواصل مع المورد البديل & مدير المشروع & --- & لم يبدأ \\
+2 & إعادة جدولة المهمة المتأخرة & مدير المشروع & --- & قيد التنفيذ \\
+3 & إعداد طلب الميزانية الإضافية & المسؤول المالي & --- & لم يبدأ \\
+4 & تحديث سجل المخاطر & مدير المشروع & --- & لم يبدأ \\
+5 & إرسال محضر الاجتماع للحضور & محضر الاجتماع & --- & لم يبدأ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 5. NEXT MEETING
+% ============================================================
+\section{الاجتماع القادم}
+\label{sec:next}
+
+% TODO: املأ تفاصيل الاجتماع القادم.
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{3.5cm} X L{3.5cm} X}
+\toprule
+\textbf{التاريخ:} & --- & \textbf{الوقت:} & --- \\
+\textbf{المكان:} & --- & \textbf{رئيس الاجتماع:} & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+% ============================================================
+% SIGNATURES
+% ============================================================
+\noindent\rule{\textwidth}{0.4pt}
+
+\vspace{0.5em}
+
+\noindent
+\begin{tabularx}{\textwidth}{X X}
+\textbf{توقيع رئيس الاجتماع:} & \textbf{توقيع محضر الاجتماع:} \\[2em]
+\rule{6cm}{0.3pt} & \rule{6cm}{0.3pt} \\
+\end{tabularx}
+
+\end{document}

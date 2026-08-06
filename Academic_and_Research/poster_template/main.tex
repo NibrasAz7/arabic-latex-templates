@@ -1,0 +1,173 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Scientific Poster Template — Nibras Center
+%  Compile with: xelatex main.tex
+%  Uses article class + tikz for a single-page A0 poster.
+%  This approach is more reliable with bidi/polyglossia than
+%  tikzposter or beamer poster for Arabic RTL content.
+% ============================================================
+%  To change poster size, modify the geometry package:
+%    A0: a0paper (841x1189mm)
+%    A1: a1paper (594x841mm)
+%  For landscape, add "landscape" to geometry options.
+% ============================================================
+
+\documentclass[11pt]{article}
+
+% ---- Poster geometry (A0 portrait) ----
+% Change to a1paper for smaller posters.
+\usepackage[a0paper,margin=2cm,top=2cm,bottom=2cm]{geometry}
+
+% ---- Core packages ----
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+
+% ---- RTL / Arabic support ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts (poster scale) ----
+% Note: Scale multiplies all font sizes. Keep at 1.0 and use
+% \fontsize{}{} for explicit control of title/body sizes.
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=1]{TeX Gyre Termes}
+\setmonofont{Amiri-Regular.ttf}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load last) ----
+\usepackage[hidelinks]{hyperref}
+
+% ---- Colors (customize to your institution) ----
+\definecolor{primaryColor}{HTML}{1A3C6B}
+\definecolor{secondaryColor}{HTML}{2E6DA4}
+\definecolor{lightBg}{HTML}{F0F4F8}
+\definecolor{accentColor}{HTML}{D4A017}
+
+% ---- Section formatting ----
+\usepackage{titlesec}
+\titleformat{\section}
+  {\fontsize{28}{34}\selectfont\bfseries\color{primaryColor}}{}{0em}{}
+\titleformat{\subsection}
+  {\fontsize{20}{24}\selectfont\bfseries\color{secondaryColor}}{}{0em}{}
+\titlespacing*{\section}{0pt}{0.8cm}{0.4cm}
+\titlespacing*{\subsection}{0pt}{0.4cm}{0.2cm}
+
+% ---- Custom block command (colored box for poster sections) ----
+\newcommand{\posterblock}[2]{%
+  \begin{tikzpicture}
+    \node[fill=lightBg, draw=primaryColor, line width=2pt, rounded corners=5pt,
+          inner sep=1.2cm, text width=\dimexpr\textwidth-4cm\relax,
+          align=right] {%
+      \begin{minipage}{\dimexpr\textwidth-4cm\relax}
+        {\fontsize{22}{27}\selectfont\bfseries\color{primaryColor} #1}\\[0.3cm]
+        {\fontsize{14}{18}\selectfont #2}
+      \end{minipage}
+    };
+  \end{tikzpicture}
+  \vspace{0.8cm}
+}
+
+% ---- List spacing for poster ----
+\setlist[itemize]{topsep=0.5em, itemsep=0.3em, parsep=0pt, leftmargin=2cm}
+\setlist[enumerate]{topsep=0.5em, itemsep=0.3em, parsep=0pt, leftmargin=2cm}
+
+\begin{document}
+\pagestyle{empty}
+
+% ============================================================
+% TITLE BANNER
+% ============================================================
+\begin{tikzpicture}
+  \fill[primaryColor] (0,0) rectangle (\textwidth, -6cm);
+  % Title — centered, white, large
+  \node[white, align=center, text width=0.9\textwidth] at (\textwidth/2, -2cm) {
+    {\fontsize{48}{58}\selectfont\bfseries عنوان البحث العلمي}
+  };
+  % Authors / affiliation — centered, white, medium
+  \node[white, align=center, text width=0.9\textwidth] at (\textwidth/2, -4.2cm) {
+    {\fontsize{24}{30}\selectfont د. اسم الباحث \quad|\quad القسم، الجامعة}
+  };
+  % Uncomment to add logo (top-right corner):
+  % \node at (\textwidth-3cm, -3cm) {\includegraphics[width=4cm]{logo.png}};
+\end{tikzpicture}
+
+\vspace{1cm}
+
+% ============================================================
+% POSTER BODY: two columns using minipage
+% ============================================================
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+
+\posterblock{المقدمة}{%
+% TODO: اكتب مقدمة البحث هنا.
+هذا نص تجريبي للمقدمة. يصف المشكلة البحثية وأهميتها في مجال التقنية العصبية.
+}
+
+\posterblock{المنهجية}{%
+% TODO: اكتب المنهجية هنا.
+\begin{itemize}
+    \item الخطوة الأولى: \LR{Data Acquisition}
+    \item الخطوة الثانية: المعالجة المسبقة
+    \item الخطوة الثالثة: استخراج الميزات
+    \item الخطوة الرابعة: التصنيف باستخدام \LR{Machine Learning}
+\end{itemize}
+}
+
+\posterblock{النتائج}{%
+% TODO: اكتب النتائج هنا.
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{الطريقة} & \textbf{الدقة} & \textbf{الزمن} \\
+\hline
+\LR{SVM} & 85.3\% & 12ms \\
+\LR{CNN} & 92.1\% & 45ms \\
+\LR{LSTM} & 89.7\% & 38ms \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+
+\posterblock{الأهداف}{%
+% TODO: اكتب أهداف البحث هنا.
+\begin{enumerate}
+    \item الهدف الأول
+    \item الهدف الثاني
+    \item الهدف الثالث
+\end{enumerate}
+}
+
+\posterblock{المناقشة}{%
+% TODO: اكتب مناقشة النتائج هنا.
+}
+
+\posterblock{الاستنتاجات}{%
+% TODO: اكتب الاستنتاجات هنا.
+}
+
+\posterblock{المراجع}{%
+% TODO: اكتب المراجع هنا.
+\begin{enumerate}
+    \item Author, A. (2024). \emph{Title}. Journal, 1(1), 1--10.
+    \item Author, B. (2023). \emph{Title}. Conference, pp. 1--5.
+\end{enumerate}
+}
+
+\end{minipage}
+
+\end{document}

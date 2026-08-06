@@ -1,0 +1,228 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Employment Agreement Template — Nibras Center
+%  عقد العمل / خطاب عرض وظيفي
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={عقد عمل},pdfauthor={الشركة}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape عقد عمل}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.5}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries عقد عمل}\\[0.5em]
+{\large (\LR{Employment Agreement})}\\[1em]
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% PARTIES
+% ============================================================
+\noindent\textbf{الأطراف:}
+
+\begin{enumerate}
+    \item \textbf{صاحب العمل (الشركة):} \rule{8cm}{0.4pt}، رقم السجل التجاري: \rule{4cm}{0.4pt}، المقر: \rule{6cm}{0.4pt}.
+
+    \item \textbf{الموظف:} \rule{8cm}{0.4pt}، رقم الهوية/الجواز: \rule{4cm}{0.4pt}، العنوان: \rule{6cm}{0.4pt}.
+\end{enumerate}
+
+\vspace{1em}
+
+% ============================================================
+% 1. POSITION
+% ============================================================
+\section{الوظيفة والمنصب}
+\label{sec:position}
+\begin{enumerate}
+    \item \textbf{المسمى الوظيفي:} \rule{6cm}{0.4pt}
+    \item \textbf{القسم:} \rule{6cm}{0.4pt}
+    \item \textbf{المسؤول عن:} \rule{6cm}{0.4pt}
+    \item \textbf{مكان العمل:} \rule{6cm}{0.4pt}
+    \item يجوز للشركة تغيير المسمى أو القسم أو مكان العمل بإشعار مسبق.
+\end{enumerate}
+
+% ============================================================
+% 2. DURATION
+% ============================================================
+\section{مدة العقد}
+\label{sec:duration}
+\begin{enumerate}
+    \item \textbf{نوع العقد:} \rule{4cm}{0.4pt} (محدد المدة / غير محدد المدة)
+    \item \textbf{تاريخ بدء العمل:} \rule{4cm}{0.4pt}
+    \item \textbf{تاريخ الانتهاء (إن وجد):} \rule{4cm}{0.4pt}
+    \item \textbf{فترة التجربة:} \rule{2cm}{0.4pt} يوماً من تاريخ البدء.
+\end{enumerate}
+
+% ============================================================
+% 3. DUTIES
+% ============================================================
+\section{الواجبات والمسؤوليات}
+\label{sec:duties}
+\begin{enumerate}
+    \item أداء المهام الموكلة إليه بأمانة وكفاءة.
+    \item الالتزام بأنظمة وسياسات الشركة.
+    \item الحفاظ على سرية معلومات الشركة.
+    \item عدم العمل لدى طرف آخر دون موافقة الشركة.
+    \item تقديم تقارير دورية عن أدائه.
+\end{enumerate}
+
+% ============================================================
+% 4. WORKING HOURS
+% ============================================================
+\section{ساعات العمل}
+\label{sec:hours}
+\begin{enumerate}
+    \item \textbf{ساعات العمل الأسبوعية:} \rule{2cm}{0.4pt} ساعة.
+    \item \textbf{أيام العمل:} من \rule{2cm}{0.4pt} إلى \rule{2cm}{0.4pt}.
+    \item \textbf{ساعات العمل اليومية:} من \rule{2cm}{0.4pt} إلى \rule{2cm}{0.4pt}.
+    \item يجوز طلب العمل الإضافي عند الحاجة، ويُعوَّض وفقاً للقانون.
+\end{enumerate}
+
+% ============================================================
+% 5. COMPENSATION
+% ============================================================
+\section{الراتب والمكافآت}
+\label{sec:compensation}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{L{6cm} X}
+\toprule
+\textbf{البند} & \textbf{القيمة} \\
+\midrule
+الراتب الأساسي الشهري & \rule{4cm}{0.4pt} \LR{USD} \\
+الراتب السنوي & \rule{4cm}{0.4pt} \LR{USD} \\
+بدل سكن (شهرياً) & \rule{4cm}{0.4pt} \LR{USD} \\
+بدل مواصلات (شهرياً) & \rule{4cm}{0.4pt} \LR{USD} \\
+بدل أخرى (شهرياً) & \rule{4cm}{0.4pt} \LR{USD} \\
+\midrule
+\textbf{إجمالي التعويض السنوي} & \textbf{\rule{4cm}{0.4pt} \LR{USD}} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{المكافأة السنوية}
+\begin{itemize}
+    \item مكافأة سنوية تصل إلى \rule{2cm}{0.4pt}\% من الراتب السنوي، مرتبطة بالأداء.
+    \item تُدفع في نهاية السنة المالية، بقرار من الإدارة.
+\end{itemize}
+
+\subsection{خيارات الأسهم}
+\begin{itemize}
+    \item يُمنح الموظف \rule{3cm}{0.4pt} خيار شراء أسهم، وفقاً لخطة خيارات الأسهم.
+    \item جدول الاستحقاق: 4 سنوات مع جرف سنة واحدة.
+\end{itemize}
+
+% ============================================================
+% 6. BENEFITS
+% ============================================================
+\section{المزايا والإجازات}
+\label{sec:benefits}
+\begin{enumerate}
+    \item \textbf{التأمين الصحي:} تأمين صحي شامل للموظف وأسرته.
+    \item \textbf{الإجازة السنوية:} \rule{2cm}{0.4pt} يوماً سنوياً.
+    \item \textbf{الإجازة المرضية:} \rule{2cm}{0.4pt} يوماً سنوياً مدفوعة الأجر.
+    \item \textbf{إجازة الأمومة/الأبوة:} وفقاً للقانون.
+    \item \textbf{أيام العطل الرسمية:} وفقاً لتقويم الدولة.
+    \item \textbf{مزايا أخرى:} \rule{8cm}{0.4pt}
+\end{enumerate}
+
+% ============================================================
+% 7. CONFIDENTIALITY
+% ============================================================
+\section{السرية وعدم المنافسة}
+\label{sec:confidentiality}
+\begin{enumerate}
+    \item \textbf{السرية:} يلتزم الموظف بالحفاظ على سرية معلومات الشركة.
+    \item \textbf{عدم المنافسة:} لا يجوز للموظف العمل لدى منافس لمدة \rule{2cm}{0.4pt} شهراً بعد انتهاء العقد.
+    \item \textbf{عدم استمالة الموظفين:} لا يجوز استمالة موظفي الشركة لمدة \rule{2cm}{0.4pt} شهراً بعد انتهاء العقد.
+    \item \textbf{الملكية الفكرية:} تنتقل جميع حقوق الملكية الفكرية التي يُنشئها الموظف إلى الشركة.
+\end{enumerate}
+
+% ============================================================
+% 8. TERMINATION
+% ============================================================
+\section{إنهاء العقد}
+\label{sec:termination}
+\subsection{إنهاء من قبل الشركة}
+\begin{enumerate}
+    \item يجوز للشركة إنهاء العقد بإشعار مسبق \rule{2cm}{0.4pt} يوماً، مع تعويض وفقاً للقانون.
+    \item يجوز الإنهاء فوراً «لسبب» (إخلال جسيم، إهمال، احتيال) دون تعويض.
+\end{enumerate}
+
+\subsection{إنهاء من قبل الموظف}
+\begin{enumerate}
+    \item يلتزم الموظف بإشعار مسبق \rule{2cm}{0.4pt} يوماً.
+    \item يلتزم بتسليم جميع ممتلكات الشركة ووثائقها.
+\end{enumerate}
+
+% ============================================================
+% 9. GOVERNING LAW
+% ============================================================
+\section{القانون الحاكم}
+\label{sec:law}
+تُفسَّر هذه الاتفاقية وفقاً لقوانين \rule{6cm}{0.4pt}. تُحلّ النزاعات عن طريق التحكيم في \rule{4cm}{0.4pt}.
+
+% ============================================================
+% SIGNATURES
+% ============================================================
+\vspace{2em}
+\section*{التوقيعات}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\textwidth}{L{5cm} X X}
+\toprule
+& \textbf{الشركة} & \textbf{الموظف} \\
+\midrule
+\textbf{الاسم} & --- & --- \\
+\textbf{الصفة} & --- & --- \\
+\textbf{التوقيع} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\textbf{التاريخ} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

@@ -1,0 +1,178 @@
+% !TEX program = xelatex
+% ============================================================
+%  واجب منزلي — Homework Assignment Template
+%  قالب واجب منزلي للطلاب مع ترويسة بمعلومات المقرر والطالب
+%  وأسئلة مرقّمة مع مساحة للإجابة (رياضيات، إجابة قصيرة، مقال).
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - A4, 11pt, article class
+%    - Header block: course, student, assignment #, due date
+%    - Numbered problems via enumerate with answer space
+%    - Math problem, short-answer problem, essay problem examples
+%    - Lined answer area and boxed answer area helpers
+%    - fancyhdr header/footer
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---- Geometry ----
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+
+% ---- Core packages ----
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+% ---- RTL / Arabic language support (order matters) ----
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+% ---- Fonts ----
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+% ---- Languages ----
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% ---- Hyperref (load last, after polyglossia/bidi) ----
+\usepackage[breaklinks,hidelinks]{hyperref}
+
+% ---- Colors ----
+\definecolor{hdraccent}{HTML}{1F3A5F}
+\definecolor{boxline}{HTML}{888888}
+
+% ---- Line spacing ----
+\setstretch{1.4}
+
+% ---- Captions in Arabic ----
+\addto\captionsarabic{%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+}
+
+% ---- Section formatting ----
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+% ---- Headers / footers ----
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+% TODO: عدّل اسم المقرر ورقم الواجب في الترويسة.
+\fancyhead[R]{\small واجب منزلي (Homework)}
+\fancyhead[L]{\small اسم المؤسسة (Institution Name)}
+\fancyfoot[C]{\small \thepage}
+
+% ============================================================
+% Answer-space helpers
+% ============================================================
+
+% \answerlines{height} — lined answer area (height in cm)
+\newcommand{\answerlines}[1]{%
+  \par\vspace{0.3em}%
+  \dimen0=#1\relax
+  \loop
+    \noindent\hrulefill\par\vspace{0.7em}%
+    \advance\dimen0 by -1.1em\relax
+  \ifdim\dimen0>1.1em\repeat
+  \par
+}
+
+% \answerbox{height} — empty boxed answer area
+\newcommand{\answerbox}[1]{%
+  \par\vspace{0.3em}%
+  \noindent\fbox{\rule{0pt}{#1}\rule{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{0pt}}%
+  \par
+}
+
+\begin{document}
+
+% ============================================================
+% TITLE / HEADER BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries واجب منزلي (Homework Assignment)}\\[0.4em]
+{\large\bfseries اسم المؤسسة (Institution Name)}
+\end{center}
+
+\vspace{0.3em}
+{\color{hdraccent}\rule{\linewidth}{1.2pt}}
+\vspace{0.5em}
+
+% ---- Info table ----
+\noindent
+\begin{tabularx}{\linewidth}{@{}p{0.30\linewidth}X@{}}
+\textbf{المقرر (Course):} & % TODO: ضع اسم المقرر هنا
+اسم المقرر (Course Name) \\
+\textbf{اسم الطالب (Student):} & % TODO: ضع اسم الطالب هنا
+\hrulefill \\
+\textbf{الرقم الجامعي (ID):} & % TODO: ضع الرقم الجامعي هنا
+\hrulefill \\
+\textbf{رقم الواجب (Assignment \#):} & % TODO: ضع رقم الواجب هنا
+\hrulefill \\
+\textbf{تاريخ التسليم (Due Date):} & % TODO: ضع تاريخ التسليم هنا
+\hrulefill \\
+\textbf{اسم المعلم (Instructor):} & % TODO: ضع اسم المعلم هنا
+\hrulefill \\
+\end{tabularx}
+
+\vspace{0.4em}
+{\color{hdraccent}\rule{\linewidth}{0.8pt}}
+\vspace{0.8em}
+
+% ============================================================
+% PROBLEMS
+% ============================================================
+\section*{الأسئلة (Problems)}
+% TODO: استبدل الأسئلة أدناه بأسئلة الواجب الفعلية.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=2.2em, itemsep=1.2em]
+
+% ---- Problem 1: Math ----
+\item \textbf{مسألة رياضيات (Math Problem):}\\
+% TODO: ضع المسألة الرياضية هنا.
+احسب قيمة $x$ في المعادلة التالية ثم اعرض خطوات الحل كاملة:
+\[
+3x + 7 = 2x + 22
+\]
+\textit{الحل (Solution):}
+\answerlines{4cm}
+
+% ---- Problem 2: Short answer ----
+\item \textbf{إجابة قصيرة (Short-Answer Problem):}\\
+% TODO: ضع سؤال الإجابة القصيرة هنا.
+اذكر ثلاثة من العوامل المؤثرة في سرعة التفاعل الكيميائي مع شرح موجز لكل عامل.
+\answerlines{4cm}
+
+% ---- Problem 3: Essay ----
+\item \textbf{سؤال مقالي (Essay Problem):}\\
+% TODO: ضع سؤال المقال هنا.
+ناقش أثر الثورة الصناعية على النمو الاقتصادي والاجتماع في أوروبا، موضحاً
+أهم التغيّرات التي طرأت على أنماط الحياة والعمل. اكتب إجابتك في الإطار أدناه.
+\answerbox{6cm}
+
+\end{enumerate}
+
+\vspace{1em}
+{\color{hdraccent}\rule{\linewidth}{0.6pt}}
+\vspace{0.3em}
+\begin{center}
+\textit{بالتوفيق للجميع (Good luck)}
+\end{center}
+
+\end{document}

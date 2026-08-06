@@ -1,0 +1,223 @@
+% !TEX program = xelatex
+% ============================================================
+%  متتبع المعالم — Milestone Tracker Template
+%  نموذج لتتبع معالم المشروع مع مخطط زمني تفاعلي
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - TikZ timeline diagram showing milestones on a horizontal axis
+%    - Milestone table: ID, Name, Planned date, Actual date,
+%      Status, Dependencies, Notes
+%    - Status summary section
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,shapes.geometric,decorations.pathreplacing,arrows.meta}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+
+\addto\captionsarabic{%
+  \renewcommand{\contentsname}{الفهرس}%
+  \renewcommand{\figurename}{الشكل}%
+  \renewcommand{\tablename}{الجدول}%
+}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape متتبع المعالم}
+\fancyhead[L]{\small اسم المشروع}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\setlist[itemize]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+\setlist[enumerate]{topsep=0.3em, itemsep=0.15em, parsep=0pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{msDone}{HTML}{27AE60}
+\definecolor{msProgress}{HTML}{F39C12}
+\definecolor{msPending}{HTML}{95A5A6}
+\definecolor{msAxis}{HTML}{1A3C6B}
+
+\setstretch{1.3}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\begin{center}
+{\LARGE\bfseries متتبع المعالم}\\[0.3em]
+{\large Milestone Tracker}\\[1em]
+\end{center}
+
+% ============================================================
+% PROJECT INFO
+% ============================================================
+% TODO: املأ بيانات المشروع.
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{3.5cm} X L{3.5cm} X}
+\toprule
+\textbf{اسم المشروع:} & --- & \textbf{مدير المشروع:} & --- \\
+\textbf{اسم الشركة:} & --- & \textbf{تاريخ التحديث:} & --- \\
+\textbf{تاريخ البدء:} & --- & \textbf{تاريخ الانتهاء:} & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+% ============================================================
+% 1. TIMELINE DIAGRAM
+% ============================================================
+\section{المخطط الزمني للمعالم}
+\label{sec:timeline}
+
+% TODO: عدّل مواقع المعالم على المخطط حسب تواريخ مشروعك.
+% The timeline uses LTR coordinates; Arabic labels are placed via \RL{}.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+
+% ---- Axis ----
+\draw[msAxis,very thick,-{Stealth[length=3mm]}] (0,0) -- (13,0);
+
+% ---- Month markers ----
+\foreach \x/\label in {0/الشهر 1, 2/الشهر 3, 4/الشهر 5, 6/الشهر 7, 8/الشهر 9, 10/الشهر 11, 12/الشهر 12} {
+  \draw[msAxis,thick] (\x,-0.15) -- (\x,0.15);
+  \node[below,font=\scriptsize,msAxis] at (\x,-0.2) {\label};
+}
+
+% ---- Milestones ----
+% M1: done (month 2)
+\node[diamond,fill=msDone,draw=msDone,inner sep=4pt] (m1) at (1,1.2) {};
+\node[above=2pt of m1,font=\scriptsize\bfseries] {\RL{المعلم 1}};
+\node[above=14pt of m1,font=\scriptsize] {\RL{بدء المشروع}};
+
+% M2: done (month 4)
+\node[diamond,fill=msDone,draw=msDone,inner sep=4pt] (m2) at (3,1.2) {};
+\node[above=2pt of m2,font=\scriptsize\bfseries] {\RL{المعلم 2}};
+\node[above=14pt of m2,font=\scriptsize] {\RL{انتهاء التصميم}};
+
+% M3: in progress (month 6)
+\node[diamond,fill=msProgress,draw=msProgress,inner sep=4pt] (m3) at (5,1.2) {};
+\node[above=2pt of m3,font=\scriptsize\bfseries] {\RL{المعلم 3}};
+\node[above=14pt of m3,font=\scriptsize] {\RL{انتهاء التطوير}};
+
+% M4: pending (month 8)
+\node[diamond,fill=msPending,draw=msPending,inner sep=4pt] (m4) at (7,1.2) {};
+\node[above=2pt of m4,font=\scriptsize\bfseries] {\RL{المعلم 4}};
+\node[above=14pt of m4,font=\scriptsize] {\RL{انتهاء الاختبار}};
+
+% M5: pending (month 10)
+\node[diamond,fill=msPending,draw=msPending,inner sep=4pt] (m5) at (9,1.2) {};
+\node[above=2pt of m5,font=\scriptsize\bfseries] {\RL{المعلم 5}};
+\node[above=14pt of m5,font=\scriptsize] {\RL{الإطلاق التجريبي}};
+
+% M6: pending (month 12)
+\node[diamond,fill=msPending,draw=msPending,inner sep=4pt] (m6) at (11,1.2) {};
+\node[above=2pt of m6,font=\scriptsize\bfseries] {\RL{المعلم 6}};
+\node[above=14pt of m6,font=\scriptsize] {\RL{الإطلاق النهائي}};
+
+% ---- Vertical dashed lines from milestones to axis ----
+\foreach \m in {m1,m2,m3,m4,m5,m6} {
+  \draw[dashed,gray,thin] (\m) -- ($(\m |- 0,0)$);
+}
+
+% ---- Legend ----
+\node[diamond,fill=msDone,draw=msDone,inner sep=3pt] at (1.5,-1.5) {};
+\node[right=2pt,font=\scriptsize] at (1.7,-1.5) {\RL{مكتمل}};
+
+\node[diamond,fill=msProgress,draw=msProgress,inner sep=3pt] at (4.5,-1.5) {};
+\node[right=2pt,font=\scriptsize] at (4.7,-1.5) {\RL{قيد التنفيذ}};
+
+\node[diamond,fill=msPending,draw=msPending,inner sep=3pt] at (8,-1.5) {};
+\node[right=2pt,font=\scriptsize] at (8.2,-1.5) {\RL{لم يبدأ}};
+
+\end{tikzpicture}
+\caption{المخطط الزمني لمعالم المشروع}
+\end{figure}
+
+% ============================================================
+% 2. MILESTONE TABLE
+% ============================================================
+\section{جدول المعالم}
+\label{sec:milestones}
+
+% TODO: عدّل صفوف المعالم حسب مشروعك.
+\begin{table}[H]
+\centering
+\caption{تفاصيل معالم المشروع}
+\renewcommand{\arraystretch}{1.4}
+\small
+\begin{tabularx}{\textwidth}{C{1.2cm} L{3cm} L{2cm} L{2cm} L{2cm} L{2.5cm} X}
+\toprule
+\textbf{المعرف} & \textbf{اسم المعلم} & \textbf{التاريخ المخطط} & \textbf{التاريخ الفعلي} & \textbf{الحالة} & \textbf{التبعيات} & \textbf{ملاحظات} \\
+\midrule
+\LR{M1} & بدء المشروع & --- & --- & مكتمل & --- & تم البدء في الموعد المحدد \\
+\LR{M2} & انتهاء التصميم & --- & --- & مكتمل & \LR{M1} & اكتمل التصميم بنجاح \\
+\LR{M3} & انتهاء التطوير & --- & --- & قيد التنفيذ & \LR{M2} & تأخر بسيط بسبب متطلبات إضافية \\
+\LR{M4} & انتهاء الاختبار & --- & --- & لم يبدأ & \LR{M3} & يبدأ بعد اكتمال التطوير \\
+\LR{M5} & الإطلاق التجريبي & --- & --- & لم يبدأ & \LR{M4} & يتطلب موافقة لجنة الجودة \\
+\LR{M6} & الإطلاق النهائي & --- & --- & لم يبدأ & \LR{M5} & الإطلاق الرسمي للمستخدمين \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% 3. STATUS SUMMARY
+% ============================================================
+\section{ملخص الحالة}
+\label{sec:summary}
+
+% TODO: حدّث ملخص الحالة حسب التقدم الفعلي.
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{5cm} C{3cm} X}
+\toprule
+\textbf{المؤشر} & \textbf{القيمة} & \textbf{ملاحظات} \\
+\midrule
+إجمالي المعالم & 6 & --- \\
+المعالم المكتملة & 2 & \LR{M1, M2} \\
+المعالم قيد التنفيذ & 1 & \LR{M3} \\
+المعالم المتأخرة & 0 & --- \\
+المعالم المتبقية & 3 & \LR{M4, M5, M6} \\
+نسبة الإنجاز الكلية & 33\% & تقديري بناءً على المعالم المكتملة \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

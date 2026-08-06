@@ -1,0 +1,29 @@
+% ---- Acronyms & Glossary entries ----
+% Define your acronyms and glossary terms here.
+% Usage in text:
+%   \acrfull{key}   → full form + acronym (e.g. "واجهة الدماغ–الحاسوب (BCI)")
+%   \acrshort{key}  → acronym only (e.g. "BCI")
+%   \acrlong{key}   → long form only
+%   \gls{key}       → first use: full; subsequent: short
+%
+% Format: \newacronym{key}{acronym}{long form (Arabic) - English}
+
+\renewcommand*{\acronymname}{الاختصارات}
+\renewcommand*{\glossaryname}{المصطلحات}
+
+% ---- Example acronyms (replace with your own) ----
+\newacronym{bci}{\LR{BCI}}{\textarabic{ترابط الدماغ–الحاسوب} - \LR{Brain-Computer Interface}}
+\newacronym{eeg}{\LR{EEG}}{\textarabic{تخطيط الدماغ الكهربائي} - \LR{Electroencephalography}}
+\newacronym{ai}{\LR{AI}}{\textarabic{الذكاء الاصطناعي} - \LR{Artificial Intelligence}}
+\newacronym{ml}{\LR{ML}}{\textarabic{تعلُّم الآلة} - \LR{Machine Learning}}
+
+% ---- Example glossary entries (not acronyms) ----
+\newglossaryentry{neuron}{
+  name=\LR{Neuron},
+  description={العَصَبُون: الوحدة الوظيفية الأساسية للجهاز العصبي، مسؤول عن نقل الإشارات الكهربائية بين الخلايا}
+}
+
+\newglossaryentry{neuroplasticity}{
+  name=\LR{Neuroplasticity},
+  description={اللُّدُونَةُ العَصَبِيَّة: قدرة الجهاز العصبي على التكيّف وإعادة تنظيم نفسه بنيويًا ووظيفيًا نتيجة الخبرة أو الإصابة أو التعلم}
+}

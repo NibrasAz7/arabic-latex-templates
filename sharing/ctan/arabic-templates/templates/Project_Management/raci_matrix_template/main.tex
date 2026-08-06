@@ -1,0 +1,166 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic RACI Matrix Template — Nibras Center
+%  مشروع بحثي: مصفوفة المسؤوليات
+%  R = Responsible (منفّذ) | A = Accountable (مسؤول)
+%  C = Consulted (مُستشار) | I = Informed (مُطّلع)
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,landscape,margin=2cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={مصفوفة RACI},pdfauthor={الباحث الرئيسي}}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.4ex}{0.9ex plus 0.3ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape مصفوفة المسؤوليات (RACI)}
+\fancyhead[L]{\small اسم المشروع}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{raciR}{HTML}{C0392B}
+\definecolor{raciA}{HTML}{1A3C6B}
+\definecolor{raciC}{HTML}{D4A017}
+\definecolor{raciI}{HTML}{27AE60}
+
+\setstretch{1.3}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries مصفوفة المسؤوليات (RACI)}\\[0.5em]
+{\Large عنوان المشروع البحثي}\\[1em]
+\end{center}
+
+% ============================================================
+% LEGEND
+% ============================================================
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|l|}
+\hline
+\textbf{\color{raciR}R} & \textbf{منفّذ} (\LR{Responsible}) — ينفذ المهمة فعلياً \\
+\hline
+\textbf{\color{raciA}A} & \textbf{مسؤول} (\LR{Accountable}) — يتحمل المسؤولية النهائية \\
+\hline
+\textbf{\color{raciC}C} & \textbf{مُستشار} (\LR{Consulted}) — يُستشار قبل القرار \\
+\hline
+\textbf{\color{raciI}I} & \textbf{مُطّلع} (\LR{Informed}) — يُطّلع بعد القرار \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+% ROLES
+% ============================================================
+\section{الأدوار}
+\label{sec:roles}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{C{1.5cm} L{5cm} X}
+\toprule
+\textbf{الرمز} & \textbf{الدور} & \textbf{الاسم} \\
+\midrule
+PI & الباحث الرئيسي (\LR{Principal Investigator}) & --- \\
+Co1 & باحث مشارك أول & --- \\
+Co2 & باحث مشارك ثانٍ & --- \\
+Tech & فني مختبر & --- \\
+PM & مدير المشروع & --- \\
+Fund & ممثل الجهة الممولة & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% RACI MATRIX
+% ============================================================
+\section{مصفوفة RACI}
+\label{sec:raci_matrix}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{L{5cm} C{1.2cm} C{1.2cm} C{1.2cm} C{1.2cm} C{1.2cm} C{1.2cm}}
+\toprule
+\textbf{المهمة / النشاط} & \textbf{PI} & \textbf{Co1} & \textbf{Co2} & \textbf{Tech} & \textbf{PM} & \textbf{Fund} \\
+\midrule
+\rowcolor{lightgray!20}
+\multicolumn{7}{l}{\textbf{1. المراجعة والتخطيط}} \\
+مراجعة الأدبيات & A/R & C & R & --- & I & I \\
+تحديد الفجوات البحثية & A/R & C & C & --- & I & --- \\
+تصميم المنهجية & A/R & C & C & --- & I & I \\
+إعداد ميثاق المشروع & A & C & --- & --- & R & I \\
+\midrule
+\rowcolor{lightgray!20}
+\multicolumn{7}{l}{\textbf{2. الإعداد والتجربة}} \\
+تجهيز المعدات & A & C & --- & R & I & --- \\
+جمع البيانات & A & R & R & C & I & --- \\
+معالجة البيانات & A & R & C & --- & I & --- \\
+\midrule
+\rowcolor{lightgray!20}
+\multicolumn{7}{l}{\textbf{3. التحليل والنمذجة}} \\
+التحليل الإحصائي & A/R & C & C & --- & I & --- \\
+النمذجة والمحاكاة & A & R & R & --- & I & --- \\
+التحقق من النتائج & A/R & C & C & --- & I & I \\
+\midrule
+\rowcolor{lightgray!20}
+\multicolumn{7}{l}{\textbf{4. النشر والتوثيق}} \\
+كتابة الورقة البحثية & A/R & C & C & --- & I & --- \\
+تقديم الورقة للنشر & A/R & I & I & --- & I & I \\
+كتابة التقرير النهائي & A/R & C & C & --- & C & I \\
+عرض النتائج & A/R & R & R & C & C & I \\
+إغلاق المشروع & A & C & C & --- & R & C \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% NOTES
+% ============================================================
+\section{ملاحظات}
+\label{sec:notes}
+
+\begin{itemize}
+    \item لكل مهمة يجب أن يكون هناك \textbf{مسؤول واحد فقط (A)}.
+    \item يمكن أن يكون هناك عدة \textbf{منفّذين (R)} للمهمة الواحدة.
+    \item \textbf{المُستشار (C)} يُطلب رأيه ثنائياً قبل اتخاذ القرار.
+    \item \textbf{المُطّلع (I)} يُبلغ بالقرار بعد اتخاذه.
+    \item إذا كان الشخص \textbf{A/R} فهو مسؤول ومنفّذ في آن واحد.
+\end{itemize}
+
+\end{document}

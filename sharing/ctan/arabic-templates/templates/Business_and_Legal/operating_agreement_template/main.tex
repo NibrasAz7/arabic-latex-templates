@@ -1,0 +1,242 @@
+% !TEX program = xelatex
+% ============================================================
+%  Arabic Operating Agreement / Bylaws Template — Nibras Center
+%  النظام الأساسي / اللوائح الداخلية للشركة
+%  Compile with: xelatex main.tex (twice)
+% ============================================================
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=15pt]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={النظام الأساسي},pdfauthor={الشركة}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape النظام الأساسي}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setstretch{1.5}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries النظام الأساسي للشركة}\\[0.5em]
+{\large (\LR{Operating Agreement / Corporate Bylaws})}\\[1em]
+{\normalsize اسم الشركة: \rule{6cm}{0.4pt}}\\[0.3em]
+{\normalsize تاريخ الاعتماد: \rule{4cm}{0.4pt}}
+\end{center}
+
+\vspace{1.5em}
+
+% ============================================================
+% CHAPTER 1: GENERAL PROVISIONS
+% ============================================================
+\section{أحكام عامة}
+\label{ch:general}
+
+\subsection{الاسم والمقر}
+\begin{enumerate}
+    \item اسم الشركة: \rule{6cm}{0.4pt}
+    \item المقر الرئيسي: \rule{8cm}{0.4pt}
+    \item الشكل القانوني: \rule{4cm}{0.4pt}
+\end{enumerate}
+
+\subsection{الغرض}
+تأسست الشركة لتحقيق الأغراض التالية:
+\begin{enumerate}
+    \item \rule{12cm}{0.4pt}
+    \item \rule{12cm}{0.4pt}
+\end{enumerate}
+
+\subsection{المدة}
+مدة الشركة غير محددة، تبدأ من تاريخ قيدها رسمياً.
+
+% ============================================================
+% CHAPTER 2: SHAREHOLDERS
+% ============================================================
+\section{الجمعية العامة للمساهمين}
+\label{ch:shareholders}
+
+\subsection{الاجتماعات}
+\begin{enumerate}
+    \item تُعقد الجمعية العامة العادية مرة واحدة سنوياً خلال \rule{2cm}{0.4pt} أشهر من نهاية السنة المالية.
+    \item تُعقد الجمعية العامة غير العادية بناءً على طلب مجلس الإدارة أو \rule{2cm}{0.4pt}\% من المساهمين.
+    \item يُرسل إشعار الاجتماع قبل \rule{2cm}{0.4pt} يوماً على الأقل.
+\end{enumerate}
+
+\subsection{النصاب والتصويت}
+\begin{enumerate}
+    \item يُعتبر الاجتماع قانونياً بحضور \rule{2cm}{0.4pt}\% من المساهمين.
+    \item تُتخذ القرارات بالأغلبية المطلقة ما لم يُنص على خلاف ذلك.
+    \item لكل سهم صوت واحد في التصويت.
+\end{enumerate}
+
+\subsection{صلاحيات الجمعية العامة}
+\begin{enumerate}
+    \item اعتماد القوائم المالية السنوية.
+    \item انتخاب أعضاء مجلس الإدارة.
+    \item تعيين المراجع المالي.
+    \item توزيع الأرباح.
+    \item تعديل النظام الأساسي.
+    \item حلّ الشركة.
+\end{enumerate}
+
+% ============================================================
+% CHAPTER 3: BOARD OF DIRECTORS
+% ============================================================
+\section{مجلس الإدارة}
+\label{ch:board}
+
+\subsection{التشكيل}
+\begin{enumerate}
+    \item يتألف مجلس الإدارة من \rule{2cm}{0.4pt} عضو يُنتخبون من قبل الجمعية العامة.
+    \item مدة عضوية المجلس \rule{2cm}{0.4pt} سنوات قابلة للتجديد.
+    \item يُنتخب رئيس مجلس الإدارة من بين الأعضاء.
+\end{enumerate}
+
+\subsection{الاجتماعات}
+\begin{enumerate}
+    \item يُعقد المجلس \rule{2cm}{0.4pt} مرات سنوياً على الأقل.
+    \item النصاب القانوني: \rule{2cm}{0.4pt}\% من الأعضاء.
+    \item تُتخذ القرارات بالأغلبية، وفي حالة التساوي يكون لرئيس المجلس صوت مرجّح.
+\end{enumerate}
+
+\subsection{صلاحيات المجلس}
+\begin{enumerate}
+    \item وضع السياسات العامة للشركة.
+    \item تعيين المدير التنفيذي.
+    \item اعتماد الميزانية السنوية.
+    \item الموافقة على القروض والاستثمارات الكبرى.
+    \item تعيين كبار الموظفين.
+\end{enumerate}
+
+% ============================================================
+% CHAPTER 4: OFFICERS
+% ============================================================
+\section{المديرون التنفيذيون}
+\label{ch:officers}
+
+\subsection{المناصب}
+يتضمن الهيكل التنفيذي للشركة المناصب التالية:
+\begin{enumerate}
+    \item \textbf{المدير التنفيذي (\LR{CEO}):} المسؤول عن الإدارة العامة.
+    \item \textbf{المدير المالي (\LR{CFO}):} المسؤول عن الشؤون المالية.
+    \item \textbf{المدير التقني (\LR{CTO}):} المسؤول عن الشؤون التقنية.
+    \item \textbf{أمين السر (\LR{Secretary}):} المسؤول عن الوثائق والمراسلات.
+\end{enumerate}
+
+\subsection{التعيين والعزل}
+\begin{enumerate}
+    \item يُعيّن المديرون التنفيذيون بقرار من مجلس الإدارة.
+    \item يُعزلون بقرار من المجلس بالأغلبية.
+\end{enumerate}
+
+% ============================================================
+% CHAPTER 5: FINANCIAL PROVISIONS
+% ============================================================
+\section{الأحكام المالية}
+\label{ch:finance}
+
+\subsection{السنة المالية}
+تبدأ السنة المالية في \rule{3cm}{0.4pt} وتنتهي في \rule{3cm}{0.4pt}.
+
+\subsection{القوائم المالية}
+\begin{enumerate}
+    \item تُعدّ القوائم المالية وفقاً لمعايير \rule{4cm}{0.4pt}.
+    \item يُعين مراجع مالي مستقل من قبل الجمعية العامة.
+    \item تُحفظ الدفاتر المحاسبية في المقر الرئيسي.
+\end{enumerate}
+
+\subsection{توزيع الأرباح}
+\begin{enumerate}
+    \item يُحدد مجلس الإدارة نسبة الأرباح القابلة للتوزيع.
+    \item يُخصم \rule{2cm}{0.4pt}\% كاحتياطي قانوني قبل التوزيع.
+    \item تُوزّع الأرباح المتبقية على المساهمين بنسبة حصصهم.
+\end{enumerate}
+
+% ============================================================
+% CHAPTER 6: TRANSFER OF SHARES
+% ============================================================
+\section{نقل الأسهم}
+\label{ch:transfer}
+
+\begin{enumerate}
+    \item لا يجوز نقل الأسهم إلا بموافقة \rule{2cm}{0.4pt}\% من المساهمين / مجلس الإدارة.
+    \item للمساهمين الحق في شراء الأسهم المعروضة للبيع بالأولوية (\LR{Right of First Refusal}).
+    \item تُسجّل عمليات النقل في سجل المساهمين.
+\end{enumerate}
+
+% ============================================================
+% CHAPTER 7: DISSOLUTION
+% ============================================================
+\section{حلّ وتصفية الشركة}
+\label{ch:dissolution}
+
+\begin{enumerate}
+    \item يجوز حلّ الشركة بقرار من الجمعية العامة بأغلبية \rule{2cm}{0.4pt}\%.
+    \item يعيّن المصفّي من قبل الجمعية أو المحكمة.
+    \item تُسدّد الديون أولاً، ثم تُوزّع الأصول المتبقية على المساهمين.
+\end{enumerate}
+
+% ============================================================
+% CHAPTER 8: AMENDMENTS
+% ============================================================
+\section{تعديل النظام الأساسي}
+\label{ch:amendments}
+
+\begin{enumerate}
+    \item يجوز تعديل هذا النظام بقرار من الجمعية العامة بأغلبية \rule{2cm}{0.4pt}\%.
+    \item تُودع التعديلات لدى الجهة المختصة للاعتماد.
+    \item يُعمل بالتعديل من تاريخ اعتماده رسمياً.
+\end{enumerate}
+
+% ============================================================
+% SIGNATURES
+% ============================================================
+\vspace{2em}
+\section*{التوقيعات}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.5}
+\begin{tabularx}{\textwidth}{L{5cm} X X}
+\toprule
+\textbf{الاسم والصفة} & \textbf{التوقيع} & \textbf{التاريخ} \\
+\midrule
+رئيس مجلس الإدارة: --- & \rule{4cm}{0.4pt} & \rule{3cm}{0.4pt} \\
+أمين السر: --- & \rule{4cm}{0.4pt} & \rule{3cm}{0.4pt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

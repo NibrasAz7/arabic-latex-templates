@@ -1,0 +1,165 @@
+% !TEX program = xelatex
+% ============================================================
+%  خطاب توصية — Recommendation Letter Template
+%  قالب عربي (RTL) لخطاب توصية أكاديمي أو مهني.
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Right-to-left (RTL) layout with Amiri font
+%    - Institution letterhead placeholder
+%    - Addressed to admissions/hiring committee
+%    - Relationship-to-candidate opening paragraph
+%    - Three quality paragraphs with example placeholders
+%    - Strong closing recommendation and signature block
+% ============================================================
+\documentclass[12pt,a4paper]{article}
+
+% --- Page geometry ---
+\usepackage[a4paper,margin=2.5cm,top=2.5cm,bottom=2.5cm,headheight=16pt]{geometry}
+
+% --- Standard packages (load ALL before bidi) ---
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{parskip}
+
+% --- BIDI (must come before polyglossia, after standard packages) ---
+\usepackage{bidi}
+
+% --- Font specification (requires bidi) ---
+\usepackage[no-math]{fontspec}
+
+% --- Polyglossia (language support) ---
+\usepackage[quiet]{polyglossia}
+
+% --- Fonts ---
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+% --- Languages ---
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+% --- Hyperref (ALWAYS last) ---
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={خطاب توصية},pdfauthor={اسم المرسل}}
+
+% --- Line spacing ---
+\setstretch{1.4}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+% --- Header/Footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape خطاب توصية}
+\fancyhead[L]{\small اسم المؤسسة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+% ============================================================
+%  Document
+% ============================================================
+\begin{document}
+
+% --- Letterhead placeholder (institution) ---
+\begin{center}
+{\LARGE\bfseries اسم المؤسسة}\\[0.3em]
+% TODO: استبدل باسم المؤسسة/الجامعة الكامل
+{\large اسم الجامعة / المؤسسة}\\[0.2em]
+% TODO: استبدل بعنوان المؤسسة
+{\small العنوان: المدينة، الحي، الشارع، الرمز البريدي}\\[0.2em]
+% TODO: استبدل ببيانات التواصل
+{\small الهاتف: \LR{+000-000-000-0000} \,\textbar\, البريد: \LR{info@institution.example}}
+\end{center}
+
+\vspace{0.5em}
+\hrule
+\vspace{1.5em}
+
+% --- Date ---
+\begin{flushright}
+% TODO: حدّث التاريخ
+\today
+\end{flushright}
+
+\vspace{1em}
+
+% --- Recipient block ---
+\begin{flushright}
+% TODO: حدّد الجهة المُرسَل إليها (لجنة القبول أو إدارة التوظيف)
+إلى لجنة القبول / إدارة التوظيف المحترمة،\\[0.2em]
+% TODO: اسم الجهة المستلمة
+\textbf{اسم الجهة / البرنامج}\\[0.2em]
+% TODO: عنوان الجهة المستلمة
+العنوان: المدينة، الحي، الشارع
+\end{flushright}
+
+\vspace{1em}
+
+% --- Subject line ---
+\begin{flushright}
+\textbf{الموضوع: خطاب توصية للسيد/ة \textit{اسم المرشح/ة}}
+\end{flushright}
+
+\vspace{0.5em}
+
+% --- Salutation ---
+\begin{flushright}
+المحترمون،
+\end{flushright}
+
+\vspace{0.5em}
+
+% --- Body: Paragraph 1 — Relationship to candidate ---
+% TODO: اذكر طبيعة العلاقة بالمرشح ومدتها
+تحية طيبة وبعد،
+
+يسعدني أن أكتب إليكم هذا الخطاب لتوصية السيد/ة \textbf{اسم المرشح/ة} للقبول في \textbf{البرنامج / الوظيفة} لدى \textbf{اسم الجهة}. عرفتُ المرشح/ة بصفتي \textbf{صفة المُوصي: أستاذ / مشرف / مدير مباشر} على مدى \textbf{مدة العلاقة بالسنوات} سنوات، خلالها تمكّنت من ملاحظة قدراته الأكاديمية والمهنية عن قرب.
+
+% --- Body: Paragraph 2 — Quality 1 (academic/professional competence) ---
+% TODO: اذكر ميزة محددة مع مثال قابل للقياس
+يتميّز السيد/ة \textbf{اسم المرشح/ة} بتفوّقٍ واضح في \textbf{المجال/المادة}. فعلى سبيل المثال، خلال \textbf{المشروع / المقرر / المهمة}، أظهر قدرةً عالية على \textbf{المهارة المحددة}، حيث \textbf{إنجاز محدد قابل للقياس: حقق نتيجة / قاد فريق / حلّ مشكلة}. وقد عكست هذه التجربة تمكّنه من \textbf{مهارة قابلة للقياس} وفهماً عميقاً لأساسيات \textbf{المجال}.
+
+% --- Body: Paragraph 3 — Quality 2 (personal/interpersonal qualities) ---
+% TODO: اذكر ميزة شخصية أو قيادية مع مثال
+إلى جانب الكفاءة العلمية، يتميّز بصفاتٍ شخصية رفيعة. فهو/هي يتمتّع بـ\textbf{الصفة: النزاهة / روح المبادرة / العمل الجماعي}، وقد تجلّى ذلك في \textbf{موقف محدد: قيادة فريق / تنظيم فعالية / حلّ نزاع}. كما يُظهر التزاماً عالياً بالمواعيد واحتراماً للزملاء، مما يجعله/ها عنصراً إيجابياً في أي بيئة عمل أو دراسة.
+
+% --- Body: Paragraph 4 — Quality 3 (growth / impact) ---
+% TODO: اذكر نمو أو أثر إضافي مع مثال
+ومما يستحق الذكر أيضاً، قدرته/ها على التعلّم السريع والتكيّف مع المتغيرات. خلال \textbf{فترة أو حدث}، تطوّر من \textbf{مستوى ابتدائي} إلى \textbf{مستوى متقدّم} في \textbf{مهارة أو مجال}، وأحدث أثراً ملموساً على \textbf{الفريق / القسم / المشروع}. هذه القدرة على النمو المستمر تُعدّ مؤشراً قوياً على نجاحه/ها في المرحلة القادمة.
+
+% --- Closing: strong recommendation ---
+\vspace{0.5em}
+% TODO: عزّز التوصية بدرجة التأييد المناسبة
+بناءً على ما تقدّم، أوصي بقبول السيد/ة \textbf{اسم المرشح/ة} بقوةٍ في \textbf{البرنامج / الوظيفة}، وأرى أنه/ها سيكون/ستكون إضافة قيّمة لبرنامجكم. وأنا على استعدادٍ لتقديم أي معلومات إضافية عند الطلب.
+
+% --- Closing phrase ---
+\vspace{0.5em}
+\begin{flushright}
+وتفضلوا بقبول فائق الاحترام والتقدير،
+\end{flushright}
+
+\vspace{2em}
+
+% --- Signature block ---
+\begin{flushright}
+% TODO: التوقيع اليدوي أعلى الاسم
+\rule{5cm}{0.4pt}\\[0.3em]
+\textbf{اسم المُوصي}\\[0.2em]
+% TODO: المسمى الوظيفي للمُوصي
+المسمى الوظيفي / اللقب الأكاديمي\\[0.2em]
+% TODO: اسم المؤسسة
+اسم المؤسسة / الجامعة\\[0.2em]
+% TODO: بيانات التواصل
+\LR{+000-000-000-0000} \,\textbar\, \LR{recommender@institution.example}
+\end{flushright}
+
+\end{document}

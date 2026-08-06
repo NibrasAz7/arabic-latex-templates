@@ -1,0 +1,28 @@
+{
+  "title": "arabic-latex-templates: A collection of 91 Arabic/RTL LaTeX templates",
+  "description": "A collection of 91 Arabic/RTL LaTeX templates organized into 10 categories: Academic & Research, Business & Legal, Project Management, Education & Personal, Presentations, Letters & Correspondence, Finance & Accounting, Marketing & Communications, Personal & Life, and Technical & Engineering. All templates use XeLaTeX with the Amiri font and polyglossia/bidi for full right-to-left Arabic typesetting.",
+  "license": "LPPL-1.3c",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "publication_type": "software",
+  "creators": [
+    {
+      "name": "arabic-latex-templates contributors"
+    }
+  ],
+  "keywords": [
+    "latex",
+    "templates",
+    "arabic",
+    "rtl",
+    "xelatex",
+    "amiri",
+    "polyglossia",
+    "bidi",
+    "academic",
+    "business"
+  ],
+  "communities": [
+    {"identifier": "latex"}
+  ]
+}

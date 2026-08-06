@@ -1,0 +1,184 @@
+% !TEX program = xelatex
+% ============================================================
+%  فاتورة — Invoice Template
+%  قالب فاتورة تجارية باللغة العربية مع ضريبة القيمة المضافة
+%  Compile with: xelatex main.tex (run twice)
+% ============================================================
+%  Features:
+%    - Header with invoice number and date
+%    - Issuer (right) | Client (left) two-column block
+%    - Line items table with qty, unit price, totals
+%    - Subtotal, VAT (15%), grand total
+%    - Payment terms and bank details block
+%    - Footer thanks note
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2cm,top=2cm,bottom=2cm,headheight=16pt]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[table]{xcolor}
+
+\usepackage{bidi}
+\usepackage[no-math]{fontspec}
+\usepackage[quiet]{polyglossia}
+
+\setmainfont[Scale=1]{Amiri-Regular.ttf}
+\newfontfamily\arabicfont[Script=Arabic,Scale=0.95]{Amiri-Regular.ttf}
+\newfontfamily\englishfont[Scale=0.95]{TeX Gyre Termes}
+
+\setdefaultlanguage[calendar=gregorian,hijricorrection=1]{arabic}
+\setotherlanguage[variant=british]{english}
+
+\usepackage[breaklinks,hidelinks]{hyperref}
+\hypersetup{pdftitle={فاتورة},pdfauthor={اسم الشركة}}
+
+% Currency command — TODO: change currency code as needed (ر.س = SAR)
+\newcommand{\currency}[1]{#1\,\textarabic{ر.س}}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+% TODO: set invoice number placeholder
+\fancyhead[R]{\small\itshape فاتورة (\LR{Invoice}) — رقم: \LR{INV-2024-0001}}
+\fancyhead[L]{\small اسم الشركة}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\definecolor{accentColor}{HTML}{1A3C6B}
+\definecolor{lightAccent}{HTML}{EAF0F6}
+
+\setstretch{1.2}
+
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK
+% ============================================================
+\begin{center}
+{\Huge\bfseries\color{accentColor} فاتورة}\\[0.3em]
+{\large (\LR{Invoice})}\\[0.5em]
+\end{center}
+
+\vspace{0.5em}
+
+% ============================================================
+% INVOICE META + PARTIES
+% ============================================================
+\noindent
+\begin{tabularx}{\textwidth}{@{} L{7.5cm} X R{6cm} @{}}
+\textbf{رقم الفاتورة (\LR{Invoice No.}):} & & \LR{INV-2024-0001} \\
+\textbf{تاريخ الإصدار (\LR{Issue Date}):} & & \today \\
+\textbf{تاريخ الاستحقاق (\LR{Due Date}):} & & \today % TODO: set due date
+\end{tabularx}
+
+\vspace{1em}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{} L{8cm} X R{7cm} @{}}
+\multicolumn{2}{L{8cm}}{\textbf{\color{accentColor} من (المُصدِر / \LR{Issuer}):}} &
+\textbf{\color{accentColor} إلى (العميل / \LR{Client}):} \\
+\multicolumn{2}{L{8cm}}{اسم الشركة} & اسم العميل \\
+\multicolumn{2}{L{8cm}}{العنوان: \rule{5cm}{0.4pt}} & العنوان: \rule{4cm}{0.4pt} \\
+\multicolumn{2}{L{8cm}}{الهاتف: \rule{4cm}{0.4pt}} & الهاتف: \rule{4cm}{0.4pt} \\
+\multicolumn{2}{L{8cm}}{البريد: \rule{4cm}{0.4pt}} & الرقم الضريبي: \rule{3cm}{0.4pt} \\
+\multicolumn{2}{L{8cm}}{الرقم الضريبي: \rule{4cm}{0.4pt}} & % TODO: client tax number
+\\
+\end{tabularx}
+
+\vspace{1.5em}
+
+% ============================================================
+% LINE ITEMS TABLE
+% ============================================================
+\section*{تفاصيل الفاتورة (\LR{Invoice Details})}
+% TODO: replace sample line items with actual products/services
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{C{1cm} L{6.5cm} C{2cm} R{3cm} R{3cm}}
+\toprule
+\textbf{\#} & \textbf{الوصف (\LR{Description})} & \textbf{الكمية (\LR{Qty})} & \textbf{سعر الوحدة (\LR{Unit Price})} & \textbf{الإجمالي (\LR{Total})} \\
+\midrule
+1 & خدمة استشارية — شهر كامل (\LR{Consulting}) & 1 & \currency{15,000.00} & \currency{15,000.00} \\
+2 & تطوير نظام إلكتروني (\LR{Development}) & 1 & \currency{25,000.00} & \currency{25,000.00} \\
+3 & ترخيص برمجي سنوي (\LR{License}) & 3 & \currency{4,000.00} & \currency{12,000.00} \\
+4 & تدريب الفريق — جلسة (\LR{Training}) & 5 & \currency{1,200.00} & \currency{6,000.00} \\
+5 & دعم فني شهري (\LR{Support}) & 2 & \currency{2,500.00} & \currency{5,000.00} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1em}
+
+% ============================================================
+% TOTALS
+% ============================================================
+\hfill
+\begin{tabularx}{8cm}{L{4.5cm} R{3cm}}
+\toprule
+\textbf{المجموع الفرعي (\LR{Subtotal}):} & \currency{63,000.00} \\
+\textbf{ضريبة القيمة المضافة 15\% (\LR{VAT}):} & \currency{9,450.00} \\
+\midrule
+\textbf{\large الإجمالي النهائي (\LR{Grand Total}):} & \textbf{\large\color{accentColor}\currency{72,450.00}} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{1.5em}
+
+% ============================================================
+% PAYMENT TERMS + BANK DETAILS
+% ============================================================
+\section*{شروط الدفع وتفاصيل الحساب البنكي (\LR{Payment Terms \& Bank Details})}
+
+\begin{itemize}[leftmargin=2em,itemsep=0.3em]
+    \item \textbf{مدة السداد (\LR{Payment Due}):} خلال 30 يوماً من تاريخ الإصدار. % TODO: set terms
+    \item \textbf{طريقة الدفع (\LR{Method}):} تحويل بنكي (\LR{Bank Transfer}).
+    \item \textbf{العملة (\LR{Currency}):} الريال السعودي (\LR{SAR}). % TODO: set currency
+\end{itemize}
+
+\vspace{0.5em}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{} L{4cm} X L{4cm} X @{}}
+\textbf{اسم البنك (\LR{Bank}):} & \rule{5cm}{0.4pt} & \textbf{اسم الحساب (\LR{Account Name}):} & \rule{4cm}{0.4pt} \\
+\textbf{رقم الحساب (\LR{Account No.}):} & \rule{5cm}{0.4pt} & \textbf{رقم الآيبان (\LR{IBAN}):} & \rule{4cm}{0.4pt} \\
+\textbf{رمز السويفت (\LR{SWIFT}):} & \rule{5cm}{0.4pt} & & \\
+\end{tabularx}
+
+\vspace{2em}
+
+% ============================================================
+% FOOTER NOTE
+% ============================================================
+\begin{center}
+\fcolorbox{accentColor}{lightAccent}{\parbox{0.85\textwidth}{\centering
+\textbf{شكراً لتعاملكم معنا.} (\LR{Thank you for your business.})\\[0.3em]
+{\small للاستفسار عن هذه الفاتورة، يرجى التواصل معنا. (\LR{For inquiries regarding this invoice, please contact us.})}}}
+\end{center}
+
+\vspace{1.5em}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{} X X @{}}
+\textbf{توقيع المُصدِر (\LR{Issuer Signature}):} & \textbf{ختم الشركة (\LR{Company Stamp}):} \\[1.5em]
+\rule{6cm}{0.4pt} & \rule{6cm}{0.4pt} \\
+\end{tabularx}
+
+\end{document}
