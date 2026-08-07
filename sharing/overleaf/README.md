@@ -1,49 +1,54 @@
 ﻿# Overleaf Distribution
 
-[Overleaf](https://www.overleaf.com) is the most popular online LaTeX editor. These templates can be shared via Overleaf in three ways.
+[Overleaf](https://www.overleaf.com) is the most popular online LaTeX editor. These templates can be shared via Overleaf in several ways.
 
-## Method 1: Import from GitHub (easiest, no ZIPs needed)
+## Method 1: One-Click API Links (recommended)
 
-Overleaf has built-in GitHub integration. This is the cleanest approach â€” no ZIPs stored anywhere.
+Overleaf's API can start a new project from a ZIP at a public URL. The ZIPs are stored in the `zips/` folder of this repo and served via GitHub's `raw.githubusercontent.com` CDN.
+
+### Link format
+
+The key parameter is **`snip_uri`** (not `zip`). It points to a publicly accessible ZIP file:
+
+```
+https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/thesis_template.zip
+```
+
+### Full link table
+
+See [`links.md`](links.md) for all 91 one-click links. Click any link and Overleaf opens a ready-to-edit copy of the template -- no LaTeX install required.
+
+### How the ZIPs are maintained
+
+The per-template ZIPs live in `zips/` at the repo root. Each ZIP contains `main.tex`, `main.pdf`, and any supporting files (bibliography, chapters, etc.) for that template.
+
+To regenerate all ZIPs after updating templates:
+
+```powershell
+$base = "path/to/arabic-latex-templates"
+$zipDir = Join-Path $base "zips"
+Get-ChildItem -Path $base -Directory | Where-Object { $_.Name -ne "sharing" -and $_.Name -ne "zips" -and $_.Name -ne ".github" } | ForEach-Object {
+  Get-ChildItem -Path $_.FullName -Directory | ForEach-Object {
+    Compress-Archive -Path (Join-Path $_.FullName "*") -DestinationPath (Join-Path $zipDir "$($_.Name).zip") -Force
+  }
+}
+```
+
+## Method 2: Import from GitHub
+
+Overleaf has built-in GitHub integration. This imports the entire repo as a single project.
 
 ### Setup (one-time)
-1. Push this repository to GitHub
-2. Go to [overleaf.com](https://www.overleaf.com) â†’ **New Project** â†’ **Import from GitHub**
-3. Authorize Overleaf to access your GitHub (one-time)
-4. Select `arabic-latex-templates` from the repo list
-5. Overleaf imports the entire repo as a project
+1. Go to [overleaf.com](https://www.overleaf.com) -> **New Project** -> **Import from GitHub**
+2. Authorize Overleaf to access your GitHub (one-time)
+3. Select `arabic-latex-templates` from the repo list
+4. Overleaf imports the entire repo as a project
 
 ### For end users
 Users can either:
 - **Fork the repo** to their own GitHub, then import from Overleaf
 - **Copy a single template folder** to a new repo, then import
-- Use the **one-click API links** below (Method 2)
-
-## Method 2: One-Click API Links (via GitHub Release assets)
-
-Overleaf's API can start a new project from a ZIP at a public URL. Instead of storing ZIPs in the repo (bad practice â€” bloats git history), ZIPs are built by GitHub Actions and attached to **GitHub Releases** as assets.
-
-### Link format
-```
-https://www.overleaf.com/docs?zip=https://github.com/NibrasAz7/arabic-latex-templates/releases/download/v1.0.0/thesis_template.zip
-```
-
-### Full link table
-
-See [`links.md`](links.md) for all 91 one-click links. These URLs point to GitHub Release assets, which are:
-- Permanent (Release assets don't change)
-- Fast (GitHub CDN)
-- Versioned (each release has its own set)
-
-### How the ZIPs get built
-
-The CI workflow (`.github/workflows/compile-and-verify.yml`) automatically:
-1. Compiles all 91 templates (verifies they build)
-2. Builds a ZIP per template
-3. Builds an all-templates bundle ZIP
-4. Attaches all ZIPs to the GitHub Release as downloadable assets
-
-This runs automatically when you publish a release. **No ZIPs are stored in the git repo itself.**
+- Use the **one-click API links** above (Method 1)
 
 ## Method 3: Overleaf Gallery Submission (for standout templates)
 
@@ -62,14 +67,14 @@ The [Overleaf Gallery](https://www.overleaf.com/gallery) is a curated, searchabl
 5. Overleaf staff review and publish (may take days/weeks)
 
 ### Recommendation for this collection
-Submit 3-5 standout templates to the Gallery (e.g., `thesis_template`, `scientific_article_template`, `cv_template`, `conference_talk_template`). Use Methods 1 & 2 for the rest.
+Submit 3-5 standout templates to the Gallery (e.g., `thesis_template`, `scientific_article_template`, `cv_template`, `conference_talk_template`). Use Method 1 for the rest.
 
 ## Method 4: Link Sharing (for small groups)
 
 For sharing with specific people (students, colleagues):
 
 1. Create a new Overleaf project from a template
-2. Click **Share** â†’ **Turn on link sharing**
+2. Click **Share** -> **Turn on link sharing**
 3. Copy the "Edit link" or "View link"
 4. Send to your collaborators
 
