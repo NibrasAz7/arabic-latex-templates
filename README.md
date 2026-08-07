@@ -2,7 +2,7 @@
 
 # arabic-latex-templates
 
-A collection of **91 Arabic/RTL LaTeX templates** across 10 categories â€” academic, business, legal, project management, finance, presentations, letters, marketing, personal, and technical engineering.
+A collection of **91 Arabic/RTL LaTeX templates** across 10 categories -- academic, business, legal, project management, finance, presentations, letters, marketing, personal, and technical engineering.
 
 [![License: LPPL-1.3c](https://img.shields.io/badge/license-LPPL--1.3c-blue.svg)](https://www.latex-project.org/lppl/)
 [![Templates](https://img.shields.io/badge/templates-91-brightgreen.svg)](#categories)
@@ -15,17 +15,8 @@ A collection of **91 Arabic/RTL LaTeX templates** across 10 categories â€” 
 ![LaTeX](https://img.shields.io/badge/LaTeX-008080?logo=latex&logoColor=white)
 ![GitHub stars](https://img.shields.io/github/stars/NibrasAz7/arabic-latex-templates?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/NibrasAz7/arabic-latex-templates?style=social)
-![GitHub issues](https://img.shields.io/github/issues/NibrasAz7/arabic-latex-templates)
 
 </div>
-
----
-
-## Preview
-
-A compiled PDF preview of each template is included in its folder (`main.pdf`). You can also browse all previews by cloning the repo and opening any `main.pdf`.
-
-> **Tip:** Click any template folder above to view its `main.pdf` directly on GitHub.
 
 ---
 
@@ -33,16 +24,16 @@ A compiled PDF preview of each template is included in its folder (`main.pdf`). 
 
 | # | Category | Count | Highlights |
 |---|---|---|---|
-| 1 | [`Academic_and_Research`](../../tree/main/Academic_and_Research) | 19 | Article, book, thesis, conference paper, posters, lab report/notebook, grant/research proposal, preprint, manuscript submission, response to reviewers, book chapter, dissertation defense (Beamer), Quran/Hadith |
-| 2 | [`Business_and_Legal`](../../tree/main/Business_and_Legal) | 18 | Incorporation, business plan, cap table, agreements (partnership/shareholder/founders/operating/contractor/employment/service/non-compete), NDA, IP assignment, pitch deck, stock options, TOS, privacy policy, financial model |
-| 3 | [`Project_Management`](../../tree/main/Project_Management) | 20 | Charter, WBS, Gantt, CPM, RACI, Kanban, risk register, issue log, status report, change request, lessons learned, communication plan, meeting minutes/agenda, decision log, milestone tracker, budget tracker, stakeholder register, procurement plan, kickoff document |
-| 4 | [`Education_and_Personal`](../../tree/main/Education_and_Personal) | 10 | CV, resume, exam, syllabus, cheatsheet, technical report, homework assignment, lecture notes, flashcards, certificate |
-| 5 | [`Presentations`](../../tree/main/Presentations) | 4 | Conference talk, lecture slides, sales pitch, webinar (all Beamer 16:9) |
-| 6 | [`Letters_and_Correspondence`](../../tree/main/Letters_and_Correspondence) | 4 | Cover letter, recommendation letter, business letter, thank-you letter |
-| 7 | [`Finance_and_Accounting`](../../tree/main/Finance_and_Accounting) | 4 | Invoice, quotation/offer, receipt, financial statement |
-| 8 | [`Marketing_and_Communications`](../../tree/main/Marketing_and_Communications) | 4 | Press release, brochure, newsletter, one-pager |
-| 9 | [`Personal_and_Life`](../../tree/main/Personal_and_Life) | 4 | Wedding invitation, recipe book, calendar, weekly planner |
-| 10 | [`Technical_and_Engineering`](../../tree/main/Technical_and_Engineering) | 4 | Technical spec, API reference, datasheet, schematic sheet |
+| 1 | `Academic_and_Research` | 19 | Article, book, thesis, conference paper, posters, lab report/notebook, grant/research proposal, preprint, manuscript submission, response to reviewers, book chapter, dissertation defense (Beamer), Quran/Hadith |
+| 2 | `Business_and_Legal` | 18 | Incorporation, business plan, cap table, agreements (partnership/shareholder/founders/operating/contractor/employment/service/non-compete), NDA, IP assignment, pitch deck, stock options, TOS, privacy policy, financial model |
+| 3 | `Project_Management` | 20 | Charter, WBS, Gantt, CPM, RACI, Kanban, risk register, issue log, status report, change request, lessons learned, communication plan, meeting minutes/agenda, decision log, milestone tracker, budget tracker, stakeholder register, procurement plan, kickoff document |
+| 4 | `Education_and_Personal` | 10 | CV, resume, exam, syllabus, cheatsheet, technical report, homework assignment, lecture notes, flashcards, certificate |
+| 5 | `Presentations` | 4 | Conference talk, lecture slides, sales pitch, webinar (all Beamer 16:9) |
+| 6 | `Letters_and_Correspondence` | 4 | Cover letter, recommendation letter, business letter, thank-you letter |
+| 7 | `Finance_and_Accounting` | 4 | Invoice, quotation/offer, receipt, financial statement |
+| 8 | `Marketing_and_Communications` | 4 | Press release, brochure, newsletter, one-pager |
+| 9 | `Personal_and_Life` | 4 | Wedding invitation, recipe book, calendar, weekly planner |
+| 10 | `Technical_and_Engineering` | 4 | Technical spec, API reference, datasheet, schematic sheet |
 | | **Total** | **91** | |
 
 ---
@@ -51,13 +42,7 @@ A compiled PDF preview of each template is included in its folder (`main.pdf`). 
 
 ### Option 1: Open in Overleaf (no install needed)
 
-Overleaf lets you import a template directly from this GitHub repo:
-
-1. Go to [overleaf.com](https://www.overleaf.com) â†’ **New Project** â†’ **Import from GitHub**
-2. Connect your GitHub account and select `arabic-latex-templates`
-3. Choose any template folder â€” it opens as an editable project
-
-Or use the **one-click API links** in [`sharing/overleaf/links.md`](sharing/overleaf/links.md) (available after the first GitHub Release with ZIP assets).
+Click any link below to open a ready-to-edit copy of the template in [Overleaf](https://www.overleaf.com). No LaTeX install required.
 
 ### Option 2: Clone and compile locally
 
@@ -72,11 +57,7 @@ xelatex main.tex   # run twice for TOC/refs
 
 ### Option 3: Download a single template
 
-GitHub lets you download any folder:
-1. Navigate to the template folder on GitHub
-2. Click **Download ZIP** (or use `git sparse-checkout` for specific folders)
-
-Or download a **Release bundle** â€” each GitHub Release includes per-template ZIPs as assets. See the [Releases page](../../releases).
+Download any template ZIP from the [`zips/`](zips/) folder, or use GitHub's "Download ZIP" button on any folder.
 
 ---
 
@@ -85,9 +66,9 @@ Or download a **Release bundle** â€” each GitHub Release includes per-templ
 Each template folder contains:
 ```
 <template_name>_template/
-â”œâ”€â”€ main.tex          # XeLaTeX source (start here)
-â”œâ”€â”€ main.pdf          # Compiled preview
-â””â”€â”€ bibliography.bib  # (only for templates with citations)
+  main.tex          # XeLaTeX source (start here)
+  main.pdf          # Compiled preview
+  bibliography.bib  # (only for templates with citations)
 ```
 
 Every `main.tex` starts with `% !TEX program = xelatex` and includes a header comment block with compile instructions and feature list. Placeholder text is marked with `% TODO:` comments.
@@ -99,7 +80,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | Template type | Command |
 |---|---|
 | Most templates | `xelatex main.tex` (run twice) |
-| Templates with bibliography | `xelatex main.tex` â†’ `bibtex main` â†’ `xelatex main.tex` â†’ `xelatex main.tex` |
+| Templates with bibliography | `xelatex main.tex` -> `bibtex main` -> `xelatex main.tex` -> `xelatex main.tex` |
 | Beamer presentations | `xelatex main.tex` (run twice) |
 
 ---
@@ -117,14 +98,148 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 
 ---
 
-## Distribution Channels
+## Open in Overleaf -- All 91 Templates
 
-| Channel | Status | How to use |
-|---|---|---|
-| **GitHub** | This repo | Clone, download, or fork |
-| **Overleaf** | [`sharing/overleaf/`](sharing/overleaf/) | Import from GitHub or one-click API links |
-| **Zenodo (DOI)** | [`sharing/zenodo/`](sharing/zenodo/) | Auto-connected to GitHub Releases â€” each release gets a permanent DOI |
-| **CTAN** | [`sharing/ctan/`](sharing/ctan/) | Submit `arabic-templates.zip` to ctan.org for `tlmgr install` distribution |
+### Academic and Research
+
+| Template | Open in Overleaf |
+|---|---|
+| `academic_article` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/academic_article_template.zip) |
+| `academic_book` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/academic_book_template.zip) |
+| `article` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/article_template.zip) |
+| `book_chapter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/book_chapter_template.zip) |
+| `book` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/book_template.zip) |
+| `conference_paper` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/conference_paper_template.zip) |
+| `dissertation_defense` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/dissertation_defense_template.zip) |
+| `grant_proposal` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/grant_proposal_template.zip) |
+| `lab_notebook` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/lab_notebook_template.zip) |
+| `lab_report` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/lab_report_template.zip) |
+| `manuscript_submission` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/manuscript_submission_template.zip) |
+| `poster_landscape` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/poster_landscape_template.zip) |
+| `poster` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/poster_template.zip) |
+| `preprint` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/preprint_template.zip) |
+| `quran_hadith` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/quran_hadith_template.zip) |
+| `research_proposal` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/research_proposal_template.zip) |
+| `response_to_reviewers` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/response_to_reviewers_template.zip) |
+| `scientific_article` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/scientific_article_template.zip) |
+| `thesis` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/thesis_template.zip) |
+
+### Business and Legal
+
+| Template | Open in Overleaf |
+|---|---|
+| `articles_of_incorporation` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/articles_of_incorporation_template.zip) |
+| `business_plan` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/business_plan_template.zip) |
+| `cap_table` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/cap_table_template.zip) |
+| `contractor_agreement` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/contractor_agreement_template.zip) |
+| `employment_agreement` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/employment_agreement_template.zip) |
+| `financial_model` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/financial_model_template.zip) |
+| `founders_agreement` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/founders_agreement_template.zip) |
+| `ip_assignment` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/ip_assignment_template.zip) |
+| `nda` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/nda_template.zip) |
+| `non_compete` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/non_compete_template.zip) |
+| `operating_agreement` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/operating_agreement_template.zip) |
+| `partnership_agreement` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/partnership_agreement_template.zip) |
+| `pitch_deck` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/pitch_deck_template.zip) |
+| `privacy_policy` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/privacy_policy_template.zip) |
+| `service_agreement` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/service_agreement_template.zip) |
+| `shareholder_agreement` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/shareholder_agreement_template.zip) |
+| `stock_option_plan` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/stock_option_plan_template.zip) |
+| `terms_of_service` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/terms_of_service_template.zip) |
+
+### Education and Personal
+
+| Template | Open in Overleaf |
+|---|---|
+| `certificate` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/certificate_template.zip) |
+| `cheatsheet` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/cheatsheet_template.zip) |
+| `cv` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/cv_template.zip) |
+| `exam` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/exam_template.zip) |
+| `flashcard` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/flashcard_template.zip) |
+| `homework_assignment` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/homework_assignment_template.zip) |
+| `lecture_notes` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/lecture_notes_template.zip) |
+| `resume` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/resume_template.zip) |
+| `syllabus` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/syllabus_template.zip) |
+| `technical_report` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/technical_report_template.zip) |
+
+### Finance and Accounting
+
+| Template | Open in Overleaf |
+|---|---|
+| `financial_statement` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/financial_statement_template.zip) |
+| `invoice` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/invoice_template.zip) |
+| `quotation_offer` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/quotation_offer_template.zip) |
+| `receipt` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/receipt_template.zip) |
+
+### Letters and Correspondence
+
+| Template | Open in Overleaf |
+|---|---|
+| `business_letter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/business_letter_template.zip) |
+| `cover_letter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/cover_letter_template.zip) |
+| `recommendation_letter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/recommendation_letter_template.zip) |
+| `thank_you_letter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/thank_you_letter_template.zip) |
+
+### Marketing and Communications
+
+| Template | Open in Overleaf |
+|---|---|
+| `brochure` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/brochure_template.zip) |
+| `newsletter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/newsletter_template.zip) |
+| `one_pager` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/one_pager_template.zip) |
+| `press_release` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/press_release_template.zip) |
+
+### Personal and Life
+
+| Template | Open in Overleaf |
+|---|---|
+| `calendar` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/calendar_template.zip) |
+| `planner` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/planner_template.zip) |
+| `recipe_book` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/recipe_book_template.zip) |
+| `wedding_invitation` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/wedding_invitation_template.zip) |
+
+### Presentations
+
+| Template | Open in Overleaf |
+|---|---|
+| `conference_talk` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/conference_talk_template.zip) |
+| `lecture_slides` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/lecture_slides_template.zip) |
+| `sales_pitch` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/sales_pitch_template.zip) |
+| `webinar` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/webinar_template.zip) |
+
+### Project Management
+
+| Template | Open in Overleaf |
+|---|---|
+| `budget_tracker` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/budget_tracker_template.zip) |
+| `change_request` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/change_request_template.zip) |
+| `communication_plan` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/communication_plan_template.zip) |
+| `cpm_diagram` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/cpm_diagram_template.zip) |
+| `decision_log` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/decision_log_template.zip) |
+| `gantt_chart` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/gantt_chart_template.zip) |
+| `issue_log` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/issue_log_template.zip) |
+| `kanban_board` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/kanban_board_template.zip) |
+| `kickoff_document` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/kickoff_document_template.zip) |
+| `lessons_learned` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/lessons_learned_template.zip) |
+| `meeting_agenda` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/meeting_agenda_template.zip) |
+| `meeting_minutes` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/meeting_minutes_template.zip) |
+| `milestone_tracker` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/milestone_tracker_template.zip) |
+| `procurement_plan` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/procurement_plan_template.zip) |
+| `project_charter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/project_charter_template.zip) |
+| `raci_matrix` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/raci_matrix_template.zip) |
+| `risk_register` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/risk_register_template.zip) |
+| `stakeholder_register` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/stakeholder_register_template.zip) |
+| `status_report` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/status_report_template.zip) |
+| `wbs` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/wbs_template.zip) |
+
+### Technical and Engineering
+
+| Template | Open in Overleaf |
+|---|---|
+| `api_reference` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/api_reference_template.zip) |
+| `datasheet` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/datasheet_template.zip) |
+| `schematic` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/schematic_template.zip) |
+| `technical_spec` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/technical_spec_template.zip) |
 
 ---
 
@@ -134,7 +249,7 @@ If you use these templates in academic work, please cite:
 
 ```bibtex
 @software{arabic_latex_templates,
-  author       = {{arabic-latex-templates contributors}},
+  author       = {Nibras ABO ALZAHAB},
   title        = {arabic-latex-templates: 91 Arabic/RTL LaTeX templates},
   year         = 2026,
   publisher    = {Zenodo},
@@ -148,25 +263,6 @@ Or click the **"Cite this repository"** button on GitHub (powered by `CITATION.c
 
 ---
 
-## Contributing
-
-Contributions are welcome â€” new templates, fixes, or improvements. Please ensure any new template:
-
-1. Compiles cleanly with `xelatex main.tex` (run twice)
-2. Follows the existing Arabic/RTL stack (XeLaTeX + Amiri + polyglossia + bidi)
-3. Includes a compiled `main.pdf`
-4. Uses generic placeholder branding (no specific organization names)
-
----
-
 ## License
 
-LaTeX Project Public License v1.3c (LPPL-1.3c) â€” see [LICENSE](LICENSE).
-
----
-
-<div align="center">
-
-**[Report Bug](../../issues)** Â· **[Request Template](../../issues/new?labels=template-request&template=template-request.md)** Â· **[Overleaf Links](sharing/overleaf/links.md)**
-
-</div>
+LaTeX Project Public License v1.3c (LPPL-1.3c) -- see [LICENSE](LICENSE).
