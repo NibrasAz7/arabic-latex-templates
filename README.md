@@ -1,8 +1,8 @@
 ﻿<div align="center">
 
-# arabic-latex-templates
+# Arabic LaTeX Templates
 
-A collection of **91 Arabic/RTL LaTeX templates** across 10 categories.
+Nibras's collection of **91 Arabic/RTL LaTeX templates** across 10 categories.
 
 مجموعة من **91 قالب لاتيك عربي (RTL)** ضمن 10 فئات.
 
