@@ -13,7 +13,7 @@ Nibras's collection of **91 Arabic/RTL LaTeX templates** across 10 categories.
 [![Compiler](https://img.shields.io/badge/compiler-XeLaTeX-orange.svg)](https://www.latex-project.org/)
 [![Font](https://img.shields.io/badge/font-Noto_Kufi_Arabic-red.svg)](https://fonts.google.com/noto/specimen/Noto+Kufi+Arabic)
 [![RTL](https://img.shields.io/badge/RTL-Arabic-success.svg)](#)
-[![DOI](https://img.shields.io/badge/DOI-Zenodo-blueviolet.svg)](https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID)
+[![DOI](https://img.shields.io/badge/DOI-Zenodo-blueviolet.svg)](https://doi.org/10.5281/zenodo.21834505)
 [![Open in Overleaf](https://img.shields.io/badge/Open%20in-Overleaf-47A141.svg)](https://www.overleaf.com)
 
 ![LaTeX](https://img.shields.io/badge/LaTeX-008080?logo=latex&logoColor=white)
@@ -287,8 +287,8 @@ If you use these templates in academic work, please cite:
   year         = 2026,
   publisher    = {Zenodo},
   version      = {v1.0.0},
-  doi          = {10.5281/zenodo.YOUR_ZENODO_ID},
-  url          = {https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID},
+  doi          = {10.5281/zenodo.21834505},
+  url          = {https://doi.org/10.5281/zenodo.21834505},
   note         = {Author website: \url{https://dr-naz.com/}}
 }
 ```

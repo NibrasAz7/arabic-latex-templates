@@ -8,9 +8,11 @@ authors:
     email: "nibras.abo.alzahab@gmail.com"
     website: "https://dr-naz.com/"
 repository-code: "https://github.com/NibrasAz7/arabic-latex-templates"
-version: 1.0.0
-date-released: 2026-08-06
+version: 1.1.0
+date-released: 2026-08-07
 license: LPPL-1.3c
+doi: "10.5281/zenodo.21834505"
+url: "https://doi.org/10.5281/zenodo.21834505"
 keywords:
   - latex
   - templates
