@@ -29,3 +29,6 @@ desktop.ini
 *~
 .vscode/
 .idea/
+
+# Zenodo upload files (local only, not for GitHub)
+zenodo/
