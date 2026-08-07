@@ -2,10 +2,12 @@
 
 # arabic-latex-templates
 
-A collection of **91 Arabic/RTL LaTeX templates** across 10 categories -- academic, business, legal, project management, finance, presentations, letters, marketing, personal, and technical engineering.
+**English** | A collection of **91 Arabic/RTL LaTeX templates** across 10 categories -- academic, business, legal, project management, finance, presentations, letters, marketing, personal, and technical engineering.
+
+**العربية** | مجموعة من **91 قالب لاتيك عربي (RTL)** ضمن 10 فئات -- أكاديمي، أعمال، قانوني، إدارة مشاريع، مالية، عروض تقديمية، رسائل، تسويق، شخصي، وهندسي.
 
 [![License: LPPL-1.3c](https://img.shields.io/badge/license-LPPL--1.3c-blue.svg)](https://www.latex-project.org/lppl/)
-[![Templates](https://img.shields.io/badge/templates-91-brightgreen.svg)](#categories)
+[![Templates](https://img.shields.io/badge/templates-91-brightgreen.svg)](#categories--الفئات)
 [![Compiler](https://img.shields.io/badge/compiler-XeLaTeX-orange.svg)](https://www.latex-project.org/)
 [![Font](https://img.shields.io/badge/font-Amiri-red.svg)](https://www.amirifont.org/)
 [![RTL](https://img.shields.io/badge/RTL-Arabic-success.svg)](#)
@@ -20,7 +22,7 @@ A collection of **91 Arabic/RTL LaTeX templates** across 10 categories -- academ
 
 ---
 
-## Categories
+## Categories | الفئات
 
 | # | Category | Count | Highlights |
 |---|---|---|---|
@@ -34,48 +36,59 @@ A collection of **91 Arabic/RTL LaTeX templates** across 10 categories -- academ
 | 8 | `Marketing_and_Communications` | 4 | Press release, brochure, newsletter, one-pager |
 | 9 | `Personal_and_Life` | 4 | Wedding invitation, recipe book, calendar, weekly planner |
 | 10 | `Technical_and_Engineering` | 4 | Technical spec, API reference, datasheet, schematic sheet |
-| | **Total** | **91** | |
+| | **Total | المجموع** | **91** | |
+
+> **العربية:** الفئات هي: أكاديمي وبحثي (19)، أعمال وقانوني (18)، إدارة مشاريع (20)، تعليمي وشخصي (10)، عروض تقديمية (4)، رسائل ومراسلات (4)، مالية ومحاسبة (4)، تسويق واتصالات (4)، شخصي وحياتي (4)، هندسي وتقني (4).
 
 ---
 
-## Quick Start
+## Quick Start | البدء السريع
 
-### Option 1: Open in Overleaf (no install needed)
+### Option 1: Open in Overleaf (no install needed) | الخيار 1: الفتح في Overleaf (بدون تثبيت)
 
 Click any link below to open a ready-to-edit copy of the template in [Overleaf](https://www.overleaf.com). No LaTeX install required.
 
-### Option 2: Clone and compile locally
+انقر على أي رابط أدناه لفتح نسخة جاهزة للتحرير من القالب في [Overleaf](https://www.overleaf.com). لا يحتاج إلى تثبيت LaTeX.
+
+### Option 2: Clone and compile locally | الخيار 2: الاستنساخ والترجمة محلياً
 
 ```bash
 git clone https://github.com/NibrasAz7/arabic-latex-templates.git
 cd arabic-latex-templates/Academic_and_Research/thesis_template
 xelatex main.tex
-xelatex main.tex   # run twice for TOC/refs
+xelatex main.tex   # run twice for TOC/refs | شغّل مرتين لفهرس المحتويات والمراجع
 ```
 
-**Requirements:** XeLaTeX (TeX Live or MiKTeX) with `amiri`, `polyglossia`, `bidi`, `fontspec` packages. The Amiri font must be installed or available to fontspec.
+**Requirements | المتطلبات:** XeLaTeX (TeX Live or MiKTeX) with `amiri`, `polyglossia`, `bidi`, `fontspec` packages. The Amiri font must be installed or available to fontspec.
 
-### Option 3: Download a single template
+**المتطلبات:** XeLaTeX (TeX Live أو MiKTeX) مع الحزم `amiri` و`polyglossia` و`bidi` و`fontspec`. يجب تثبيت خط Amiri أو توفره لـ fontspec.
+
+### Option 3: Download a single template | الخيار 3: تنزيل قالب واحد
 
 Download any template ZIP from the [`zips/`](zips/) folder, or use GitHub's "Download ZIP" button on any folder.
 
+نزّل أي قالب بصيغة ZIP من مجلد [`zips/`](zips/)، أو استخدم زر "Download ZIP" في GitHub على أي مجلد.
+
 ---
 
-## Template Structure
+## Template Structure | بنية القالب
 
-Each template folder contains:
+Each template folder contains | كل مجلد قالب يحتوي على:
+
 ```
 <template_name>_template/
-  main.tex          # XeLaTeX source (start here)
-  main.pdf          # Compiled preview
-  bibliography.bib  # (only for templates with citations)
+  main.tex          # XeLaTeX source (start here) | مصدر XeLaTeX (ابدأ هنا)
+  main.pdf          # Compiled preview | معاينة مترجمة
+  bibliography.bib  # (only for templates with citations) | (فقط للقوالب مع استشهادات)
 ```
 
 Every `main.tex` starts with `% !TEX program = xelatex` and includes a header comment block with compile instructions and feature list. Placeholder text is marked with `% TODO:` comments.
 
+كل ملف `main.tex` يبدأ بـ `% !TEX program = xelatex` ويتضمن كتلة تعليقات في الرأس مع تعليمات الترجمة وقائمة الميزات. النص Placeholder محدد بتعليقات `% TODO:`.
+
 ---
 
-## Compile Commands
+## Compile Commands | أوامر الترجمة
 
 | Template type | Command |
 |---|---|
@@ -83,9 +96,11 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | Templates with bibliography | `xelatex main.tex` -> `bibtex main` -> `xelatex main.tex` -> `xelatex main.tex` |
 | Beamer presentations | `xelatex main.tex` (run twice) |
 
+> **العربية:** معظم القوالب: `xelatex main.tex` (مرتين). القوالب مع ببليوغرافيا: `xelatex` ثم `bibtex` ثم `xelatex` مرتين. عروض Beamer: `xelatex main.tex` (مرتين).
+
 ---
 
-## Tech Stack
+## Tech Stack | التقنيات المستخدمة
 
 | Component | Value |
 |---|---|
@@ -96,11 +111,19 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | Document class | `article` (most), `beamer` (presentations) |
 | Key packages | `graphicx`, `booktabs`, `tabularx`, `tcolorbox`, `tikz`, `fancyhdr`, `titlesec`, `enumitem`, `hyperref` |
 
+> **العربية:** المترجم: XeLaTeX. الخط: Amiri. العربية/RTL: `polyglossia` + `bidi`. الخط الإنجليزي: TeX Gyre Termes. صنف المستند: `article` (معظم القوالب)، `beamer` (العروض). الحزم الرئيسية: `graphicx`، `booktabs`، `tabularx`، `tcolorbox`، `tikz`، `fancyhdr`، `titlesec`، `enumitem`، `hyperref`.
+
 ---
 
-## Open in Overleaf -- All 91 Templates
+## Open in Overleaf -- All 91 Templates | الفتح في Overleaf -- جميع القوالب الـ 91
 
-### Academic and Research
+> ### ⚠️ IMPORTANT: Change the compiler after opening | مهم: غيّر المترجم بعد الفتح ⚠️
+>
+> **English:** After opening any template in Overleaf, go to **Menu** (top-left) -> **Compiler** -> select **XeLaTeX** or **LuaLaTeX**. The default compiler (pdfLaTeX) will NOT work with Arabic/RTL templates.
+>
+> **العربية:** بعد فتح أي قالب في Overleaf، اذهب إلى **Menu** (أعلى اليسار) -> **Compiler** -> اختر **XeLaTeX** أو **LuaLaTeX**. المترجم الافتراضي (pdfLaTeX) لن يعمل مع قوالب العربية/RTL.
+
+### Academic and Research | أكاديمي وبحثي
 
 | Template | Open in Overleaf |
 |---|---|
@@ -124,7 +147,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `scientific_article` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/scientific_article_template.zip) |
 | `thesis` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/thesis_template.zip) |
 
-### Business and Legal
+### Business and Legal | أعمال وقانوني
 
 | Template | Open in Overleaf |
 |---|---|
@@ -147,7 +170,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `stock_option_plan` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/stock_option_plan_template.zip) |
 | `terms_of_service` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/terms_of_service_template.zip) |
 
-### Education and Personal
+### Education and Personal | تعليمي وشخصي
 
 | Template | Open in Overleaf |
 |---|---|
@@ -162,7 +185,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `syllabus` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/syllabus_template.zip) |
 | `technical_report` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/technical_report_template.zip) |
 
-### Finance and Accounting
+### Finance and Accounting | مالية ومحاسبة
 
 | Template | Open in Overleaf |
 |---|---|
@@ -171,7 +194,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `quotation_offer` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/quotation_offer_template.zip) |
 | `receipt` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/receipt_template.zip) |
 
-### Letters and Correspondence
+### Letters and Correspondence | رسائل ومراسلات
 
 | Template | Open in Overleaf |
 |---|---|
@@ -180,7 +203,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `recommendation_letter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/recommendation_letter_template.zip) |
 | `thank_you_letter` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/thank_you_letter_template.zip) |
 
-### Marketing and Communications
+### Marketing and Communications | تسويق واتصالات
 
 | Template | Open in Overleaf |
 |---|---|
@@ -189,7 +212,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `one_pager` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/one_pager_template.zip) |
 | `press_release` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/press_release_template.zip) |
 
-### Personal and Life
+### Personal and Life | شخصي وحياتي
 
 | Template | Open in Overleaf |
 |---|---|
@@ -198,7 +221,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `recipe_book` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/recipe_book_template.zip) |
 | `wedding_invitation` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/wedding_invitation_template.zip) |
 
-### Presentations
+### Presentations | عروض تقديمية
 
 | Template | Open in Overleaf |
 |---|---|
@@ -207,7 +230,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `sales_pitch` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/sales_pitch_template.zip) |
 | `webinar` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/webinar_template.zip) |
 
-### Project Management
+### Project Management | إدارة المشاريع
 
 | Template | Open in Overleaf |
 |---|---|
@@ -232,7 +255,7 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 | `status_report` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/status_report_template.zip) |
 | `wbs` | [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/NibrasAz7/arabic-latex-templates/main/zips/wbs_template.zip) |
 
-### Technical and Engineering
+### Technical and Engineering | هندسي وتقني
 
 | Template | Open in Overleaf |
 |---|---|
@@ -243,9 +266,11 @@ Every `main.tex` starts with `% !TEX program = xelatex` and includes a header co
 
 ---
 
-## Citing
+## Citing | الاقتباس
 
 If you use these templates in academic work, please cite:
+
+إذا استخدمت هذه القوالب في عمل أكاديمي، يرجى الاقتباس:
 
 ```bibtex
 @software{arabic_latex_templates,
@@ -261,8 +286,12 @@ If you use these templates in academic work, please cite:
 
 Or click the **"Cite this repository"** button on GitHub (powered by `CITATION.cff`).
 
+أو انقر زر **"Cite this repository"** في GitHub (مدعوم بـ `CITATION.cff`).
+
 ---
 
-## License
+## License | الرخصة
 
 LaTeX Project Public License v1.3c (LPPL-1.3c) -- see [LICENSE](LICENSE).
+
+رخصة LaTeX Project Public License v1.3c (LPPL-1.3c) -- انظر [LICENSE](LICENSE).
