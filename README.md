@@ -6,10 +6,12 @@ Nibras's collection of **91 Arabic/RTL LaTeX templates** across 10 categories.
 
 مجموعة من **91 قالب لاتيك عربي (RTL)** ضمن 10 فئات.
 
+**Author:** [Nibras ABO ALZAHAB](https://dr-naz.com/) | **المؤلف:** [نبراس أبو الذهب](https://dr-naz.com/)
+
 [![License: LPPL-1.3c](https://img.shields.io/badge/license-LPPL--1.3c-blue.svg)](https://www.latex-project.org/lppl/)
 [![Templates](https://img.shields.io/badge/templates-91-brightgreen.svg)](#categories--الفئات)
 [![Compiler](https://img.shields.io/badge/compiler-XeLaTeX-orange.svg)](https://www.latex-project.org/)
-[![Font](https://img.shields.io/badge/font-Amiri-red.svg)](https://www.amirifont.org/)
+[![Font](https://img.shields.io/badge/font-Noto_Kufi_Arabic-red.svg)](https://fonts.google.com/noto/specimen/Noto+Kufi+Arabic)
 [![RTL](https://img.shields.io/badge/RTL-Arabic-success.svg)](#)
 [![DOI](https://img.shields.io/badge/DOI-Zenodo-blueviolet.svg)](https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID)
 [![Open in Overleaf](https://img.shields.io/badge/Open%20in-Overleaf-47A141.svg)](https://www.overleaf.com)
@@ -57,9 +59,9 @@ xelatex main.tex
 xelatex main.tex   # run twice for TOC/refs
 ```
 
-**Requirements:** XeLaTeX (TeX Live or MiKTeX) with `amiri`, `polyglossia`, `bidi`, `fontspec` packages. The Amiri font must be installed.
+**Requirements:** XeLaTeX (TeX Live or MiKTeX) with `polyglossia`, `bidi`, `fontspec` packages. The Noto Kufi Arabic font is bundled in each template folder.
 
-**المتطلبات:** XeLaTeX (TeX Live أو MiKTeX) مع حزم `amiri` و`polyglossia` و`bidi` و`fontspec`. يجب تثبيت خط Amiri.
+**المتطلبات:** XeLaTeX (TeX Live أو MiKTeX) مع حزم `polyglossia` و`bidi` و`fontspec`. خط Noto Kufi Arabic مُضمّن في مجلد كل قالب.
 
 ### Option 3: Download a single template | الخيار 3: تنزيل قالب واحد
 
@@ -95,7 +97,7 @@ Use the "Download ZIP" column in the tables below, or browse the [`zips/`](zips/
 | Component | Value |
 |---|---|
 | Compiler | XeLaTeX |
-| Font | Amiri (`Amiri-Regular.ttf`) |
+| Font | Noto Kufi Arabic (`NotoKufiArabic-Regular.ttf`) |
 | Arabic/RTL | `polyglossia` + `bidi` |
 | English font | TeX Gyre Termes |
 | Document class | `article` (most), `beamer` (presentations) |
@@ -281,12 +283,13 @@ If you use these templates in academic work, please cite:
 ```bibtex
 @software{arabic_latex_templates,
   author       = {Nibras ABO ALZAHAB},
-  title        = {arabic-latex-templates: 91 Arabic/RTL LaTeX templates},
+  title        = {Arabic LaTeX Templates: Nibras's collection of 91 Arabic/RTL LaTeX templates},
   year         = 2026,
   publisher    = {Zenodo},
   version      = {v1.0.0},
   doi          = {10.5281/zenodo.YOUR_ZENODO_ID},
-  url          = {https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID}
+  url          = {https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID},
+  note         = {Author website: \url{https://dr-naz.com/}}
 }
 ```
 

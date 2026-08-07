@@ -18,6 +18,11 @@
 *.glo
 *.gls
 *.ist
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
 
 # OS files
 .DS_Store
@@ -32,3 +37,6 @@ desktop.ini
 
 # Zenodo upload files (local only, not for GitHub)
 zenodo/
+
+# Local font source folder (each template has its own copy)
+fonts/

@@ -1,11 +1,12 @@
 ﻿cff-version: 1.2.0
 message: "If you use these templates in your work, please cite as below."
-title: "arabic-latex-templates: A collection of 91 Arabic/RTL LaTeX templates"
+title: "Arabic LaTeX Templates: Nibras's collection of 91 Arabic/RTL LaTeX templates"
 type: software
 authors:
   - family-names: "ABO ALZAHAB"
     given-names: "Nibras"
     email: "nibras.abo.alzahab@gmail.com"
+    website: "https://dr-naz.com/"
 repository-code: "https://github.com/NibrasAz7/arabic-latex-templates"
 version: 1.0.0
 date-released: 2026-08-06
@@ -17,10 +18,11 @@ keywords:
   - rtl
   - xelatex
   - amiri
+  - noto-kufi-arabic
   - polyglossia
   - bidi
 abstract: >-
   A collection of 91 Arabic/RTL LaTeX templates organized into 10 categories
   (academic, business, legal, project management, finance, presentations,
   letters, marketing, personal, technical). All templates use XeLaTeX with
-  the Amiri font and polyglossia/bidi for full right-to-left typesetting.
+  the Noto Kufi Arabic font and polyglossia/bidi for full right-to-left typesetting.
